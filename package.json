@@ -1,5 +1,5 @@
 {
-  "name": "analysis.js",
+  "name": "analysis",
   "version": "0.1.0",
   "description": "Isomorphic Statistical Analysis using Javascript",
   "main": "src/index.js",
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/seikho/analysis/issues"
   },
-  "homepage": "https://github.com/seikho/analysis"
+  "homepage": "https://github.com/seikho/analysis",
+  "dependencies": {
+    "chai": "^3.1.0",
+    "mocha": "^2.2.5"
+  }
 }
