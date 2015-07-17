@@ -1,0 +1,27 @@
+{
+  "name": "analysis.js",
+  "version": "0.1.0",
+  "description": "Isomorphic Statistical Analysis using Javascript",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "tsglob && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seikho/analysis"
+  },
+  "keywords": [
+    "stats",
+    "statistics",
+    "analysis",
+    "science",
+    "data"
+  ],
+  "author": "Carl Winkler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seikho/analysis/issues"
+  },
+  "homepage": "https://github.com/seikho/analysis"
+}
