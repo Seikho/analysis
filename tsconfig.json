@@ -9,6 +9,9 @@
         "./src/**/*.ts"
     ],
     "files": [
-        "./src/index.ts"
+        "./src/index.ts",
+        "./src/typings/chai/chai.d.ts",
+        "./src/typings/mocha/mocha.d.ts",
+        "./src/typings/node/node.d.ts"
     ]
 }
