@@ -24,8 +24,11 @@
     "url": "https://github.com/seikho/analysis/issues"
   },
   "homepage": "https://github.com/seikho/analysis",
-  "dependencies": {
+  "devDependencies": {
     "chai": "^3.1.0",
     "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    
   }
 }
