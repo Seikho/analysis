@@ -10,7 +10,8 @@ declare module Analysis {
 interface Common {
 	round(value: number, decimalPlaces?: number): number;
 	objectToArray(dataset: {}): number[];
-	max(dataset: number[]|{}): number[];
+	max(dataset: number[]|{}): number;
+	min(dataset: number[]|{}): number;
 }
 
 interface Descriptive {

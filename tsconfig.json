@@ -14,6 +14,7 @@
         "./src/api/common/max.ts",
         "./src/api/common/min.ts",
         "./src/api/common/objectToArray.ts",
+        "./src/api/common/range.ts",
         "./src/api/common/round.ts",
         "./src/api/descriptive/mean.ts",
         "./src/api/descriptive/median.ts",
