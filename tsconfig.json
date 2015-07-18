@@ -20,6 +20,7 @@
         "./src/api/descriptive/mean.ts",
         "./src/api/descriptive/median.ts",
         "./src/api/descriptive/mode.ts",
+        "./src/api/frequency/table.ts",
         "./src/index.ts",
         "./src/typings/analysis/analysis.d.ts",
         "./src/typings/chai/chai.d.ts",
