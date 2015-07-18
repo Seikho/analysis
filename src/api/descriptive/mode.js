@@ -9,7 +9,11 @@ function mode(data) {
         return prev;
     }, []);
     var maximum = max(distribution);
-    var modes = distribution.filter(function (value) { return value === maximum; });
+    var modes;
+    distribution.forEach(function (value, index) {
+        if (value === maximum)
+            modes.push(index);
+    });
     return modes;
 }
 module.exports = mode;
