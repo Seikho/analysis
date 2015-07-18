@@ -4,7 +4,7 @@ export = max;
 /**
  * @return Number Returns the highest value in a dataset/array
  */
-function max(data: number[]|{}) {
+function max(data: number[]|{}): number {
 	var dataset: number[];
 	if (data instanceof Array) dataset = data;
 	else dataset = objectToArray(data);

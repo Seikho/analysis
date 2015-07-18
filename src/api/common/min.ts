@@ -2,9 +2,9 @@ import objectToArray = require("./objectToArray");
 export = min;
 
 /**
- * @return Number Returns the highest value in a dataset/array
+ * @return Number Returns the lowest value in a dataset/array
  */
-function min(data: number[]|{}) {
+function min(data: number[]|{}): number {
 	var dataset: number[];
 	if (data instanceof Array) dataset = data;
 	else dataset = objectToArray(data);
