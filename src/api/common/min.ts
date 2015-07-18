@@ -10,11 +10,12 @@ function min(data: number[]|{}): number {
 	else dataset = objectToArray(data);
 	
 	var minimum = dataset.reduce((prev, curr) => {
+		
 		let isHigher = curr < prev;
 		if (isHigher) prev = curr;
 		
 		return prev;
-	}, 0);
+	}, dataset[0]);
 	
 	return minimum;	
 }

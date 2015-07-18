@@ -1,6 +1,6 @@
 var objectToArray = require("./objectToArray");
 /**
- * @return Number Returns the highest value in a dataset/array
+ * @return Number Returns the lowest value in a dataset/array
  */
 function min(data) {
     var dataset;
@@ -13,7 +13,7 @@ function min(data) {
         if (isHigher)
             prev = curr;
         return prev;
-    }, 0);
+    }, dataset[0]);
     return minimum;
 }
 module.exports = min;
