@@ -10,6 +10,7 @@
     ],
     "files": [
         "./test/common.ts",
+        "./test/descriptive.ts",
         "./src/api/common/max.ts",
         "./src/api/descriptive/mean.ts",
         "./src/api/descriptive/median.ts",

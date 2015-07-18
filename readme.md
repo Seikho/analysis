@@ -1,6 +1,7 @@
 ### Analysis.js
 An isomorphic, JavaScript statistics library for the behavioural sciences written in TypeScript.  
-** Under construction **  
+Written using best practice methods and exhaustively unit tested.
+** Under construction **    
 
 #### Dependencies
 
