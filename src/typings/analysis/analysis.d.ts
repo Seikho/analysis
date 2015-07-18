@@ -5,6 +5,7 @@ declare module "analysis" {
 declare module Analysis {
 	export var common: Common;
 	export var descriptive: Descriptive;
+	export var frequency: Frequency;
 
 	export interface Common {
 		round(value: number, decimalPlaces?: number): number;
@@ -23,6 +24,10 @@ declare module Analysis {
 	export interface RangeResult {
 		min: number;
 		max: number;
+	}
+	
+	export interface Frequency {
+		table(data: number[]|{}): {};
 	}
 }
 
