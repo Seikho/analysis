@@ -13,7 +13,7 @@ function mode(data: number[]) {
 	
 	var maximum = max(distribution);
 	
-	var modes: number[];
+	var modes: number[] = [];
 	distribution.forEach((value, index) => {
 		if (value === maximum) modes.push(index);
 	});

@@ -9,7 +9,7 @@ function mode(data) {
         return prev;
     }, []);
     var maximum = max(distribution);
-    var modes;
+    var modes = [];
     distribution.forEach(function (value, index) {
         if (value === maximum)
             modes.push(index);

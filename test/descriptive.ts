@@ -11,5 +11,12 @@ describe("Descriptive module tests", () => {
 		expect(mean(data)).to.equal(2.5);
 	});
 	
+	it("will find the mode for a unimodal dataset", () => {
+		var data = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5];
+		
+		var modes = mode(data);
+		expect(modes[0]).to.equal(5);
+	});
+	
 });
 
