@@ -11,7 +11,15 @@ describe("Descriptive module tests", function () {
     it("will find the mode for a unimodal dataset", function () {
         var data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5];
         var modes = mode(data);
+        expect(modes.length).to.equal(1);
         expect(modes[0]).to.equal(5);
+    });
+    it("will find the modes for a bimodal dataset", function () {
+        var data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6];
+        var modes = mode(data);
+        expect(modes.length).to.equal(2);
+        expect(modes).to.contain(5);
+        expect(modes).to.contain(6);
     });
 });
 //# sourceMappingURL=descriptive.js.map
