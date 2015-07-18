@@ -21,5 +21,13 @@ describe("Descriptive module tests", function () {
         expect(modes).to.contain(5);
         expect(modes).to.contain(6);
     });
+    it("will find the modes for a multimodal (3+) dataset", function () {
+        var data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7];
+        var modes = mode(data);
+        expect(modes.length).to.equal(3);
+        expect(modes).to.contain(5);
+        expect(modes).to.contain(6);
+        expect(modes).to.contain(7);
+    });
 });
 //# sourceMappingURL=descriptive.js.map
