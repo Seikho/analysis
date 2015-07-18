@@ -1,5 +1,6 @@
 var max = require("../src/api/common/max");
 var min = require("../src/api/common/min");
+var range = require("../src/api/common/range");
 var objectToArray = require("../src/api/common/objectToArray");
 var round = require("../src/api/common/round");
 var chai = require("chai");
@@ -12,6 +13,12 @@ describe("Common module unit tests", function () {
     it("will find the minimum number in a dataset", function () {
         var data = [1, 2, 3, 4, 5, 6, 7];
         expect(min(data)).to.equal(1);
+    });
+    it("will find the range (min and max) in a dataset", function () {
+        var data = [10, 20, 30, 40, 50, 60];
+        var dataRange = range(data);
+        expect(dataRange.min).to.equal(10);
+        expect(dataRange.max).to.equal(60);
     });
     it("will convert an object of string:number to an array", function () {
         var obj = {

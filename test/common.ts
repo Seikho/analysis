@@ -18,6 +18,13 @@ describe("Common module unit tests", () => {
 		expect(min(data)).to.equal(1);
 	});
 	
+	it("will find the range (min and max) in a dataset", () => {
+		var data = [10, 20, 30, 40, 50, 60];
+		var dataRange = range(data);
+		expect(dataRange.min).to.equal(10);
+		expect(dataRange.max).to.equal(60);
+	});
+	
 	it("will convert an object of string:number to an array", () => {
 		var obj = {
 			"one": 1,
