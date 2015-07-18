@@ -5,10 +5,10 @@ function table(data: number[]|{}): {} {
 	var dataset = objectToArray(data);
 	
 	var frequencyTable = dataset.reduce((prev, current) => {
-		let hasCount = !!frequencyTable[current];
+		let hasCount = !!prev[current];
 		
-		if (hasCount) frequencyTable[current]++;
-		else frequencyTable[current] = 1;
+		if (hasCount) prev[current]++;
+		else prev[current] = 1;
 		
 		return prev;
 	}, {});

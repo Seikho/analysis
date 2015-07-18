@@ -1,25 +1,19 @@
 import max = require("../common/max");
+import frequencyTable = require("../frequency/table");
 import objectToArray = require("../common/objectToArray");
 export = mode;
 
 function mode(data: number[]|{}) {
-	var dataset: number[] = objectToArray(data);
-	
-	var distribution = dataset.reduce((prev, curr) => {
-		let hasValue = !!prev[curr];
-		
-		if (hasValue) prev[curr]++;
-		else prev[curr] = 1;
-		
-		return prev;
-	}, []);
-	
-	var maximum = max(distribution);
-	
+	var table = frequencyTable(data);
+	var maximum = max(table);
+
 	var modes: number[] = [];
-	distribution.forEach((value, index) => {
-		if (value === maximum) modes.push(index);
-	});
-	
-	return modes;		
+
+	Object.keys(table)
+		.forEach(key => {
+			let value = table[key];
+			if (value === maximum) modes.push(Number(key));
+		});
+
+	return modes;
 }

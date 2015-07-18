@@ -1,20 +1,14 @@
 var max = require("../common/max");
-var objectToArray = require("../common/objectToArray");
+var frequencyTable = require("../frequency/table");
 function mode(data) {
-    var dataset = objectToArray(data);
-    var distribution = dataset.reduce(function (prev, curr) {
-        var hasValue = !!prev[curr];
-        if (hasValue)
-            prev[curr]++;
-        else
-            prev[curr] = 1;
-        return prev;
-    }, []);
-    var maximum = max(distribution);
+    var table = frequencyTable(data);
+    var maximum = max(table);
     var modes = [];
-    distribution.forEach(function (value, index) {
+    Object.keys(table)
+        .forEach(function (key) {
+        var value = table[key];
         if (value === maximum)
-            modes.push(index);
+            modes.push(Number(key));
     });
     return modes;
 }

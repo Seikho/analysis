@@ -2,11 +2,11 @@ var objectToArray = require("../common/objectToArray");
 function table(data) {
     var dataset = objectToArray(data);
     var frequencyTable = dataset.reduce(function (prev, current) {
-        var hasCount = !!frequencyTable[current];
+        var hasCount = !!prev[current];
         if (hasCount)
-            frequencyTable[current]++;
+            prev[current]++;
         else
-            frequencyTable[current] = 1;
+            prev[current] = 1;
         return prev;
     }, {});
     return frequencyTable;
