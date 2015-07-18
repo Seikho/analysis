@@ -9,6 +9,7 @@
         "./src/**/*.ts"
     ],
     "files": [
+        "./src/api/descriptive/mean.ts",
         "./src/index.ts",
         "./src/typings/chai/chai.d.ts",
         "./src/typings/mocha/mocha.d.ts",
