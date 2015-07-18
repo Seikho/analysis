@@ -1,10 +1,11 @@
+var chai = require("chai");
+var expect = chai.expect;
 var max = require("../src/api/common/max");
 var min = require("../src/api/common/min");
 var range = require("../src/api/common/range");
+var sum = require("../src/api/common/sum");
 var objectToArray = require("../src/api/common/objectToArray");
 var round = require("../src/api/common/round");
-var chai = require("chai");
-var expect = chai.expect;
 describe("Common module unit tests", function () {
     it("will find the maximum number in a dataset", function () {
         var data = [1, 2, 3, 4, 5, 6, 7];
@@ -43,6 +44,11 @@ describe("Common module unit tests", function () {
     it("will round a value correctly to 2 decimal places", function () {
         var rounded = round(123.456, 2);
         expect(rounded).to.equal(123.46);
+    });
+    it("will calculate the sum of a dataset", function () {
+        var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var total = sum(data);
+        expect(total).to.equal(55);
     });
 });
 //# sourceMappingURL=common.js.map

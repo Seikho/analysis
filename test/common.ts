@@ -1,10 +1,12 @@
+import chai = require("chai");
+var expect = chai.expect;
+
 import max = require("../src/api/common/max");
 import min = require("../src/api/common/min");
 import range = require("../src/api/common/range");
+import sum = require("../src/api/common/sum");
 import objectToArray = require("../src/api/common/objectToArray");
 import round = require("../src/api/common/round");
-import chai = require("chai");
-var expect = chai.expect;
 
 describe("Common module unit tests", () => {
 
@@ -53,5 +55,11 @@ describe("Common module unit tests", () => {
 	it("will round a value correctly to 2 decimal places", () => {
 		var rounded = round(123.456, 2);
 		expect(rounded).to.equal(123.46);
+	});
+	
+	it("will calculate the sum of a dataset", () => {
+		var data = [1,2,3,4,5,6,7,8,9,10];		
+		var total = sum(data);
+		expect(total).to.equal(55);
 	});
 });
