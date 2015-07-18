@@ -1,3 +1,4 @@
+import max = require("../common/max");
 export = mode;
 
 function mode(data: number[]) {
@@ -10,5 +11,8 @@ function mode(data: number[]) {
 		return prev;
 	}, []);
 	
-			
+	var maximum = max(distribution);
+	
+	var modes = distribution.filter(value => value === maximum);
+	return modes;			
 }
