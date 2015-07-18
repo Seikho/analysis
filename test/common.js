@@ -1,5 +1,6 @@
 var max = require("../src/api/common/max");
 var objectToArray = require("../src/api/common/objectToArray");
+var round = require("../src/api/common/round");
 var chai = require("chai");
 var expect = chai.expect;
 describe("Common module unit tests", function () {
@@ -18,6 +19,18 @@ describe("Common module unit tests", function () {
         expect(data).to.contain(1);
         expect(data).to.contain(2);
         expect(data).to.contain(3);
+    });
+    it("will round a value correctly to 0 decimal places", function () {
+        var rounded = round(123.456);
+        expect(rounded).to.equal(123);
+    });
+    it("will round a value correctly to 1 decimal places", function () {
+        var rounded = round(123.456, 1);
+        expect(rounded).to.equal(123.5);
+    });
+    it("will round a value correctly to 2 decimal places", function () {
+        var rounded = round(123.456, 2);
+        expect(rounded).to.equal(123.46);
     });
 });
 //# sourceMappingURL=common.js.map

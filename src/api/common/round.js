@@ -1,7 +1,4 @@
 function round(value, decimalPlaces) {
-    var isValidDecimalPlaces = decimalPlaces === Math.round(decimalPlaces);
-    if (!isValidDecimalPlaces)
-        throw "Invalid 'decimal places' specified: Must be whole number";
     decimalPlaces = Math.round(decimalPlaces) || 0;
     var noDecimalPlaces = decimalPlaces === 0;
     if (noDecimalPlaces)
