@@ -1,6 +1,6 @@
 var mean = require("../src/api/descriptive/mean");
 var mode = require("../src/api/descriptive/mode");
-//import median = require("../src/api/descriptive/median");
+var median = require("../src/api/descriptive/median");
 var chai = require("chai");
 var expect = chai.expect;
 describe("Descriptive module tests", function () {
@@ -28,6 +28,18 @@ describe("Descriptive module tests", function () {
         expect(modes).to.contain(5);
         expect(modes).to.contain(6);
         expect(modes).to.contain(7);
+    });
+    it("will find the median for a dataset with 1 value", function () {
+        var data = [5];
+        expect(median(data)).to.equal(5);
+    });
+    it("will find the median for a dataset with 2 values", function () {
+        var data = [5, 6];
+        expect(median(data)).to.equal(5.5);
+    });
+    it("will find the median for a dataset with 3 values", function () {
+        var data = [5, 10, 15];
+        expect(median(data)).to.equal(10);
     });
 });
 //# sourceMappingURL=descriptive.js.map
