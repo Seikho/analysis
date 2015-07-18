@@ -35,3 +35,20 @@ Analysis.linearRegression(...);
 ```
 TODO
 ```
+
+#### Testing
+Ensure that `mocha` is installed globally:
+```
+npm install mocha -g
+```
+
+Clone the project and install the dependencies:
+```
+git clone https://github.com/seikho/analysis
+cd analysis && npm install
+```
+
+Run the unit tests:
+```
+mocha
+```
