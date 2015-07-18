@@ -10,5 +10,5 @@ function mode(data: number[]) {
 		return prev;
 	}, []);
 	
-		
+			
 }

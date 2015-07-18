@@ -9,6 +9,7 @@
         "./src/**/*.ts"
     ],
     "files": [
+        "./test/common.ts",
         "./src/api/common/max.ts",
         "./src/api/descriptive/mean.ts",
         "./src/api/descriptive/median.ts",
