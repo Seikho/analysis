@@ -1,10 +1,6 @@
 var objectToArray = require("../common/objectToArray");
 function mean(data) {
-    var dataset;
-    if (typeof data === "object")
-        dataset = objectToArray(data);
-    else
-        dataset = data;
+    var dataset = objectToArray(data);
     var sampleSize = dataset.length;
     var total = dataset.reduce(function (previous, current) {
         previous += current;

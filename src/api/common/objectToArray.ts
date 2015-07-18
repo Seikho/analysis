@@ -1,7 +1,7 @@
 export = convert;
 
 function convert(data: number[]|{}) {
-	if (data instanceof Array) return data;
+	if (data instanceof Array) return data.slice();
 	
 	var newData = Object.keys(data)
 		.reduce((prev, curr) => {

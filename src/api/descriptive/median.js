@@ -1,10 +1,6 @@
 var objectToArray = require("../common/objectToArray");
 function median(data) {
-    var dataset;
-    if (data instanceof Array)
-        dataset = data.slice();
-    else
-        dataset = objectToArray(data);
+    var dataset = objectToArray(data);
     var sortedDataset = dataset.sort(function (left, right) { return left - right; });
     var isEvenAmount = (sortedDataset.length % 2) === 0;
     var middleIndex = sortedDataset.length / 2;

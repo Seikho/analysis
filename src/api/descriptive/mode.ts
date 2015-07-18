@@ -3,9 +3,7 @@ import objectToArray = require("../common/objectToArray");
 export = mode;
 
 function mode(data: number[]|{}) {
-	var dataset: number[];
-	if (typeof data === "object") dataset = objectToArray(data);
-	else dataset = <number[]>data;
+	var dataset: number[] = objectToArray(data);
 	
 	var distribution = dataset.reduce((prev, curr) => {
 		let hasValue = !!prev[curr];

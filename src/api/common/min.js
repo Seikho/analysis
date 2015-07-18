@@ -3,11 +3,7 @@ var objectToArray = require("./objectToArray");
  * @return Number Returns the lowest value in a dataset/array
  */
 function min(data) {
-    var dataset;
-    if (data instanceof Array)
-        dataset = data;
-    else
-        dataset = objectToArray(data);
+    var dataset = objectToArray(data);
     var minimum = dataset.reduce(function (prev, curr) {
         var isHigher = curr < prev;
         if (isHigher)

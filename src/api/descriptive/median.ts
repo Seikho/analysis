@@ -2,10 +2,7 @@ import objectToArray = require("../common/objectToArray");
 export = median;
 
 function median(data: number[]|{}) {
-	var dataset: number[];
-
-	if (data instanceof Array) dataset = data.slice();
-	else dataset = objectToArray(data);
+	var dataset: number[] = objectToArray(data);
 
 	var sortedDataset = dataset.sort((left, right) => left - right);
 
