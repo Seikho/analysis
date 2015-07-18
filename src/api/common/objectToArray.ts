@@ -1,6 +1,8 @@
 export = convert;
 
-function convert(data: {}) {
+function convert(data: number[]|{}) {
+	if (data instanceof Array) return data;
+	
 	var newData = Object.keys(data)
 		.reduce((prev, curr) => {
 			var value = data[curr];
