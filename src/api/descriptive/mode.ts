@@ -1,8 +1,13 @@
 import max = require("../common/max");
+import objectToArray = require("../common/objectToArray");
 export = mode;
 
-function mode(data: number[]) {
-	var distribution = data.reduce((prev, curr) => {
+function mode(data: number[]|{}) {
+	var dataset: number[];
+	if (typeof data === "object") dataset = objectToArray(data);
+	else dataset = <number[]>data;
+	
+	var distribution = dataset.reduce((prev, curr) => {
 		let hasValue = !!prev[curr];
 		
 		if (hasValue) prev[curr]++;
@@ -18,5 +23,5 @@ function mode(data: number[]) {
 		if (value === maximum) modes.push(index);
 	});
 	
-	return modes;			
+	return modes;		
 }

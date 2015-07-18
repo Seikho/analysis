@@ -1,6 +1,12 @@
 var max = require("../common/max");
+var objectToArray = require("../common/objectToArray");
 function mode(data) {
-    var distribution = data.reduce(function (prev, curr) {
+    var dataset;
+    if (typeof data === "object")
+        dataset = objectToArray(data);
+    else
+        dataset = data;
+    var distribution = dataset.reduce(function (prev, curr) {
         var hasValue = !!prev[curr];
         if (hasValue)
             prev[curr]++;
