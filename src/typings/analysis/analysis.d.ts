@@ -34,6 +34,9 @@ declare module Analysis {
 	export interface BinSettings {
 		binCount?: number;
 		binSize?: number;
+		minimum?: number;
+		maximum?: number;
+		difference?: number;
 	}
 }
 
