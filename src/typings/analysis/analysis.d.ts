@@ -29,5 +29,10 @@ declare module Analysis {
 	export interface Frequency {
 		table(data: number[]|{}): {};
 	}
+	
+	export interface BinSettings {
+		binCount?: number;
+		binSize?: number;
+	}
 }
 
