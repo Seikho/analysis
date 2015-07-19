@@ -2,13 +2,12 @@ var range = require("../common/range");
 var objectToArray = require("../common/objectToArray");
 function histogram(data, binOptions) {
     var dataset = objectToArray(data);
-    var dataRange = range(dataset);
-    binOptions = fixBinSettings(dataset, dataRange, binOptions);
+    binOptions = fixBinSettings(dataset, binOptions);
     var result = getEmptyHistogram(binOptions.binCount);
     dataset.forEach(function (value) {
-        var roughBinNumber = (value - dataRange.minimum) / binOptions.binSize;
+        var roughBinNumber = (value - binOptions.minimum) / binOptions.binSize;
         var binNumber = Math.floor(roughBinNumber) + 1;
-        if (value === dataRange.maximum)
+        if (value === binOptions.maximum)
             binNumber = binOptions.binCount;
         result[binNumber]++;
     });
@@ -22,17 +21,25 @@ function getEmptyHistogram(binCount) {
     }
     return emptyHistogram;
 }
-function fixBinSettings(dataset, dataRange, binOptions) {
+function fixBinSettings(dataset, binOptions) {
     binOptions = binOptions || {
         binCount: 10,
         binSize: 0
     };
+    var isValidMinimum = typeof binOptions.minimum === "number";
+    var isValidMaximum = typeof binOptions.maximum === "number";
+    if (!isValidMaximum || !isValidMinimum) {
+        var dataRange = range(dataset);
+        binOptions.maximum = dataRange.maximum;
+        binOptions.minimum = dataRange.minimum;
+    }
+    binOptions.difference = binOptions.maximum - binOptions.minimum;
     if (!binOptions.binCount) {
-        binOptions.binCount = Math.ceil(dataRange.difference / binOptions.binSize);
-        binOptions.binSize = dataRange.difference / binOptions.binCount;
+        binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
+        binOptions.binSize = binOptions.difference / binOptions.binCount;
     }
     if (!binOptions.binSize) {
-        binOptions.binSize = dataRange.difference / binOptions.binCount;
+        binOptions.binSize = binOptions.difference / binOptions.binCount;
     }
     return binOptions;
 }

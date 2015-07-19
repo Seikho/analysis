@@ -5,15 +5,14 @@ export = histogram;
 
 function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
 	var dataset = objectToArray(data);
-	var dataRange = range(dataset);
-	binOptions = fixBinSettings(dataset, dataRange, binOptions);
+	binOptions = fixBinSettings(dataset, binOptions);
 	
 	var result = getEmptyHistogram(binOptions.binCount);
 	
 	dataset.forEach(value => {
-		let roughBinNumber = (value - dataRange.minimum) / binOptions.binSize;
+		let roughBinNumber = (value - binOptions.minimum) / binOptions.binSize;
 		let binNumber = Math.floor(roughBinNumber) + 1;
-		if (value === dataRange.maximum) binNumber = binOptions.binCount;
+		if (value === binOptions.maximum) binNumber = binOptions.binCount;
 		
 		result[binNumber]++; 
 	});
@@ -31,20 +30,29 @@ function getEmptyHistogram(binCount: number): {} {
 	return emptyHistogram;
 }
 
-function fixBinSettings(dataset: number[], dataRange: Analysis.RangeResult, binOptions?: Analysis.BinSettings): Analysis.BinSettings {
+function fixBinSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
 	binOptions = binOptions || {
 		binCount: 10,
 		binSize: 0
 	};
 	
+	let isValidMinimum = typeof binOptions.minimum === "number";
+	let isValidMaximum = typeof binOptions.maximum === "number";
+	if (!isValidMaximum || !isValidMinimum) {
+		let dataRange = range(dataset);
+		binOptions.maximum = dataRange.maximum;
+		binOptions.minimum = dataRange.minimum;
+	}
+	
+	binOptions.difference = binOptions.maximum - binOptions.minimum;
 	
 	if (!binOptions.binCount) {
-		binOptions.binCount = Math.ceil(dataRange.difference / binOptions.binSize);
-		binOptions.binSize = dataRange.difference / binOptions.binCount;
+		binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
+		binOptions.binSize = binOptions.difference / binOptions.binCount;
 	}
 	
 	if (!binOptions.binSize) {
-		binOptions.binSize = dataRange.difference / binOptions.binCount;
+		binOptions.binSize = binOptions.difference / binOptions.binCount;
 	}
 	
 	return binOptions;
