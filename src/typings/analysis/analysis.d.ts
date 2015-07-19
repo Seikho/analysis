@@ -24,6 +24,7 @@ declare module Analysis {
 	export interface RangeResult {
 		minimum: number;
 		maximum: number;
+		difference: number;
 	}
 	
 	export interface Frequency {
