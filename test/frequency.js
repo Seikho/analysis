@@ -13,7 +13,7 @@ describe("Frequency tests", function () {
         expect(freqTable[3]).to.equal(3);
         expect(freqTable[4]).to.equal(4);
     });
-    it("will correctly create a histogram with both options provided", function () {
+    it("will correctly create a histogram with count and size options provided", function () {
         var binOptions = {
             binCount: 5,
             binSize: 10
@@ -25,11 +25,28 @@ describe("Frequency tests", function () {
         expect(histTable[4]).to.equal(2);
         expect(histTable[5]).to.equal(2);
     });
-    it("will correct create a histogram with no options provided", function () {
+    it("will correctly create a histogram with no options provided", function () {
         var histTable = histogram(histData);
         expect(typeof histTable).to.equal("object");
         expect(histTable[1]).to.exist;
         expect(histTable[10]).to.exist;
+    });
+    it("will correctly create a histogram with min and max options provided", function () {
+        var binOptions = {
+            minimum: 0,
+            maximum: 50
+        };
+        var histTable = histogram(histData, binOptions);
+        expect(histTable[1]).to.equal(1);
+        expect(histTable[2]).to.equal(1);
+        expect(histTable[3]).to.equal(1);
+        expect(histTable[4]).to.equal(1);
+        expect(histTable[5]).to.equal(1);
+        expect(histTable[6]).to.equal(1);
+        expect(histTable[7]).to.equal(1);
+        expect(histTable[8]).to.equal(1);
+        expect(histTable[9]).to.equal(1);
+        expect(histTable[10]).to.equal(1);
     });
 });
 //# sourceMappingURL=frequency.js.map

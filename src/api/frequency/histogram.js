@@ -7,8 +7,8 @@ function histogram(data, binOptions) {
     dataset.forEach(function (value) {
         var roughBinNumber = (value - binOptions.minimum) / binOptions.binSize;
         var binNumber = Math.floor(roughBinNumber) + 1;
-        if (value === binOptions.maximum)
-            binNumber = binOptions.binCount;
+        if (value % binOptions.binSize === 0)
+            binNumber--;
         result[binNumber]++;
     });
     2;
@@ -34,11 +34,18 @@ function fixBinSettings(dataset, binOptions) {
         binOptions.minimum = dataRange.minimum;
     }
     binOptions.difference = binOptions.maximum - binOptions.minimum;
-    if (!binOptions.binCount) {
+    var isValidBinCount = typeof binOptions.binCount === "number";
+    var isValidBinSize = typeof binOptions.binSize === "number";
+    if (!isValidBinCount && !isValidBinSize) {
+        binOptions.binCount = 10;
+        isValidBinCount = true;
+    }
+    if (!isValidBinCount) {
         binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
         binOptions.binSize = binOptions.difference / binOptions.binCount;
+        isValidBinSize = true;
     }
-    if (!binOptions.binSize) {
+    if (!isValidBinSize) {
         binOptions.binSize = binOptions.difference / binOptions.binCount;
     }
     return binOptions;

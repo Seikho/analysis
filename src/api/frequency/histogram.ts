@@ -12,7 +12,7 @@ function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
 	dataset.forEach(value => {
 		let roughBinNumber = (value - binOptions.minimum) / binOptions.binSize;
 		let binNumber = Math.floor(roughBinNumber) + 1;
-		if (value === binOptions.maximum) binNumber = binOptions.binCount;
+		if (value % binOptions.binSize === 0) binNumber--;
 		
 		result[binNumber]++; 
 	});
@@ -46,12 +46,21 @@ function fixBinSettings(dataset: number[], binOptions?: Analysis.BinSettings): A
 	
 	binOptions.difference = binOptions.maximum - binOptions.minimum;
 	
-	if (!binOptions.binCount) {
-		binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
-		binOptions.binSize = binOptions.difference / binOptions.binCount;
+	let isValidBinCount = typeof binOptions.binCount === "number";
+	let isValidBinSize = typeof binOptions.binSize === "number";
+	
+	if (!isValidBinCount && !isValidBinSize) {
+		binOptions.binCount = 10;
+		isValidBinCount = true;
 	}
 	
-	if (!binOptions.binSize) {
+	if (!isValidBinCount) {
+		binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
+		binOptions.binSize = binOptions.difference / binOptions.binCount;
+		isValidBinSize = true;
+	}
+	
+	if (!isValidBinSize) {
 		binOptions.binSize = binOptions.difference / binOptions.binCount;
 	}
 	
