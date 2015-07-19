@@ -10,10 +10,9 @@ function getBinSettings(dataset, binOptions) {
     };
     var dataRange = range(dataset);
     if (!binOptions.binCount) {
-        var binCount = dataRange.max - dataRange.min;
-        binOptions.binCount = Math.ceil();
+        var binCount = dataRange.maximum - dataRange.minimum;
     }
-    binOptions.binSize = (dataRange.max - dataRange.min) / binOptions.binCount;
+    binOptions.binSize = (dataRange.maximum - dataRange.minimum) / binOptions.binCount;
     return binOptions;
 }
 module.exports = histogram;

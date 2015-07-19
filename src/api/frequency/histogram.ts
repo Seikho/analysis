@@ -18,11 +18,11 @@ function getBinSettings(dataset: number[], binOptions?: Analysis.BinSettings): A
 	var dataRange = range(dataset);
 	
 	if (!binOptions.binCount) {
-		let binCount = dataRange.max - dataRange.min
-		binOptions.binCount = Math.ceil()
+		let binCount = dataRange.maximum - dataRange.minimum
+		// binOptions.binCount = //Math.ceil()
 	}	
 	
-	binOptions.binSize = (dataRange.max - dataRange.min) / binOptions.binCount;
+	binOptions.binSize = (dataRange.maximum - dataRange.minimum) / binOptions.binCount;
 	
 	return binOptions;
 }
