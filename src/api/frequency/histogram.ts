@@ -5,15 +5,19 @@ export = histogram;
 
 function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
 	var dataset = objectToArray(data);
-	binOptions = fixBinSettings(dataset, binOptions);
+	var dataRange = range(dataset);
+	binOptions = fixBinSettings(dataset, dataRange, binOptions);
 	
 	var result = getEmptyHistogram(binOptions.binCount);
 	
 	dataset.forEach(value => {
-		let binNumber = Math.ceil(value / binOptions.binSize);
+		let roughBinNumber = (value - dataRange.minimum) / binOptions.binSize;
+		let binNumber = Math.floor(roughBinNumber) + 1;
+		if (value === dataRange.maximum) binNumber = binOptions.binCount;
+		
 		result[binNumber]++; 
 	});
-	
+	2
 	return result;
 }
 
@@ -27,13 +31,12 @@ function getEmptyHistogram(binCount: number): {} {
 	return emptyHistogram;
 }
 
-function fixBinSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
+function fixBinSettings(dataset: number[], dataRange: Analysis.RangeResult, binOptions?: Analysis.BinSettings): Analysis.BinSettings {
 	binOptions = binOptions || {
 		binCount: 10,
 		binSize: 0
 	};
 	
-	var dataRange = range(dataset);
 	
 	if (!binOptions.binCount) {
 		binOptions.binCount = Math.ceil(dataRange.difference / binOptions.binSize);

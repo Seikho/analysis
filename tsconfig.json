@@ -11,6 +11,7 @@
     "files": [
         "./test/common.ts",
         "./test/descriptive.ts",
+        "./test/frequency.ts",
         "./src/api/common/max.ts",
         "./src/api/common/min.ts",
         "./src/api/common/objectToArray.ts",

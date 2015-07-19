@@ -2,12 +2,17 @@ var range = require("../common/range");
 var objectToArray = require("../common/objectToArray");
 function histogram(data, binOptions) {
     var dataset = objectToArray(data);
-    binOptions = fixBinSettings(dataset, binOptions);
+    var dataRange = range(dataset);
+    binOptions = fixBinSettings(dataset, dataRange, binOptions);
     var result = getEmptyHistogram(binOptions.binCount);
     dataset.forEach(function (value) {
-        var binNumber = Math.ceil(value / binOptions.binSize);
+        var roughBinNumber = (value - dataRange.minimum) / binOptions.binSize;
+        var binNumber = Math.floor(roughBinNumber) + 1;
+        if (value === dataRange.maximum)
+            binNumber = binOptions.binCount;
         result[binNumber]++;
     });
+    2;
     return result;
 }
 function getEmptyHistogram(binCount) {
@@ -17,12 +22,11 @@ function getEmptyHistogram(binCount) {
     }
     return emptyHistogram;
 }
-function fixBinSettings(dataset, binOptions) {
+function fixBinSettings(dataset, dataRange, binOptions) {
     binOptions = binOptions || {
         binCount: 10,
         binSize: 0
     };
-    var dataRange = range(dataset);
     if (!binOptions.binCount) {
         binOptions.binCount = Math.ceil(dataRange.difference / binOptions.binSize);
         binOptions.binSize = dataRange.difference / binOptions.binCount;
