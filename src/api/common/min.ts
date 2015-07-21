@@ -5,15 +5,11 @@ export = min;
  * @return Number Returns the lowest value in a dataset/array
  */
 function min(data: number[]|{}): number {
-	var dataset: number[] = objectToArray(data);
-	
-	var minimum = dataset.reduce((prev, curr) => {
-		
-		let isHigher = curr < prev;
-		if (isHigher) prev = curr;
-		
-		return prev;
-	}, dataset[0]);
-	
-	return minimum;	
+	return objectToArray(data).reduce(getMin);
+}
+
+function getMin(left: number, right: number) {
+	return left > right
+		? right
+		: left;
 }

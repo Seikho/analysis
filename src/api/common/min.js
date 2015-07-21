@@ -3,14 +3,12 @@ var objectToArray = require("./objectToArray");
  * @return Number Returns the lowest value in a dataset/array
  */
 function min(data) {
-    var dataset = objectToArray(data);
-    var minimum = dataset.reduce(function (prev, curr) {
-        var isHigher = curr < prev;
-        if (isHigher)
-            prev = curr;
-        return prev;
-    }, dataset[0]);
-    return minimum;
+    return objectToArray(data).reduce(getMin);
+}
+function getMin(left, right) {
+    return left > right
+        ? right
+        : left;
 }
 module.exports = min;
 //# sourceMappingURL=min.js.map
