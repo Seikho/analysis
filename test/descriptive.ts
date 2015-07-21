@@ -1,6 +1,8 @@
 import mean = require("../src/api/descriptive/mean");
 import mode = require("../src/api/descriptive/mode");
 import median = require("../src/api/descriptive/median");
+import variance = require("../src/api/descriptive/variance");
+import stdDev = require("../src/api/descriptive/standardDeviation");
 import chai = require("chai");
 var expect = chai.expect;
 
@@ -51,6 +53,10 @@ describe("Descriptive module tests", () => {
 	it("will find the median for a dataset with 3 values", () => {
 		var data = [5,10,15];
 		expect(median(data)).to.equal(10);
+	});
+	
+	it("will calculate the variance", () => {
+		expect(variance([1,2,3,4,5,6,7,8,9,10])).to.be.equal(8.25);
 	});
 });
 
