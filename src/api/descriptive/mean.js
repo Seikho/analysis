@@ -1,12 +1,8 @@
 var objectToArray = require("../common/objectToArray");
+var sum = require("../common/sum");
 function mean(data) {
     var dataset = objectToArray(data);
-    var sampleSize = dataset.length;
-    var total = dataset.reduce(function (previous, current) {
-        previous += current;
-        return previous;
-    }, 0);
-    return total / sampleSize;
+    return sum(dataset) / dataset.length;
 }
 module.exports = mean;
 //# sourceMappingURL=mean.js.map
