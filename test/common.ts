@@ -11,7 +11,8 @@ import round = require("../src/api/common/round");
 describe("Common module unit tests", () => {
 
 	it("will throw when passed an invalid object", () => {
-		expect(objectToArray.bind(objectToArray, "bad type")).to.throw("All values must be numbers");
+		expect(objectToArray.bind(objectToArray, "bad type")).to.throw("Input must be array or object");
+		expect(objectToArray.bind(objectToArray, ["word", 1, 2, 3, 4])).to.throw("Value must be a number");
 	});
 
 	it("will find the maximum number in a dataset", () => {
