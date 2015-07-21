@@ -11,16 +11,14 @@ describe("Common module unit tests", function () {
         expect(objectToArray.bind(objectToArray, "bad type")).to.throw("TypeException: Must pass either an array or object of key-value pairs");
     });
     it("will find the maximum number in a dataset", function () {
-        var data = [1, 2, 3, 4, 5, 6, 7];
-        expect(max(data)).to.equal(7);
+        expect(max([1, 2, 3, 4, 5, 6, 7])).to.equal(7);
     });
     it("will find the minimum number in a dataset", function () {
-        var data = [1, 2, 3, 4, 5, 6, 7];
-        expect(min(data)).to.equal(1);
+        expect(min([1, 2, 3, 4, 5, 6, 7])).to.equal(1);
+        expect(min([-3, 0, 3])).to.equal(-3);
     });
     it("will find the range (min and max) in a dataset", function () {
-        var data = [10, 20, 30, 40, 50, 60];
-        var dataRange = range(data);
+        var dataRange = range([10, 20, 30, 40, 50, 60]);
         expect(dataRange.minimum).to.equal(10);
         expect(dataRange.maximum).to.equal(60);
     });
