@@ -3,6 +3,7 @@ import mode = require("../src/api/descriptive/mode");
 import median = require("../src/api/descriptive/median");
 import variance = require("../src/api/descriptive/variance");
 import stdDev = require("../src/api/descriptive/standardDeviation");
+import round = require("../src/api/common/round");
 import chai = require("chai");
 var expect = chai.expect;
 
@@ -55,8 +56,13 @@ describe("Descriptive module tests", () => {
 		expect(median(data)).to.equal(10);
 	});
 	
-	it("will calculate the variance", () => {
+	it("will calculate the variance of a population correctly", () => {
 		expect(variance([1,2,3,4,5,6,7,8,9,10])).to.be.equal(8.25);
+	});
+	
+	it("will calculate the standard deviation", () => {
+		var theStdDev = round(stdDev([1,2,3,4,5,6,7,8,9,10]), 2);
+		expect(theStdDev).to.equal(2.87);
 	});
 });
 

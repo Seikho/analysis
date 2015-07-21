@@ -2,6 +2,8 @@ var mean = require("../src/api/descriptive/mean");
 var mode = require("../src/api/descriptive/mode");
 var median = require("../src/api/descriptive/median");
 var variance = require("../src/api/descriptive/variance");
+var stdDev = require("../src/api/descriptive/standardDeviation");
+var round = require("../src/api/common/round");
 var chai = require("chai");
 var expect = chai.expect;
 describe("Descriptive module tests", function () {
@@ -42,8 +44,12 @@ describe("Descriptive module tests", function () {
         var data = [5, 10, 15];
         expect(median(data)).to.equal(10);
     });
-    it("will calculate the variance", function () {
+    it("will calculate the variance of a population correctly", function () {
         expect(variance([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.be.equal(8.25);
+    });
+    it("will calculate the standard deviation", function () {
+        var theStdDev = round(stdDev([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 2);
+        expect(theStdDev).to.equal(2.87);
     });
 });
 //# sourceMappingURL=descriptive.js.map
