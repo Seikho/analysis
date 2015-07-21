@@ -7,11 +7,12 @@ var objectToArray = require("../common/objectToArray");
 function variance(data) {
     var dataset = objectToArray(data);
     var dataMean = mean(dataset);
-    var deviationsSqaured = dataset.reduce(function (prev, curr) {
-        var deviation = Math.pow(curr - dataMean, 2);
-        prev += deviation;
-    }, 0);
-    return deviationsSqaured / dataset.length;
+    var calcVariance = function (val) { return val - dataMean; };
+    var squared = function (val) { return Math.pow(val, 2); };
+    return dataset
+        .map(squared)
+        .map(calcVariance)
+        .reduce(mean);
 }
 module.exports = variance;
 //# sourceMappingURL=variance.js.map

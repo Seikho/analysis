@@ -19,6 +19,7 @@
         "./src/api/common/range.ts",
         "./src/api/common/round.ts",
         "./src/api/common/sum.ts",
+        "./src/api/common/validateArray.ts",
         "./src/api/descriptive/mean.ts",
         "./src/api/descriptive/median.ts",
         "./src/api/descriptive/mode.ts",

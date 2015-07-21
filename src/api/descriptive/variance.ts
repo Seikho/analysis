@@ -9,11 +9,11 @@ export = variance;
 function variance(data: number[]|{}): number {
 	var dataset = objectToArray(data);
 	var dataMean = mean(dataset);
-	
-	var deviationsSqaured = dataset.reduce((prev, curr) => {
-		let deviation = Math.pow(curr - dataMean, 2);
-		prev += deviation;
-	}, 0);
-	
-	return deviationsSqaured / dataset.length;
+	var calcVariance = val => val - dataMean;
+	var squared = val => Math.pow(val, 2);
+
+	return dataset
+		.map(squared)
+		.map(calcVariance)
+		.reduce(mean);
 }

@@ -1,13 +1,11 @@
-var isNumber = require("./isNumber");
+var validateArray = require("./validateArray");
 function convert(data) {
-    if (data instanceof Array) {
-        data.forEach(isNumber);
-        return data.slice();
-    }
+    if (data instanceof Array)
+        return validateArray(data);
     if (typeof data !== "object")
         throw new TypeError("Input must be array or object");
-    var dot = function (key) { return isNumber(data[key]); };
-    return Object.keys(data).map(dot);
+    var dot = function (key) { return data[key]; };
+    return validateArray(Object.keys(data).map(dot));
 }
 module.exports = convert;
 //# sourceMappingURL=objectToArray.js.map
