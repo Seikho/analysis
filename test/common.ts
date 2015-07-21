@@ -10,6 +10,10 @@ import round = require("../src/api/common/round");
 
 describe("Common module unit tests", () => {
 
+	it("will throw when passed an invalid object", () => {
+		expect(objectToArray.bind(objectToArray, "bad type")).to.throw("TypeException: Must pass either an array or object of key-value pairs");
+	});
+
 	it("will find the maximum number in a dataset", () => {
 		var data = [1,2,3,4,5,6,7];		
 		expect(max(data)).to.equal(7);
