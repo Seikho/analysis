@@ -9,7 +9,7 @@ var round = require("../src/api/common/round");
 describe("Common module unit tests", function () {
     it("will throw when passed an invalid object", function () {
         expect(objectToArray.bind(objectToArray, "bad type")).to.throw("Input must be array or object");
-        expect(objectToArray.bind(objectToArray, ["word", 1, 2, 3, 4])).to.throw("Value must be a number");
+        expect(objectToArray.bind(objectToArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
     });
     it("will find the maximum number in a dataset", function () {
         expect(max([1, 2, 3, 4, 5, 6, 7])).to.equal(7);

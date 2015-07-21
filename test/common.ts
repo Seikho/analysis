@@ -12,7 +12,7 @@ describe("Common module unit tests", () => {
 
 	it("will throw when passed an invalid object", () => {
 		expect(objectToArray.bind(objectToArray, "bad type")).to.throw("Input must be array or object");
-		expect(objectToArray.bind(objectToArray, ["word", 1, 2, 3, 4])).to.throw("Value must be a number");
+		expect(objectToArray.bind(objectToArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
 	});
 
 	it("will find the maximum number in a dataset", () => {
