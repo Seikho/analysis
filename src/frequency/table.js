@@ -1,15 +1,10 @@
 var objectToArray = require("../common/objectToArray");
 function table(data) {
     var dataset = objectToArray(data);
-    var frequencyTable = dataset.reduce(function (prev, current) {
-        var hasCount = !!prev[current];
-        if (hasCount)
-            prev[current]++;
-        else
-            prev[current] = 1;
-        return prev;
-    }, {});
-    return frequencyTable;
+    var table = {};
+    var addFreq = function (val) { return table[val] = (table[val] || 0) + 1; };
+    dataset.forEach(addFreq);
+    return table;
 }
 module.exports = table;
 //# sourceMappingURL=table.js.map

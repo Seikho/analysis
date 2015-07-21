@@ -3,15 +3,9 @@ export = table;
 
 function table(data: number[]|{}): {} {
 	var dataset = objectToArray(data);
-	
-	var frequencyTable = dataset.reduce((prev, current) => {
-		let hasCount = !!prev[current];
-		
-		if (hasCount) prev[current]++;
-		else prev[current] = 1;
-		
-		return prev;
-	}, {});
-	
-	return frequencyTable;
+	var table: any = {};
+	var addFreq = val => table[val] = (table[val] || 0) + 1;	
+
+	dataset.forEach(addFreq);
+	return table;
 }
