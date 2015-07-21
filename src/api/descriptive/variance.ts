@@ -1,4 +1,5 @@
 import mean = require("./mean");
+import sum = require("../common/sum");
 import objectToArray = require("../common/objectToArray");
 export = variance;
 
@@ -8,12 +9,12 @@ export = variance;
  */
 function variance(data: number[]|{}): number {
 	var dataset = objectToArray(data);
-	var dataMean = mean(dataset);
-	var calcVariance = val => val - dataMean;
+	var dataMean = mean(data);
+	
+	var calcVariance = val => squared(val - dataMean);
 	var squared = val => Math.pow(val, 2);
 
-	return dataset
-		.map(squared)
-		.map(calcVariance)
-		.reduce(mean);
+	var variances = dataset.map(calcVariance);
+		
+	return sum(variances) / dataset.length;
 }
