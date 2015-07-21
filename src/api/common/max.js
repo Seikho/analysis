@@ -4,13 +4,13 @@ var objectToArray = require("./objectToArray");
  */
 function max(data) {
     var dataset = objectToArray(data);
-    var maximum = dataset.reduce(function (prev, curr) {
-        var isHigher = curr > prev;
-        if (isHigher)
-            prev = curr;
-        return prev;
-    }, 0);
+    var maximum = dataset.reduce(getMax, 0);
     return maximum;
+}
+function getMax(left, right) {
+    return left > right
+        ? left
+        : right;
 }
 module.exports = max;
 //# sourceMappingURL=max.js.map
