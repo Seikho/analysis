@@ -8,10 +8,11 @@ var objectToArray = require("../src/api/common/objectToArray");
 var round = require("../src/api/common/round");
 describe("Common module unit tests", function () {
     it("will throw when passed an invalid object", function () {
-        expect(objectToArray.bind(objectToArray, "bad type")).to.throw("TypeException: Must pass either an array or object of key-value pairs");
+        expect(objectToArray.bind(objectToArray, "bad type")).to.throw("All values must be numbers");
     });
     it("will find the maximum number in a dataset", function () {
         expect(max([1, 2, 3, 4, 5, 6, 7])).to.equal(7);
+        expect(max([-1, -2, -3, -4, -5, -6, -7])).to.equal(-1);
     });
     it("will find the minimum number in a dataset", function () {
         expect(min([1, 2, 3, 4, 5, 6, 7])).to.equal(1);
