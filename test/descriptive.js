@@ -1,11 +1,12 @@
+var round = require("../src/common/round");
+var chai = require("chai");
+var expect = chai.expect;
 var mean = require("../src/descriptive/mean");
 var mode = require("../src/descriptive/mode");
 var median = require("../src/descriptive/median");
 var variance = require("../src/descriptive/variance");
-var stdDev = require("../src/descriptive/standardDeviation");
-var round = require("../src/common/round");
-var chai = require("chai");
-var expect = chai.expect;
+var stdDev = require("../src/descriptive/stdDev");
+var zScore = require("../src/descriptive/zScore");
 describe("Descriptive module tests", function () {
     it("will find the mean for a dataset", function () {
         var data = [2, 3, 2, 3, 2, 3]; // 15	
@@ -50,6 +51,9 @@ describe("Descriptive module tests", function () {
     it("will calculate the standard deviation", function () {
         var theStdDev = round(stdDev([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 2);
         expect(theStdDev).to.equal(2.87);
+    });
+    it("will calculate the z-score correctly", function () {
+        expect(zScore([85, 90, 95, 100, 105, 110, 115], 110)).to.equal(1);
     });
 });
 //# sourceMappingURL=descriptive.js.map

@@ -1,4 +1,4 @@
-import stdDev = require("./standardDeviation");
+import stdDev = require("./stdDev");
 import mean = require("./mean");
 export = zScore;
 

@@ -23,7 +23,7 @@
         "./src/descriptive/mean.ts",
         "./src/descriptive/median.ts",
         "./src/descriptive/mode.ts",
-        "./src/descriptive/standardDeviation.ts",
+        "./src/descriptive/stdDev.ts",
         "./src/descriptive/variance.ts",
         "./src/descriptive/zScore.ts",
         "./src/frequency/histogram.ts",

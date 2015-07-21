@@ -1,11 +1,13 @@
+import round = require("../src/common/round");
+import chai = require("chai");
+var expect = chai.expect;
+
 import mean = require("../src/descriptive/mean");
 import mode = require("../src/descriptive/mode");
 import median = require("../src/descriptive/median");
 import variance = require("../src/descriptive/variance");
-import stdDev = require("../src/descriptive/standardDeviation");
-import round = require("../src/common/round");
-import chai = require("chai");
-var expect = chai.expect;
+import stdDev = require("../src/descriptive/stdDev");
+import zScore = require("../src/descriptive/zScore");
 
 describe("Descriptive module tests", () => {
 
@@ -64,5 +66,9 @@ describe("Descriptive module tests", () => {
 		var theStdDev = round(stdDev([1,2,3,4,5,6,7,8,9,10]), 2);
 		expect(theStdDev).to.equal(2.87);
 	});
+	
+	it("will calculate the z-score correctly", () => {
+		expect(zScore([85, 90, 95, 100, 105, 110, 115], 110)).to.equal(1);
+	})
 });
 
