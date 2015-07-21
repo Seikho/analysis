@@ -1,9 +1,9 @@
-import mean = require("../src/api/descriptive/mean");
-import mode = require("../src/api/descriptive/mode");
-import median = require("../src/api/descriptive/median");
-import variance = require("../src/api/descriptive/variance");
-import stdDev = require("../src/api/descriptive/standardDeviation");
-import round = require("../src/api/common/round");
+import mean = require("../src/descriptive/mean");
+import mode = require("../src/descriptive/mode");
+import median = require("../src/descriptive/median");
+import variance = require("../src/descriptive/variance");
+import stdDev = require("../src/descriptive/standardDeviation");
+import round = require("../src/common/round");
 import chai = require("chai");
 var expect = chai.expect;
 

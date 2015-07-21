@@ -1,8 +1,8 @@
 import chai = require("chai");
 var expect = chai.expect;
 
-import table = require("../src/api/frequency/table");
-import histogram = require("../src/api/frequency/histogram");
+import table = require("../src/frequency/table");
+import histogram = require("../src/frequency/histogram");
 
 describe("Frequency tests", () => {
 	var freqData = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];

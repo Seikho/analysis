@@ -1,7 +1,7 @@
 var chai = require("chai");
 var expect = chai.expect;
-var table = require("../src/api/frequency/table");
-var histogram = require("../src/api/frequency/histogram");
+var table = require("../src/frequency/table");
+var histogram = require("../src/frequency/histogram");
 describe("Frequency tests", function () {
     var freqData = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
     var histData = [5, 6, 15, 16, 25, 26, 35, 36, 45, 46];

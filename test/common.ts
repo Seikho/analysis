@@ -1,12 +1,12 @@
 import chai = require("chai");
 var expect = chai.expect;
 
-import max = require("../src/api/common/max");
-import min = require("../src/api/common/min");
-import range = require("../src/api/common/range");
-import sum = require("../src/api/common/sum");
-import objectToArray = require("../src/api/common/objectToArray");
-import round = require("../src/api/common/round");
+import max = require("../src/common/max");
+import min = require("../src/common/min");
+import range = require("../src/common/range");
+import sum = require("../src/common/sum");
+import objectToArray = require("../src/common/objectToArray");
+import round = require("../src/common/round");
 
 describe("Common module unit tests", () => {
 

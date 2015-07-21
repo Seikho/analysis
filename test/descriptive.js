@@ -1,9 +1,9 @@
-var mean = require("../src/api/descriptive/mean");
-var mode = require("../src/api/descriptive/mode");
-var median = require("../src/api/descriptive/median");
-var variance = require("../src/api/descriptive/variance");
-var stdDev = require("../src/api/descriptive/standardDeviation");
-var round = require("../src/api/common/round");
+var mean = require("../src/descriptive/mean");
+var mode = require("../src/descriptive/mode");
+var median = require("../src/descriptive/median");
+var variance = require("../src/descriptive/variance");
+var stdDev = require("../src/descriptive/standardDeviation");
+var round = require("../src/common/round");
 var chai = require("chai");
 var expect = chai.expect;
 describe("Descriptive module tests", function () {

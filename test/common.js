@@ -1,11 +1,11 @@
 var chai = require("chai");
 var expect = chai.expect;
-var max = require("../src/api/common/max");
-var min = require("../src/api/common/min");
-var range = require("../src/api/common/range");
-var sum = require("../src/api/common/sum");
-var objectToArray = require("../src/api/common/objectToArray");
-var round = require("../src/api/common/round");
+var max = require("../src/common/max");
+var min = require("../src/common/min");
+var range = require("../src/common/range");
+var sum = require("../src/common/sum");
+var objectToArray = require("../src/common/objectToArray");
+var round = require("../src/common/round");
 describe("Common module unit tests", function () {
     it("will throw when passed an invalid object", function () {
         expect(objectToArray.bind(objectToArray, "bad type")).to.throw("Input must be array or object");
