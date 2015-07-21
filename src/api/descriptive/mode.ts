@@ -6,14 +6,11 @@ export = mode;
 function mode(data: number[]|{}) {
 	var table = frequencyTable(data);
 	var maximum = max(table);
+	var isMax = key => table[key] === maximum;
+	var toNum = key => Number(key);
 
-	var modes: number[] = [];
-
-	Object.keys(table)
-		.forEach(key => {
-			let value = table[key];
-			if (value === maximum) modes.push(Number(key));
-		});
-
-	return modes;
+	return Object
+		.keys(table)
+		.filter(isMax)
+		.map(toNum);
 }
