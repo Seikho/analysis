@@ -1,8 +1,8 @@
 var objectToArray = require("./objectToArray");
 function sum(data) {
     var dataset = objectToArray(data);
-    var total = dataset.reduce(function (prev, curr) { return prev += curr; }, 0);
-    return total;
+    var add = function (left, right) { return left + right; };
+    return dataset.reduce(add);
 }
 module.exports = sum;
 //# sourceMappingURL=sum.js.map

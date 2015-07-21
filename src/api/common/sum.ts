@@ -3,8 +3,7 @@ export = sum;
 
 function sum(data: number[]|{}) {
 	var dataset: number[] = objectToArray(data);
+	var add = (left, right) => left + right;
 	
-	var total = dataset.reduce((prev, curr) => prev += curr, 0);
-	
-	return total;
+	return dataset.reduce(add);
 }
