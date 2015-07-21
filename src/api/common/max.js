@@ -3,9 +3,7 @@ var objectToArray = require("./objectToArray");
  * @return Number Returns the highest value in a dataset/array
  */
 function max(data) {
-    var dataset = objectToArray(data);
-    var maximum = dataset.reduce(getMax, 0);
-    return maximum;
+    return objectToArray(data).reduce(getMax);
 }
 function getMax(left, right) {
     return left > right
