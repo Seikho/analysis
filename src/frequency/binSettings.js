@@ -1,6 +1,6 @@
 var isNum = require("../common/isNumber");
 var range = require("../common/range");
-function fixBinSettings(dataset, binOptions) {
+function binSettings(dataset, binOptions) {
     binOptions = binOptions || {
         binCount: 10,
         binSize: 0
@@ -27,5 +27,5 @@ function fixBinSettings(dataset, binOptions) {
     }
     return binOptions;
 }
-module.exports = fixBinSettings;
+module.exports = binSettings;
 //# sourceMappingURL=binSettings.js.map

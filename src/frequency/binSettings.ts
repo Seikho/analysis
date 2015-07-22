@@ -1,8 +1,8 @@
 import isNum = require("../common/isNumber");
 import range = require("../common/range");
-export = fixBinSettings;
+export = binSettings;
 
-function fixBinSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
+function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
 	binOptions = binOptions || {
 		binCount: 10,
 		binSize: 0

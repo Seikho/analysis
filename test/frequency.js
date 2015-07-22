@@ -33,12 +33,11 @@ describe("Frequency tests", function () {
     });
     it("will correctly create a histogram with min and max options provided", function () {
         var binOptions = {
-            minimum: 0,
+            minimum: 1,
             maximum: 25,
             binSize: 5
         };
-        var histTable = histogram([1, 6, 6, 11, 11, 11, 16, 16, 16, 16, 21, 21, 21, 21], binOptions);
-        console.log(histTable);
+        var histTable = histogram([1, 6, 6, 11, 11, 11, 16, 16, 16, 16, 21, 21, 21, 21, 21], binOptions);
         expect(histTable[1]).to.equal(1);
         expect(histTable[2]).to.equal(2);
         expect(histTable[3]).to.equal(3);
