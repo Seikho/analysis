@@ -1,13 +1,14 @@
 import table = require("./table");
-import range = require("../common/range");
+
+import binSettings = require("./binSettings");
 import objectToArray = require("../common/objectToArray");
-import isNum = require("../common/isNumber");
+
 export = histogram;
 
 
 function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
 	var dataset = objectToArray(data);
-	binOptions = fixBinSettings(dataset, binOptions);
+	binOptions = binSettings(dataset, binOptions);
 
 	var result = getEmptyHistogram(binOptions.binCount);
 	var roughBin = val => (val - binOptions.minimum) / binOptions.binSize;
@@ -32,37 +33,3 @@ function getEmptyHistogram(binCount: number): {} {
 	return emptyHistogram;
 }
 
-function fixBinSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
-	binOptions = binOptions || {
-		binCount: 10,
-		binSize: 0
-	};
-
-	if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
-		let dataRange = range(dataset);
-		binOptions.maximum = dataRange.maximum;
-		binOptions.minimum = dataRange.minimum;
-	}
-
-	binOptions.difference = binOptions.maximum - binOptions.minimum;
-
-	let isValidBinCount = isNum(binOptions.binCount);
-	let isValidBinSize = isNum(binOptions.binSize);
-
-	if (!isValidBinCount && !isValidBinSize) {
-		binOptions.binCount = 10;
-		isValidBinCount = true;
-	}
-
-	if (!isValidBinCount) {
-		binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
-		binOptions.binSize = binOptions.difference / binOptions.binCount;
-		isValidBinSize = true;
-	}
-
-	if (!isValidBinSize) {
-		binOptions.binSize = binOptions.difference / binOptions.binCount;
-	}
-
-	return binOptions;
-}

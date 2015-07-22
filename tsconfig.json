@@ -26,6 +26,7 @@
         "./src/descriptive/stdDev.ts",
         "./src/descriptive/variance.ts",
         "./src/descriptive/zScore.ts",
+        "./src/frequency/binSettings.ts",
         "./src/frequency/histogram.ts",
         "./src/frequency/table.ts",
         "./src/index.ts",
