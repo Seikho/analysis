@@ -7,8 +7,15 @@ import range = require("../src/common/range");
 import sum = require("../src/common/sum");
 import objectToArray = require("../src/common/objectToArray");
 import round = require("../src/common/round");
+import curry = require("../src/common/curry");
 
 describe("Common module unit tests", () => {
+
+	it("will curry a simple 2 argument function", () => {
+		var add = (left, right) => left + right;
+		var addOne = curry(add, 1);
+		expect(addOne(2)).to.equal(3);
+	});
 
 	it("will throw when passed an invalid object", () => {
 		expect(objectToArray.bind(objectToArray, "bad type")).to.throw("Input must be array or object");

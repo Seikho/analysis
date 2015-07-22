@@ -6,7 +6,13 @@ var range = require("../src/common/range");
 var sum = require("../src/common/sum");
 var objectToArray = require("../src/common/objectToArray");
 var round = require("../src/common/round");
+var curry = require("../src/common/curry");
 describe("Common module unit tests", function () {
+    it("will curry a simple 2 argument function", function () {
+        var add = function (left, right) { return left + right; };
+        var addOne = curry(add, 1);
+        expect(addOne(2)).to.equal(3);
+    });
     it("will throw when passed an invalid object", function () {
         expect(objectToArray.bind(objectToArray, "bad type")).to.throw("Input must be array or object");
         expect(objectToArray.bind(objectToArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
