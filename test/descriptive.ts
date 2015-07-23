@@ -76,5 +76,9 @@ describe("Descriptive module tests", () => {
 		expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(3);
 		expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])).to.equal(3);
 	});
+	
+	it("will throw if less than 4 values are supplied to first quartile", () => {
+		expect(firstQuartile.bind(firstQuartile, [1,2,3])).to.throw("Not enough values supplied");
+	});
 });
 
