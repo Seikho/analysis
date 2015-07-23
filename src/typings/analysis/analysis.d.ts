@@ -19,6 +19,12 @@ declare module Analysis {
 		mean(data: number[]|{}): number;
 		median(data: number[]|{}): number;
 		mode(data: number[]|{}): number[];
+		stdDev(data: number[]|{}): number;
+		variance(data: number[]|{}): number;
+		zScore(data: number[]|{}, value: number): number;
+		firstQuartile(data: number[]|{}): number;
+		thirdQuartile(data: number[]|{}): number;
+		quartileRange(data: number[]|{}): number;
 	}
 
 	export interface RangeResult {
