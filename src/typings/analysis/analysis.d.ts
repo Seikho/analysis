@@ -18,6 +18,7 @@ declare module Analysis {
 		round(value: number, decimalPlaces?: number): number;
 		isNumber(value: any): boolean;
 		curry(fn: Function, ...fnArgs: any[]): (...args: any[]) => any;
+		isEven(value: number): boolean;
 	}
 
 	export interface Descriptive {
