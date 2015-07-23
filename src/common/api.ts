@@ -10,6 +10,7 @@ import range = require("./range");
 import round = require("./round");
 import sum = require("./sum");
 import validateArray = require("./validateArray");
+import isEven = require("./isEven");
 export = api;
 
 var api: Common = {
@@ -21,5 +22,6 @@ var api: Common = {
 	toArray: objectToArray,
 	sum: sum,
 	isNumber: isNumber,
-	curry: curry
+	curry: curry,
+	isEven: isEven
 };
