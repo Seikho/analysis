@@ -8,8 +8,8 @@ describe("Common module unit tests", function () {
         expect(addOne(2)).to.equal(3);
     });
     it("will throw when passed an invalid object", function () {
-        expect(common.objectToArray.bind(common.objectToArray, "bad type")).to.throw("Input must be array or object");
-        expect(common.objectToArray.bind(common.objectToArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
+        expect(common.toArray.bind(common.toArray, "bad type")).to.throw("Input must be array or object");
+        expect(common.toArray.bind(common.toArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
     });
     it("will find the maximum number in a dataset", function () {
         expect(common.max([1, 2, 3, 4, 5, 6, 7])).to.equal(7);
@@ -30,7 +30,7 @@ describe("Common module unit tests", function () {
             "two": 2,
             "three": 3
         };
-        var data = common.objectToArray(obj);
+        var data = common.toArray(obj);
         expect(data.length).to.equal(3);
         expect(data).to.contain(1);
         expect(data).to.contain(2);

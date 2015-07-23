@@ -9,7 +9,7 @@ declare module Analysis {
 
 	export interface Common {
 		round(value: number, decimalPlaces?: number): number;
-		objectToArray(dataset: {}): number[];
+		toArray(dataset: {}): number[];
 		max(data: number[]|{}): number;
 		min(data: number[]|{}): number;
 		range(data: number[]|{}): RangeResult;

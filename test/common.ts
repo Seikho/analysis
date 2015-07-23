@@ -11,8 +11,8 @@ describe("Common module unit tests", () => {
 	});
 
 	it("will throw when passed an invalid object", () => {
-		expect(common.objectToArray.bind(common.objectToArray, "bad type")).to.throw("Input must be array or object");
-		expect(common.objectToArray.bind(common.objectToArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
+		expect(common.toArray.bind(common.toArray, "bad type")).to.throw("Input must be array or object");
+		expect(common.toArray.bind(common.toArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
 	});
 
 	it("will find the maximum number in a dataset", () => {
@@ -38,7 +38,7 @@ describe("Common module unit tests", () => {
 			"three": 3
 		};
 
-		var data = common.objectToArray(obj);
+		var data = common.toArray(obj);
 
 		expect(data.length).to.equal(3);
 		expect(data).to.contain(1);

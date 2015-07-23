@@ -13,7 +13,7 @@ var api = {
     range: range,
     round: round,
     validateArray: validateArray,
-    objectToArray: objectToArray,
+    toArray: objectToArray,
     sum: sum,
     isNumber: isNumber,
     curry: curry
