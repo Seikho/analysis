@@ -7,6 +7,7 @@ var median = require("../src/descriptive/median");
 var variance = require("../src/descriptive/variance");
 var stdDev = require("../src/descriptive/stdDev");
 var zScore = require("../src/descriptive/zScore");
+var firstQuartile = require("../src/descriptive/firstQuartile");
 describe("Descriptive module tests", function () {
     it("will find the mean for a dataset", function () {
         var data = [2, 3, 2, 3, 2, 3]; // 15	
@@ -54,6 +55,10 @@ describe("Descriptive module tests", function () {
     });
     it("will calculate the z-score correctly", function () {
         expect(zScore([85, 90, 95, 100, 105, 110, 115], 110)).to.equal(1);
+    });
+    it("will calculate the first quartile", function () {
+        expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(2.75);
+        expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])).to.equal(3);
     });
 });
 //# sourceMappingURL=descriptive.js.map
