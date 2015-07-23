@@ -7,7 +7,15 @@ describe("Common module unit tests", function () {
         var addOne = common.curry(add, 1);
         expect(addOne(2)).to.equal(3);
     });
-    it("will throw when passed an invalid object", function () {
+    it("will correctly determine if a value is even", function () {
+        expect(common.isEven(1)).to.be.false;
+        expect(common.isEven(2)).to.be.true;
+        expect(common.isEven(0)).to.be.true;
+    });
+    it("will throw when invalid input is passed to isEven", function () {
+        expect(common.isEven.bind(common.isEven, "not a number")).to.throw("Input must be a number");
+    });
+    it("will throw when invalid input is passed to toArray", function () {
         expect(common.toArray.bind(common.toArray, "bad type")).to.throw("Input must be array or object");
         expect(common.toArray.bind(common.toArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
     });
