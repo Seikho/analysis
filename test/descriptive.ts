@@ -73,7 +73,7 @@ describe("Descriptive module tests", () => {
 	});
 
 	it("will calculate the first quartile", () => {
-		expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(2.75);
+		expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(3);
 		expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])).to.equal(3);
 	});
 });

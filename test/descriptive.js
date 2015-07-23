@@ -57,7 +57,7 @@ describe("Descriptive module tests", function () {
         expect(zScore([85, 90, 95, 100, 105, 110, 115], 110)).to.equal(1);
     });
     it("will calculate the first quartile", function () {
-        expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(2.75);
+        expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(3);
         expect(firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])).to.equal(3);
     });
 });
