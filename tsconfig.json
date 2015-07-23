@@ -14,6 +14,7 @@
         "./test/frequency.ts",
         "./src/common/api.ts",
         "./src/common/curry.ts",
+        "./src/common/isEven.ts",
         "./src/common/isNumber.ts",
         "./src/common/max.ts",
         "./src/common/min.ts",
