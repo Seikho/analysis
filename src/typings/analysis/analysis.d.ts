@@ -13,6 +13,11 @@ declare module Analysis {
 		max(data: number[]|{}): number;
 		min(data: number[]|{}): number;
 		range(data: number[]|{}): RangeResult;
+		validateArray(data: number[]): number[];
+		sum(data: number[]|{}): number;
+		round(value: number, decimalPlaces?: number): number;
+		isNumber(value: any): boolean;
+		curry(fn: Function, ...fnArgs: any[]): (...args: any[]) => any;
 	}
 
 	export interface Descriptive {
