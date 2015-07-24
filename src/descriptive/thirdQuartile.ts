@@ -1,5 +1,6 @@
 import toArray = require("../common/toArray");
 import isEven = require("../common/isEven");
+import isWhole = require("../common/isWhole");
 import sortDesc = require("../common/sortDesc");
 import errors = require("../errors");
 export = thirdQuartile;
@@ -11,10 +12,9 @@ function thirdQuartile(data: number[]|{}): number {
 	var offset = dataset.length * 0.75;
 	var offsetFloored = Math.floor(offset);
 
-	if (!isEven(offset)) return dataset[offsetFloored];
+	if (!isWhole(offset)) return dataset[offsetFloored];	
+	
+	var otherOffset = offsetFloored - 1;
 
-	var down = Math.floor(middleIndex);
-	var up = Math.ceil(middleIndex);
-
-	return (dataset[down] + dataset[up]) / 2;
+	return (dataset[offsetFloored] + dataset[otherOffset]) / 2;
 }

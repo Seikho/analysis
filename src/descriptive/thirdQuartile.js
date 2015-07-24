@@ -1,5 +1,5 @@
 var toArray = require("../common/toArray");
-var isEven = require("../common/isEven");
+var isWhole = require("../common/isWhole");
 var sortDesc = require("../common/sortDesc");
 var errors = require("../errors");
 function thirdQuartile(data) {
@@ -8,11 +8,10 @@ function thirdQuartile(data) {
         throw new Error(errors.InsufficientValues);
     var offset = dataset.length * 0.75;
     var offsetFloored = Math.floor(offset);
-    if (!isEven(offset))
+    if (!isWhole(offset))
         return dataset[offsetFloored];
-    var down = Math.floor(middleIndex);
-    var up = Math.ceil(middleIndex);
-    return (dataset[down] + dataset[up]) / 2;
+    var otherOffset = offsetFloored - 1;
+    return (dataset[offsetFloored] + dataset[otherOffset]) / 2;
 }
 module.exports = thirdQuartile;
 //# sourceMappingURL=thirdQuartile.js.map
