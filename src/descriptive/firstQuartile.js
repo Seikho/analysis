@@ -1,18 +1,17 @@
 var toArray = require("../common/toArray");
-var isEven = require("../common/isEven");
+var isWhole = require("../common/isWhole");
 var sortAsc = require("../common/sortAsc");
 var errors = require("../errors");
 function firstQuartile(data) {
     var dataset = sortAsc(toArray(data));
     if (dataset.length < 4)
         throw new Error(errors.InsufficientValues);
-    var upperIndex = Math.floor(dataset.length / 2) - 1;
-    var middleIndex = upperIndex / 2;
-    if (isEven(dataset.length))
-        return dataset[middleIndex];
-    var down = Math.floor(middleIndex);
-    var up = Math.ceil(middleIndex);
-    return (dataset[down] + dataset[up]) / 2;
+    var offset = dataset.length * 0.25;
+    var offsetFloored = Math.floor(offset);
+    if (!isWhole(offset))
+        return dataset[offsetFloored];
+    var otherOffset = offsetFloored - 1;
+    return (dataset[offsetFloored] + dataset[otherOffset]) / 2;
 }
 module.exports = firstQuartile;
 //# sourceMappingURL=firstQuartile.js.map

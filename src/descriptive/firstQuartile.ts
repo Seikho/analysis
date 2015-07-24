@@ -1,5 +1,5 @@
 import toArray = require("../common/toArray");
-import isEven = require("../common/isEven");
+import isWhole = require("../common/isWhole");
 import sortAsc = require("../common/sortAsc");
 import errors = require("../errors");
 export = firstQuartile;
@@ -7,14 +7,13 @@ export = firstQuartile;
 function firstQuartile(data: number[]|{}): number {
 	var dataset = sortAsc(toArray(data));
 	if (dataset.length < 4) throw new Error(errors.InsufficientValues);
-	
-	var upperIndex = Math.floor(dataset.length / 2) - 1;
-	var middleIndex = upperIndex / 2;
-	
-	if (isEven(dataset.length)) return dataset[middleIndex];
 
-	var down = Math.floor(middleIndex);
-	var up = Math.ceil(middleIndex);
+	var offset = dataset.length * 0.25;
+	var offsetFloored = Math.floor(offset);
 
-	return (dataset[down] + dataset[up]) / 2;
+	if (!isWhole(offset)) return dataset[offsetFloored];	
+	
+	var otherOffset = offsetFloored - 1;
+
+	return (dataset[offsetFloored] + dataset[otherOffset]) / 2;
 }
