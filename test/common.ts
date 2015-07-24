@@ -81,7 +81,15 @@ describe("Common module unit tests", () => {
 	it("sortAsc: will sort an unordered array descending without mutating the original data", () => {
 		var data = [2,1,4,3];
 		var sorted = common.sortAsc(data);
-		expect(data).to.equal([2,1,4,3]);
-		expect(sorted).to.equal([1,2,3,4]);
+		arrayIsEqual(data, [2,1,4,3]);
+		arrayIsEqual(sorted, [1,2,3,4]);
 	});
 });
+
+function arrayIsEqual(left: any[], right: any[]) {
+	expect(Array.isArray(left)).to.equal(Array.isArray(right));
+	expect(left.length).to.equal(right.length);
+	for (let x = 0; x < left.length;x++) {
+		expect(left[x]).to.equal(right[x]);
+	}
+}
