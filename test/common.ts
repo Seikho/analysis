@@ -9,18 +9,26 @@ describe("Common module unit tests", () => {
 		expect(common.isWhole.bind(common.isWhole, "not a number")).to.throw(errors.MustBeNumber);
 	});
 
+	it("isWhole: will correctly determine that a non-whole number is not whole", () => {
+		expect(common.isWhole(1.5)).to.be.false;
+	});
+	
+	it("isWhole: will correctly determine that a whole number is whole", () => {
+		expect(common.isWhole(1)).to.be.true;
+	});
+
 	it("curry: will curry a simple 2 argument function", () => {
 		var add = (left, right) => left + right;
 		var addOne = common.curry(add, 1);
 		expect(addOne(2)).to.equal(3);
 	});
-	
+
 	it("isEven: will correctly determine if a value is even", () => {
 		expect(common.isEven(1)).to.be.false;
 		expect(common.isEven(2)).to.be.true;
 		expect(common.isEven(0)).to.be.true;
 	});
-	
+
 	it("isEven: will throw when invalid input is passed to isEven", () => {
 		expect(common.isEven.bind(common.isEven, "not a number")).to.throw(errors.MustBeNumber);
 	});
@@ -45,7 +53,7 @@ describe("Common module unit tests", () => {
 		expect(common.toArray.bind(common.toArray, "bad type")).to.throw(errors.MustBeArrayOrObject);
 		expect(common.toArray.bind(common.toArray, ["word", 1, 2, 3, 4])).to.throw(errors.AllMustBeNumbers);
 	});
-	
+
 	it("toArray: will convert an object of string:number to an array", () => {
 		var obj = {
 			"one": 1,
@@ -81,26 +89,26 @@ describe("Common module unit tests", () => {
 		var total = common.sum(data);
 		expect(total).to.equal(55);
 	});
-	
+
 	it("sortAsc: will sort an unordered array ascending without mutating the original array", () => {
-		var data = [2,1,4,3];
+		var data = [2, 1, 4, 3];
 		var sorted = common.sortAsc(data);
-		arrayIsEqual(data, [2,1,4,3]);
-		arrayIsEqual(sorted, [1,2,3,4]);
+		arrayIsEqual(data, [2, 1, 4, 3]);
+		arrayIsEqual(sorted, [1, 2, 3, 4]);
 	});
-	
+
 	it("sortDesc: will sort an unordered array descending without mutating the original array", () => {
-		var data = [2,1,4,3];
+		var data = [2, 1, 4, 3];
 		var sorted = common.sortDesc(data);
-		arrayIsEqual(data, [2,1,4,3]);
-		arrayIsEqual(sorted, [4,3,2,1]);
+		arrayIsEqual(data, [2, 1, 4, 3]);
+		arrayIsEqual(sorted, [4, 3, 2, 1]);
 	});
 });
 
 function arrayIsEqual(left: any[], right: any[]) {
 	expect(Array.isArray(left)).to.equal(Array.isArray(right));
 	expect(left.length).to.equal(right.length);
-	for (let x = 0; x < left.length;x++) {
+	for (let x = 0; x < left.length; x++) {
 		expect(left[x]).to.equal(right[x]);
 	}
 }

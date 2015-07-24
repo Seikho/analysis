@@ -6,6 +6,12 @@ describe("Common module unit tests", function () {
     it("isWhole: will throw if passed a non-number", function () {
         expect(common.isWhole.bind(common.isWhole, "not a number")).to.throw(errors.MustBeNumber);
     });
+    it("isWhole: will correctly determine that a non-whole number is not whole", function () {
+        expect(common.isWhole(1.5)).to.be.false;
+    });
+    it("isWhole: will correctly determine that a whole number is whole", function () {
+        expect(common.isWhole(1)).to.be.true;
+    });
     it("curry: will curry a simple 2 argument function", function () {
         var add = function (left, right) { return left + right; };
         var addOne = common.curry(add, 1);
