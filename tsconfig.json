@@ -37,6 +37,7 @@
         "./src/descriptive/variance.ts",
         "./src/descriptive/zScore.ts",
         "./src/errors.ts",
+        "./src/frequency/api.ts",
         "./src/frequency/binSettings.ts",
         "./src/frequency/histogram.ts",
         "./src/frequency/table.ts",
