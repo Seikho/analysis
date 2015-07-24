@@ -9,7 +9,7 @@ function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Anal
 	};
 		
 	if (!!binOptions.binCount && !!binOptions.binSize)
-		throw new TypeError("Must provide either binSize or binCount, but not both.");
+		throw new TypeError("Must provide either binSize or binCount, but not both");
 
 	if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
 		let dataRange = range(dataset);

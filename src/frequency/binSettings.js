@@ -6,7 +6,7 @@ function binSettings(dataset, binOptions) {
         binSize: 0
     };
     if (!!binOptions.binCount && !!binOptions.binSize)
-        throw new TypeError("Must provide either binSize or binCount, but not both.");
+        throw new TypeError("Must provide either binSize or binCount, but not both");
     if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
         var dataRange = range(dataset);
         binOptions.maximum = dataRange.maximum;
