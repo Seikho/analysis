@@ -1,3 +1,4 @@
+import errors = require("../src/errors");
 import chai = require("chai");
 var expect = chai.expect;
 
@@ -16,6 +17,15 @@ describe("Frequency tests", () => {
 		expect(freqTable[2]).to.equal(2);
 		expect(freqTable[3]).to.equal(3);
 		expect(freqTable[4]).to.equal(4);
+	});
+	
+	it("histogram: will correctly throw if provided too many options", () => {
+		var opts = {
+			binSize: 1,
+			binCount: 1
+		};
+		
+		expect(histogram.bind(histogram, histData, opts)).to.throw(errors.HistogramOneOption);
 	});
 
 	it("histogram: will correctly create a histogram with no options provided", () => {
