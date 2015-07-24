@@ -40,6 +40,7 @@ declare module "analysis" {
 
 	export interface Frequency {
 		table(data: number[]|{}): {};
+		histogram(data: number[]|{}): {};
 	}
 
 	export interface BinSettings {
