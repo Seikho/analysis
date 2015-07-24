@@ -10,10 +10,8 @@ function histogram(data, binOptions) {
     var adjustBin = function (val) { return isEven(binOptions.binSize)
         ? val - 1
         : val; };
-    console.log(binOptions);
     dataset.forEach(function (value) {
         var binNumber = adjustBin(realBin(value));
-        console.log("%d --> %d", value, binNumber);
         result[binNumber]++;
     });
     return result;

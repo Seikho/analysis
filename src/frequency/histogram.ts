@@ -16,11 +16,8 @@ function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
 		? val - 1
 		: val;
 
-	console.log(binOptions);
-
 	dataset.forEach(value => {
 		let binNumber = adjustBin(realBin(value));
-		console.log("%d --> %d", value, binNumber);
 		result[binNumber]++;
 	});
 
