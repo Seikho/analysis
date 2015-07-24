@@ -28,6 +28,7 @@
         "./src/common/validateArray.ts",
         "./src/descriptive/api.ts",
         "./src/descriptive/firstQuartile.ts",
+        "./src/descriptive/interQuartileRange.ts",
         "./src/descriptive/mean.ts",
         "./src/descriptive/median.ts",
         "./src/descriptive/mode.ts",
