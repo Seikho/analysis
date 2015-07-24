@@ -11,13 +11,16 @@ function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
 
 	var roughBin = val => (val - binOptions.minimum) / binOptions.binSize;
 	var realBin = val => Math.floor(roughBin(val)) + 1;
-	
+
 	var adjustBin = val => isEven(binOptions.binSize)
 		? val - 1
 		: val;
 
+	console.log(binOptions);
+
 	dataset.forEach(value => {
 		let binNumber = adjustBin(realBin(value));
+		console.log("%d --> %d", value, binNumber);
 		result[binNumber]++;
 	});
 

@@ -1,6 +1,8 @@
 var isNum = require("../common/isNumber");
 var range = require("../common/range");
 function binSettings(dataset, binOptions) {
+    if (!!binOptions.binCount && !!binOptions.binSize)
+        throw new TypeError("Must provide either binSize or binCount, but not both.");
     binOptions = binOptions || {
         binCount: 10,
         binSize: 0
@@ -13,10 +15,6 @@ function binSettings(dataset, binOptions) {
     binOptions.difference = binOptions.maximum - binOptions.minimum;
     var isValidBinCount = isNum(binOptions.binCount);
     var isValidBinSize = isNum(binOptions.binSize);
-    if (!isValidBinCount && !isValidBinSize) {
-        binOptions.binCount = 10;
-        isValidBinCount = true;
-    }
     if (!isValidBinCount) {
         binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
         binOptions.binSize = binOptions.difference / binOptions.binCount;

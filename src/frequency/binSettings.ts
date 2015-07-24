@@ -3,6 +3,9 @@ import range = require("../common/range");
 export = binSettings;
 
 function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
+	if (!!binOptions.binCount && !!binOptions.binSize)
+		throw new TypeError("Must provide either binSize or binCount, but not both.");
+		
 	binOptions = binOptions || {
 		binCount: 10,
 		binSize: 0
@@ -18,11 +21,6 @@ function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Anal
 
 	let isValidBinCount = isNum(binOptions.binCount);
 	let isValidBinSize = isNum(binOptions.binSize);
-
-	if (!isValidBinCount && !isValidBinSize) {
-		binOptions.binCount = 10;
-		isValidBinCount = true;
-	}
 
 	if (!isValidBinCount) {
 		binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
