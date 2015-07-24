@@ -62,11 +62,17 @@ describe("Common module unit tests", function () {
         var total = common.sum(data);
         expect(total).to.equal(55);
     });
-    it("sortAsc: will sort an unordered array descending without mutating the original data", function () {
+    it("sortAsc: will sort an unordered array ascending without mutating the original array", function () {
         var data = [2, 1, 4, 3];
         var sorted = common.sortAsc(data);
         arrayIsEqual(data, [2, 1, 4, 3]);
         arrayIsEqual(sorted, [1, 2, 3, 4]);
+    });
+    it("sortDesc: will sort an unordered array descending without mutating the original array", function () {
+        var data = [2, 1, 4, 3];
+        var sorted = common.sortDesc(data);
+        arrayIsEqual(data, [2, 1, 4, 3]);
+        arrayIsEqual(sorted, [4, 3, 2, 1]);
     });
 });
 function arrayIsEqual(left, right) {
