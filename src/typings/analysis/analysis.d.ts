@@ -1,8 +1,4 @@
 declare module "analysis" {
-	export = Analysis;
-}
-
-declare module Analysis {
 	export var common: Common;
 	export var descriptive: Descriptive;
 	export var frequency: Frequency;
@@ -41,11 +37,11 @@ declare module Analysis {
 		maximum: number;
 		difference: number;
 	}
-	
+
 	export interface Frequency {
 		table(data: number[]|{}): {};
 	}
-	
+
 	export interface BinSettings {
 		binCount?: number;
 		binSize?: number;
@@ -54,4 +50,3 @@ declare module Analysis {
 		difference?: number;
 	}
 }
-
