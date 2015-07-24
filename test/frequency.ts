@@ -18,23 +18,6 @@ describe("Frequency tests", () => {
 		expect(freqTable[4]).to.equal(4);
 	});
 
-	it("histogram: will correctly create a histogram with count and size options provided", () => {
-
-		let binOptions = {
-			binCount: 5,
-			binSize: 10
-		};
-
-		let histTable = histogram(histData, binOptions);
-		console.log(histTable);
-
-		expect(histTable[1]).to.equal(2);
-		expect(histTable[2]).to.equal(2);
-		expect(histTable[3]).to.equal(2);
-		expect(histTable[4]).to.equal(2);
-		expect(histTable[5]).to.equal(2);
-	});
-
 	it("histogram: will correctly create a histogram with no options provided", () => {
 		let histTable = histogram(histData);
 

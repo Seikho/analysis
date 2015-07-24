@@ -1,12 +1,12 @@
 var isNum = require("../common/isNumber");
 var range = require("../common/range");
 function binSettings(dataset, binOptions) {
-    if (!!binOptions.binCount && !!binOptions.binSize)
-        throw new TypeError("Must provide either binSize or binCount, but not both.");
     binOptions = binOptions || {
         binCount: 10,
         binSize: 0
     };
+    if (!!binOptions.binCount && !!binOptions.binSize)
+        throw new TypeError("Must provide either binSize or binCount, but not both.");
     if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
         var dataRange = range(dataset);
         binOptions.maximum = dataRange.maximum;
