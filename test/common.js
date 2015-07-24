@@ -1,4 +1,5 @@
 var chai = require("chai");
+var errors = require("../src/errors");
 var expect = chai.expect;
 var common = require("../src/common/api");
 describe("Common module unit tests", function () {
@@ -13,7 +14,7 @@ describe("Common module unit tests", function () {
         expect(common.isEven(0)).to.be.true;
     });
     it("isEven: will throw when invalid input is passed to isEven", function () {
-        expect(common.isEven.bind(common.isEven, "not a number")).to.throw("Input must be a number");
+        expect(common.isEven.bind(common.isEven, "not a number")).to.throw(errors.MustBeNumber);
     });
     it("max: will find the maximum number in a dataset", function () {
         expect(common.max([1, 2, 3, 4, 5, 6, 7])).to.equal(7);
@@ -29,8 +30,8 @@ describe("Common module unit tests", function () {
         expect(dataRange.maximum).to.equal(60);
     });
     it("toArray: will throw when invalid input", function () {
-        expect(common.toArray.bind(common.toArray, "bad type")).to.throw("Input must be array or object");
-        expect(common.toArray.bind(common.toArray, ["word", 1, 2, 3, 4])).to.throw("All values must be numbers");
+        expect(common.toArray.bind(common.toArray, "bad type")).to.throw(errors.MustBeArrayOrObject);
+        expect(common.toArray.bind(common.toArray, ["word", 1, 2, 3, 4])).to.throw(errors.AllMustBeNumbers);
     });
     it("toArray: will convert an object of string:number to an array", function () {
         var obj = {
