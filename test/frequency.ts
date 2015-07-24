@@ -8,7 +8,7 @@ describe("Frequency tests", () => {
 	var freqData = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
 	var histData = [5, 6, 15, 16, 25, 26, 35, 36, 45, 46];
 
-	it("will correctly create a frequency table", () => {
+	it("table: will correctly create a frequency table", () => {
 		let freqTable = table(freqData);
 
 		expect(typeof freqTable).to.equal("object");
@@ -18,7 +18,7 @@ describe("Frequency tests", () => {
 		expect(freqTable[4]).to.equal(4);
 	});
 
-	it("will correctly create a histogram with count and size options provided", () => {
+	it("histogram: will correctly create a histogram with count and size options provided", () => {
 
 		let binOptions = {
 			binCount: 5,
@@ -34,7 +34,7 @@ describe("Frequency tests", () => {
 		expect(histTable[5]).to.equal(2);
 	});
 
-	it("will correctly create a histogram with no options provided", () => {
+	it("histogram: will correctly create a histogram with no options provided", () => {
 		let histTable = histogram(histData);
 
 		expect(typeof histTable).to.equal("object");
@@ -42,7 +42,7 @@ describe("Frequency tests", () => {
 		expect(histTable[10]).to.exist;
 	});
 
-	it("will correctly create a histogram with min and max options provided", () => {
+	it("histogram: will correctly create a histogram with min and max options provided", () => {
 		let binOptions = {
 			minimum: 1,
 			maximum: 25,
