@@ -8,6 +8,8 @@ var round = require("./round");
 var sum = require("./sum");
 var validateArray = require("./validateArray");
 var isEven = require("./isEven");
+var sortAsc = require("./sortAsc");
+var sortDesc = require("./sortDesc");
 var api = {
     min: min,
     max: max,
@@ -18,7 +20,9 @@ var api = {
     sum: sum,
     isNumber: isNumber,
     curry: curry,
-    isEven: isEven
+    isEven: isEven,
+    sortAsc: sortAsc,
+    sortDesc: sortDesc
 };
 module.exports = api;
 //# sourceMappingURL=api.js.map

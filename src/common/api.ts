@@ -11,6 +11,8 @@ import round = require("./round");
 import sum = require("./sum");
 import validateArray = require("./validateArray");
 import isEven = require("./isEven");
+import sortAsc = require("./sortAsc");
+import sortDesc = require("./sortDesc");
 export = api;
 
 var api: Common = {
@@ -23,5 +25,7 @@ var api: Common = {
 	sum: sum,
 	isNumber: isNumber,
 	curry: curry,
-	isEven: isEven
+	isEven: isEven,
+	sortAsc: sortAsc,
+	sortDesc: sortDesc
 };
