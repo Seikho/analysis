@@ -1,3 +1,4 @@
+import Analysis = require("analysis");
 import isNum = require("../common/isNumber");
 import range = require("../common/range");
 import errors = require("../errors");

@@ -1,3 +1,4 @@
+import Analysis = require("analysis");
 import min = require("./min");
 import max = require("./max");
 export = range;
