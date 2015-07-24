@@ -5,6 +5,10 @@ import common = require("../src/common/api");
 
 describe("Common module unit tests", () => {
 
+	it("isWhole: will throw if passed a non-number", () => {
+		expect(common.isWhole.bind(common.isWhole, "not a number")).to.throw(errors.MustBeNumber);
+	});
+
 	it("curry: will curry a simple 2 argument function", () => {
 		var add = (left, right) => left + right;
 		var addOne = common.curry(add, 1);

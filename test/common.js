@@ -3,6 +3,9 @@ var errors = require("../src/errors");
 var expect = chai.expect;
 var common = require("../src/common/api");
 describe("Common module unit tests", function () {
+    it("isWhole: will throw if passed a non-number", function () {
+        expect(common.isWhole.bind(common.isWhole, "not a number")).to.throw(errors.MustBeNumber);
+    });
     it("curry: will curry a simple 2 argument function", function () {
         var add = function (left, right) { return left + right; };
         var addOne = common.curry(add, 1);
