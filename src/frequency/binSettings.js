@@ -1,12 +1,13 @@
 var isNum = require("../common/isNumber");
 var range = require("../common/range");
+var errors = require("../errors");
 function binSettings(dataset, binOptions) {
     binOptions = binOptions || {
         binCount: 10,
         binSize: 0
     };
     if (!!binOptions.binCount && !!binOptions.binSize)
-        throw new TypeError("Must provide either binSize or binCount, but not both");
+        throw new TypeError(errors.HistogramOneOption);
     if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
         var dataRange = range(dataset);
         binOptions.maximum = dataRange.maximum;

@@ -1,7 +1,8 @@
 var isNumber = require("./isNumber");
+var errors = require("../errors");
 function isEven(value) {
     if (!isNumber(value))
-        throw new TypeError("Input must be a number");
+        throw new TypeError(errors.MustBeNumber);
     return value % 2 === 0;
 }
 module.exports = isEven;

@@ -1,5 +1,6 @@
 import isNum = require("../common/isNumber");
 import range = require("../common/range");
+import errors = require("../errors");
 export = binSettings;
 
 function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
@@ -9,7 +10,7 @@ function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Anal
 	};
 		
 	if (!!binOptions.binCount && !!binOptions.binSize)
-		throw new TypeError("Must provide either binSize or binCount, but not both");
+		throw new TypeError(errors.HistogramOneOption);
 
 	if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
 		let dataRange = range(dataset);

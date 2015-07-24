@@ -1,10 +1,11 @@
 import toArray = require("../common/toArray");
 import isEven = require("../common/isEven");
+import errors = require("../errors");
 export = firstQuartile;
 
 function firstQuartile(data: number[]|{}): number {
 	var dataset = toArray(data);
-	if (dataset.length < 4) throw new Error("Not enough values supplied");
+	if (dataset.length < 4) throw new Error(errors.InsufficientValues);
 	
 	var upperIndex = Math.floor(dataset.length / 2) - 1;
 	var middleIndex = upperIndex / 2;

@@ -1,9 +1,10 @@
 var toArray = require("../common/toArray");
 var isEven = require("../common/isEven");
+var errors = require("../errors");
 function firstQuartile(data) {
     var dataset = toArray(data);
     if (dataset.length < 4)
-        throw new Error("Not enough values supplied");
+        throw new Error(errors.InsufficientValues);
     var upperIndex = Math.floor(dataset.length / 2) - 1;
     var middleIndex = upperIndex / 2;
     dataset.sort(function (l, r) { return l - r; });
