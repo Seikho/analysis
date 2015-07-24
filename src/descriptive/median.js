@@ -1,9 +1,10 @@
-var common = require("../common/api");
+var toArray = require("../common/toArray");
+var isEven = require("../common/isEven");
 function median(data) {
-    var dataset = common.toArray(data);
+    var dataset = toArray(data);
     var sortedDataset = dataset.sort(function (left, right) { return left - right; });
     var middleIndex = sortedDataset.length / 2;
-    if (!common.isEven(dataset.length)) {
+    if (!isEven(dataset.length)) {
         var index = Math.floor(middleIndex);
         return sortedDataset[index];
     }

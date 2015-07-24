@@ -1,11 +1,11 @@
-import common = require("./api");
+import toArray = require("./toArray");
 export = min;
 
 /**
  * @return Number Returns the lowest value in a dataset/array
  */
 function min(data: number[]|{}): number {
-	return common.toArray(data).reduce(getMin);
+	return toArray(data).reduce(getMin);
 }
 
 function getMin(left: number, right: number) {

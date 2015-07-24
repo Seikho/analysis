@@ -1,6 +1,6 @@
-var common = require("./api");
+var toArray = require("./toArray");
 function sort(data) {
-    var dataset = common.toArray(data);
+    var dataset = toArray(data);
     return dataset.sort(function (l, r) { return l - r; });
 }
 module.exports = sort;

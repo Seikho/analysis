@@ -1,8 +1,9 @@
-import common = require("../common/api");
+import toArray = require("../common/toArray");
+import isEven = require("../common/isEven");
 export = firstQuartile;
 
 function firstQuartile(data: number[]|{}): number {
-	var dataset = common.toArray(data);
+	var dataset = toArray(data);
 	if (dataset.length < 4) throw new Error("Not enough values supplied");
 	
 	var upperIndex = Math.floor(dataset.length / 2) - 1;
@@ -10,7 +11,7 @@ function firstQuartile(data: number[]|{}): number {
 	
 	dataset.sort((l, r) => l - r);
 
-	if (common.isEven(dataset.length)) return dataset[middleIndex];
+	if (isEven(dataset.length)) return dataset[middleIndex];
 
 	var down = Math.floor(middleIndex);
 	var up = Math.ceil(middleIndex);

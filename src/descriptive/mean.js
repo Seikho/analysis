@@ -1,7 +1,7 @@
-var common = require("../common/api");
+var toArray = require("../common/toArray");
 var sum = require("../common/sum");
 function mean(data) {
-    var dataset = common.toArray(data);
+    var dataset = toArray(data);
     return sum(dataset) / dataset.length;
 }
 module.exports = mean;

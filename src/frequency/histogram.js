@@ -1,12 +1,13 @@
 var binSettings = require("./binSettings");
-var common = require("../common/api");
+var toArray = require("../common/toArray");
+var isEven = require("../common/isEven");
 function histogram(data, binOptions) {
-    var dataset = common.toArray(data);
+    var dataset = toArray(data);
     binOptions = binSettings(dataset, binOptions);
     var result = getEmptyHistogram(binOptions.binCount);
     var roughBin = function (val) { return (val - binOptions.minimum) / binOptions.binSize; };
     var realBin = function (val) { return Math.floor(roughBin(val)) + 1; };
-    var adjustBin = function (val) { return common.isEven(binOptions.binSize)
+    var adjustBin = function (val) { return isEven(binOptions.binSize)
         ? val - 1
         : val; };
     dataset.forEach(function (value) {

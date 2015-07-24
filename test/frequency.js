@@ -19,6 +19,7 @@ describe("Frequency tests", function () {
             binSize: 10
         };
         var histTable = histogram(histData, binOptions);
+        console.log(histTable);
         expect(histTable[1]).to.equal(2);
         expect(histTable[2]).to.equal(2);
         expect(histTable[3]).to.equal(2);

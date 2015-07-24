@@ -1,6 +1,6 @@
-var common = require("./api");
+var toArray = require("./toArray");
 function sum(data) {
-    var dataset = common.toArray(data);
+    var dataset = toArray(data);
     var add = function (left, right) { return left + right; };
     return dataset.reduce(add);
 }

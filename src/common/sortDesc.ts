@@ -1,8 +1,8 @@
-import common = require("./api");
+import toArray = require("./toArray");
 export = sort;
 
 function sort(data: number[]|{}) {
-	var dataset = common.toArray(data);
+	var dataset = toArray(data);
 	
 	return dataset.sort((l, r) => r - l);
 }

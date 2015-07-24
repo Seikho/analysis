@@ -76,4 +76,11 @@ describe("Common module unit tests", () => {
 		var total = common.sum(data);
 		expect(total).to.equal(55);
 	});
+	
+	it("sortAsc: will sort an unordered array descending without mutating the original data", () => {
+		var data = [2,1,4,3];
+		var sorted = common.sortAsc(data);
+		expect(data).to.equal([2,1,4,3]);
+		expect(sorted).to.equal([1,2,3,4]);
+	});
 });

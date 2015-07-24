@@ -1,5 +1,6 @@
-import common = require("../common/api");
-import descriptive = require("./api");
+import toArray = require("../common/toArray");
+import sum = require("../common/sum");
+import mean = require("./mean");
 export = variance;
 
 /**
@@ -7,13 +8,13 @@ export = variance;
  * Averaged squared deviation from the mean
  */
 function variance(data: number[]|{}): number {
-	var dataset = common.toArray(data);
-	var dataMean = descriptive.mean(data);
+	var dataset = toArray(data);
+	var dataMean = mean(data);
 	
 	var calcVariance = val => squared(val - dataMean);
 	var squared = val => Math.pow(val, 2);
 
 	var variances = dataset.map(calcVariance);
 		
-	return common.sum(variances) / dataset.length;
+	return sum(variances) / dataset.length;
 }

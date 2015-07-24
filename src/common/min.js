@@ -1,9 +1,9 @@
-var common = require("./api");
+var toArray = require("./toArray");
 /**
  * @return Number Returns the lowest value in a dataset/array
  */
 function min(data) {
-    return common.toArray(data).reduce(getMin);
+    return toArray(data).reduce(getMin);
 }
 function getMin(left, right) {
     return left > right

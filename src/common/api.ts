@@ -1,11 +1,10 @@
 import Analysis = require("analysis");
 import Common = Analysis.Common;
-
+import toArray = require("./toArray");
 import curry = require("./curry");
 import isNumber = require("./isNumber");
 import max = require("./max");
 import min = require("./min");
-import toArray = require("./toArray");
 import range = require("./range");
 import round = require("./round");
 import sum = require("./sum");
@@ -16,12 +15,12 @@ import sortDesc = require("./sortDesc");
 export = api;
 
 var api: Common = {
+	toArray: toArray,
 	min: min,
 	max: max,
 	range: range,
 	round: round,
 	validateArray: validateArray,
-	toArray: toArray,
 	sum: sum,
 	isNumber: isNumber,
 	curry: curry,
