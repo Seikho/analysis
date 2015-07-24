@@ -1,5 +1,6 @@
 var descriptive = require("../src/descriptive/api");
 var round = require("../src/common/round");
+var errors = require("../src/errors");
 var chai = require("chai");
 var expect = chai.expect;
 describe("Descriptive module tests", function () {
@@ -59,7 +60,7 @@ describe("Descriptive module tests", function () {
     });
     it("firstQuartile: will throw if less than 4 values are supplied to first quartile", function () {
         expect(descriptive.firstQuartile.bind(descriptive.firstQuartile, [1, 2, 3]))
-            .to.throw("Not enough values supplied");
+            .to.throw(errors.InsufficientValues);
     });
 });
 //# sourceMappingURL=descriptive.js.map
