@@ -59,10 +59,12 @@ describe("Descriptive module tests", function () {
             .to.equal(3);
     });
     it("thirdQuartile: will calculate the third quartile", function () {
-        expect(descriptive.firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+        expect(descriptive.thirdQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
             .to.equal(8);
-        expect(descriptive.firstQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))
-            .to.equal(8);
+        expect(descriptive.thirdQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))
+            .to.equal(9);
+        expect(descriptive.thirdQuartile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
+            .to.equal(9.5);
     });
     it("firstQuartile: will throw if less than 4 values are supplied to first quartile", function () {
         expect(descriptive.firstQuartile.bind(descriptive.firstQuartile, [1, 2, 3]))

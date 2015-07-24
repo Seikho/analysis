@@ -19,6 +19,6 @@ var api: Descriptive = {
 	variance: variance,
 	zScore: zScore,
 	firstQuartile: firstQuartile,
-	thirdQuartile: null,
+	thirdQuartile: thirdQuartile,
 	quartileRange: null
 };

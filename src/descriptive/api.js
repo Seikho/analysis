@@ -5,6 +5,7 @@ var stdDev = require("./stdDev");
 var variance = require("./variance");
 var zScore = require("./zScore");
 var firstQuartile = require("./firstQuartile");
+var thirdQuartile = require("./thirdQuartile");
 var api = {
     mean: mean,
     mode: mode,
@@ -13,7 +14,7 @@ var api = {
     variance: variance,
     zScore: zScore,
     firstQuartile: firstQuartile,
-    thirdQuartile: null,
+    thirdQuartile: thirdQuartile,
     quartileRange: null
 };
 module.exports = api;
