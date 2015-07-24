@@ -21,6 +21,7 @@ declare module Analysis {
 		isEven(value: number): boolean;
 		sortAsc(data: number[]|{}): number[];
 		sortDesc(data: number[]|{}): number[];
+		isWhole(value: number): boolean;
 	}
 
 	export interface Descriptive {

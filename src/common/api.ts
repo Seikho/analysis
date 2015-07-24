@@ -12,6 +12,7 @@ import validateArray = require("./validateArray");
 import isEven = require("./isEven");
 import sortAsc = require("./sortAsc");
 import sortDesc = require("./sortDesc");
+import isWhole = require("./isWhole");
 export = api;
 
 var api: Common = {
@@ -26,5 +27,6 @@ var api: Common = {
 	curry: curry,
 	isEven: isEven,
 	sortAsc: sortAsc,
-	sortDesc: sortDesc
+	sortDesc: sortDesc,
+	isWhole: isWhole
 };

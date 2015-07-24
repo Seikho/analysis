@@ -10,6 +10,7 @@ var validateArray = require("./validateArray");
 var isEven = require("./isEven");
 var sortAsc = require("./sortAsc");
 var sortDesc = require("./sortDesc");
+var isWhole = require("./isWhole");
 var api = {
     toArray: toArray,
     min: min,
@@ -22,7 +23,8 @@ var api = {
     curry: curry,
     isEven: isEven,
     sortAsc: sortAsc,
-    sortDesc: sortDesc
+    sortDesc: sortDesc,
+    isWhole: isWhole
 };
 module.exports = api;
 //# sourceMappingURL=api.js.map

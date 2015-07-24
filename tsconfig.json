@@ -16,6 +16,7 @@
         "./src/common/curry.ts",
         "./src/common/isEven.ts",
         "./src/common/isNumber.ts",
+        "./src/common/isWhole.ts",
         "./src/common/max.ts",
         "./src/common/min.ts",
         "./src/common/range.ts",
