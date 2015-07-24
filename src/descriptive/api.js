@@ -6,6 +6,7 @@ var variance = require("./variance");
 var zScore = require("./zScore");
 var firstQuartile = require("./firstQuartile");
 var thirdQuartile = require("./thirdQuartile");
+var interQuartileRange = require("./interQuartileRange");
 var api = {
     mean: mean,
     mode: mode,
@@ -15,7 +16,7 @@ var api = {
     zScore: zScore,
     firstQuartile: firstQuartile,
     thirdQuartile: thirdQuartile,
-    quartileRange: null
+    interQuartileRange: interQuartileRange
 };
 module.exports = api;
 //# sourceMappingURL=api.js.map

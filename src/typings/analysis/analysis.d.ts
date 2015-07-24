@@ -33,7 +33,7 @@ declare module Analysis {
 		zScore(data: number[]|{}, value: number): number;
 		firstQuartile(data: number[]|{}): number;
 		thirdQuartile(data: number[]|{}): number;
-		quartileRange(data: number[]|{}): number;
+		interQuartileRange(data: number[]|{}): number;
 	}
 
 	export interface RangeResult {

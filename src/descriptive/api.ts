@@ -9,6 +9,7 @@ import variance = require("./variance");
 import zScore = require("./zScore");
 import firstQuartile = require("./firstQuartile");
 import thirdQuartile = require("./thirdQuartile");
+import interQuartileRange = require("./interQuartileRange");
 export = api;
 
 var api: Descriptive = {
@@ -20,5 +21,5 @@ var api: Descriptive = {
 	zScore: zScore,
 	firstQuartile: firstQuartile,
 	thirdQuartile: thirdQuartile,
-	quartileRange: null
+	interQuartileRange: interQuartileRange
 };
