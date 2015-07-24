@@ -8,6 +8,7 @@ import stdDev = require("./stdDev");
 import variance = require("./variance");
 import zScore = require("./zScore");
 import firstQuartile = require("./firstQuartile");
+import thirdQuartile = require("./thirdQuartile");
 export = api;
 
 var api: Descriptive = {
