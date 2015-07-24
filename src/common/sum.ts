@@ -1,8 +1,8 @@
-import objectToArray = require("./objectToArray");
+import common = require("./api");
 export = sum;
 
 function sum(data: number[]|{}) {
-	var dataset: number[] = objectToArray(data);
+	var dataset: number[] = common.toArray(data);
 	var add = (left, right) => left + right;
 	
 	return dataset.reduce(add);

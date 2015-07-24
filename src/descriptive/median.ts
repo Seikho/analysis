@@ -1,15 +1,13 @@
-import objectToArray = require("../common/objectToArray");
+import common = require("../common/api");
 export = median;
 
 function median(data: number[]|{}) {
-	var dataset: number[] = objectToArray(data);
+	var dataset: number[] = common.toArray(data);
 
 	var sortedDataset = dataset.sort((left, right) => left - right);
-
-	var isEvenAmount = (sortedDataset.length % 2) === 0;
 	var middleIndex = sortedDataset.length / 2;
 
-	if (!isEvenAmount) {
+	if (!common.isEven(dataset.length)) {
 		let index = Math.floor(middleIndex);
 		return sortedDataset[index];
 	}

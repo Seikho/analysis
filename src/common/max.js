@@ -1,9 +1,9 @@
-var objectToArray = require("./objectToArray");
+var common = require("./api");
 /**
  * @return Number Returns the highest value in a dataset/array
  */
 function max(data) {
-    return objectToArray(data).reduce(getMax);
+    return common.toArray(data).reduce(getMax);
 }
 function getMax(left, right) {
     return left > right

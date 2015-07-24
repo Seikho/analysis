@@ -1,8 +1,8 @@
-import objectToArray = require("../common/objectToArray");
+import common = require("../common/api");
 export = table;
 
 function table(data: number[]|{}): {} {
-	var dataset = objectToArray(data);
+	var dataset = common.toArray(data);
 
 	var addFreq = (freqs, val) => {
 		freqs[val] = (freqs[val] || 0) + 1;
