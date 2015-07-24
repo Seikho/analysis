@@ -5,6 +5,18 @@ import common = require("../src/common/api");
 
 describe("Common module unit tests", () => {
 
+	it("isNumber: will return false when passed a non-number", () => {
+		expect(common.isNumber("a")).to.be.false;
+		expect(common.isNumber(NaN)).to.be.false;
+	});
+
+	it("isNumber: will return true when passed a number", () => {
+		expect(common.isNumber(1)).to.be.true;
+		expect(common.isNumber(0)).to.be.true;
+		expect(common.isNumber(-1)).to.be.true;
+	});
+
+
 	it("isWhole: will throw if passed a non-number", () => {
 		expect(common.isWhole.bind(common.isWhole, "not a number")).to.throw(errors.MustBeNumber);
 	});
@@ -12,7 +24,7 @@ describe("Common module unit tests", () => {
 	it("isWhole: will correctly determine that a non-whole number is not whole", () => {
 		expect(common.isWhole(1.5)).to.be.false;
 	});
-	
+
 	it("isWhole: will correctly determine that a whole number is whole", () => {
 		expect(common.isWhole(1)).to.be.true;
 	});

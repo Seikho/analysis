@@ -3,6 +3,15 @@ var errors = require("../src/errors");
 var expect = chai.expect;
 var common = require("../src/common/api");
 describe("Common module unit tests", function () {
+    it("isNumber: will return false when passed a non-number", function () {
+        expect(common.isNumber("a")).to.be.false;
+        expect(common.isNumber(NaN)).to.be.false;
+    });
+    it("isNumber: will return true when passed a number", function () {
+        expect(common.isNumber(1)).to.be.true;
+        expect(common.isNumber(0)).to.be.true;
+        expect(common.isNumber(-1)).to.be.true;
+    });
     it("isWhole: will throw if passed a non-number", function () {
         expect(common.isWhole.bind(common.isWhole, "not a number")).to.throw(errors.MustBeNumber);
     });
