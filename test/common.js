@@ -1,5 +1,6 @@
 var chai = require("chai");
 var errors = require("../src/errors");
+var helpers_1 = require("./helpers");
 var expect = chai.expect;
 var common = require("../src/common/api");
 describe("Common module unit tests", function () {
@@ -83,21 +84,14 @@ describe("Common module unit tests", function () {
     it("sortAsc: will sort an unordered array ascending without mutating the original array", function () {
         var data = [2, 1, 4, 3];
         var sorted = common.sortAsc(data);
-        arrayIsEqual(data, [2, 1, 4, 3]);
-        arrayIsEqual(sorted, [1, 2, 3, 4]);
+        helpers_1.arrayIsEqual(data, [2, 1, 4, 3]);
+        helpers_1.arrayIsEqual(sorted, [1, 2, 3, 4]);
     });
     it("sortDesc: will sort an unordered array descending without mutating the original array", function () {
         var data = [2, 1, 4, 3];
         var sorted = common.sortDesc(data);
-        arrayIsEqual(data, [2, 1, 4, 3]);
-        arrayIsEqual(sorted, [4, 3, 2, 1]);
+        helpers_1.arrayIsEqual(data, [2, 1, 4, 3]);
+        helpers_1.arrayIsEqual(sorted, [4, 3, 2, 1]);
     });
 });
-function arrayIsEqual(left, right) {
-    expect(Array.isArray(left)).to.equal(Array.isArray(right));
-    expect(left.length).to.equal(right.length);
-    for (var x = 0; x < left.length; x++) {
-        expect(left[x]).to.equal(right[x]);
-    }
-}
 //# sourceMappingURL=common.js.map

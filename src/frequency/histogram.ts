@@ -25,7 +25,7 @@ function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings): Analys
 	return result;
 }
 
-function getEmptyHistogram(binCount: number): {} {
+function getEmptyHistogram(binCount: number): Analysis.Dataset {
 	var emptyHistogram: any = {};
 
 	for (let x = 1; x <= binCount; x++) {

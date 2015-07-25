@@ -13,6 +13,7 @@
         "./test/descriptive.ts",
         "./test/distribution.ts",
         "./test/frequency.ts",
+        "./test/helpers.ts",
         "./src/common/api.ts",
         "./src/common/curry.ts",
         "./src/common/isEven.ts",

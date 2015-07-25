@@ -39,5 +39,9 @@ describe("Frequency tests", function () {
         expect(histTable[4]).to.equal(4);
         expect(histTable[5]).to.equal(5);
     });
+    it("will correctly generate relative frequency tables", function () {
+        var relTable = frequency.relative([1, 2, 3, 4, 5]);
+        var expected = [0.2, 0.2, 0.2, 0.2, 0.2];
+    });
 });
 //# sourceMappingURL=frequency.js.map

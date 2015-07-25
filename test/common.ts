@@ -1,5 +1,6 @@
 import chai = require("chai");
 import errors = require("../src/errors");
+import { arrayIsEqual } from "./helpers";
 var expect = chai.expect;
 import common = require("../src/common/api");
 
@@ -116,11 +117,3 @@ describe("Common module unit tests", () => {
 		arrayIsEqual(sorted, [4, 3, 2, 1]);
 	});
 });
-
-function arrayIsEqual(left: any[], right: any[]) {
-	expect(Array.isArray(left)).to.equal(Array.isArray(right));
-	expect(left.length).to.equal(right.length);
-	for (let x = 0; x < left.length; x++) {
-		expect(left[x]).to.equal(right[x]);
-	}
-}
