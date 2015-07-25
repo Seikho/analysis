@@ -8,14 +8,16 @@ export = relative;
 function relative(data: number[]|{}): Analysis.Dataset {
 	var dataset = table(toArray(data));
 	var total = sum(dataset);
-
 	var percent = val => dataset[val] / total;
+
 	var reducer = (obj, prop) => {
-		obj[Number(prop)] = percent(prop);
+		obj[prop] = percent(prop);
 		return obj;
 	}
+	
+	console.log(dataset);
 
 	return Object
 		.keys(dataset)
-		.reduce(percent, {});
+		.reduce(reducer, {});
 }

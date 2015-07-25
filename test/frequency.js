@@ -1,6 +1,7 @@
 var frequency = require("../src/frequency/api");
 var errors = require("../src/errors");
 var chai = require("chai");
+var helper = require("./helpers");
 var expect = chai.expect;
 describe("Frequency tests", function () {
     var freqData = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
@@ -41,7 +42,14 @@ describe("Frequency tests", function () {
     });
     it("will correctly generate relative frequency tables", function () {
         var relTable = frequency.relative([1, 2, 3, 4, 5]);
-        var expected = [0.2, 0.2, 0.2, 0.2, 0.2];
+        var expected = {
+            1: 0.2,
+            2: 0.2,
+            3: 0.2,
+            4: 0.2,
+            5: 0.2
+        };
+        helper.datasetIsEquiv(relTable, expected);
     });
 });
 //# sourceMappingURL=frequency.js.map

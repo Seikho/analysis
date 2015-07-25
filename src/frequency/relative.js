@@ -6,12 +6,13 @@ function relative(data) {
     var total = sum(dataset);
     var percent = function (val) { return dataset[val] / total; };
     var reducer = function (obj, prop) {
-        obj[Number(prop)] = percent(prop);
+        obj[prop] = percent(prop);
         return obj;
     };
+    console.log(dataset);
     return Object
         .keys(dataset)
-        .reduce(percent, {});
+        .reduce(reducer, {});
 }
 module.exports = relative;
 //# sourceMappingURL=relative.js.map

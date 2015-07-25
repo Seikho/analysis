@@ -1,3 +1,4 @@
+import Analysis = require("analysis");
 import frequency = require("../src/frequency/api");
 import errors = require("../src/errors");
 import chai = require("chai");
@@ -52,6 +53,14 @@ describe("Frequency tests", () => {
 	
 	it("will correctly generate relative frequency tables", () => {
 		var relTable = frequency.relative([1,2,3,4,5]);
-		var expected = [0.2, 0.2, 0.2, 0.2, 0.2];
+		var expected: Analysis.Dataset = {
+			1: 0.2,
+			2: 0.2,
+			3: 0.2,
+			4: 0.2,
+			5: 0.2
+		};
+		
+		helper.datasetIsEquiv(relTable, expected);
 	});
 });

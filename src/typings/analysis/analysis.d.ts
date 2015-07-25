@@ -53,6 +53,6 @@ declare module "analysis" {
 	}
 	
 	export interface Dataset {
-		[index: number]: number;
+		[index: string]: number;
 	}
 }
