@@ -1,7 +1,8 @@
 import common = require("../common/api");
+import Analysis = require("analysis");
 export = table;
 
-function table(data: number[]|{}): {} {
+function table(data: number[]|{}): Analysis.Dataset {
 	var dataset = common.toArray(data);
 
 	var addFreq = (freqs, val) => {
