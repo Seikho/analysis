@@ -13,6 +13,7 @@ import isEven = require("./isEven");
 import sortAsc = require("./sortAsc");
 import sortDesc = require("./sortDesc");
 import isWhole = require("./isWhole");
+import factorial = require("./factorial");
 export = api;
 
 var api: Common = {
@@ -28,5 +29,6 @@ var api: Common = {
 	isEven: isEven,
 	sortAsc: sortAsc,
 	sortDesc: sortDesc,
-	isWhole: isWhole
+	isWhole: isWhole,
+	factorial: factorial
 };

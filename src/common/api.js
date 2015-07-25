@@ -11,6 +11,7 @@ var isEven = require("./isEven");
 var sortAsc = require("./sortAsc");
 var sortDesc = require("./sortDesc");
 var isWhole = require("./isWhole");
+var factorial = require("./factorial");
 var api = {
     toArray: toArray,
     min: min,
@@ -24,7 +25,8 @@ var api = {
     isEven: isEven,
     sortAsc: sortAsc,
     sortDesc: sortDesc,
-    isWhole: isWhole
+    isWhole: isWhole,
+    factorial: factorial
 };
 module.exports = api;
 //# sourceMappingURL=api.js.map

@@ -18,6 +18,7 @@ declare module "analysis" {
 		sortAsc(data: number[]|{}): number[];
 		sortDesc(data: number[]|{}): number[];
 		isWhole(value: number): boolean;
+		factorial(n: number): number;
 	}
 
 	export interface Descriptive {
