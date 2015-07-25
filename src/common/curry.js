@@ -1,7 +1,3 @@
-function add(left, mid, right) {
-    return left + mid + right;
-}
-console.log(curry(add, NaN, NaN, 3)(1)(2));
 function curry(fn) {
     var fnArgs = [];
     for (var _i = 1; _i < arguments.length; _i++) {
