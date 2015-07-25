@@ -9,7 +9,6 @@ function relative(data) {
         obj[prop] = percent(prop);
         return obj;
     };
-    console.log(dataset);
     return Object
         .keys(dataset)
         .reduce(reducer, {});

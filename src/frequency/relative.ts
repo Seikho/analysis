@@ -14,8 +14,6 @@ function relative(data: number[]|{}): Analysis.Dataset {
 		obj[prop] = percent(prop);
 		return obj;
 	}
-	
-	console.log(dataset);
 
 	return Object
 		.keys(dataset)
