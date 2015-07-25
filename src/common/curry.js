@@ -32,7 +32,7 @@ function mergeArgs(left, right) {
     return left;
 }
 function isGap(value) {
-    return isNaN(value) && value.toString() === "NaN";
+    return isNaN(value) && value.toString() === "NaN" && typeof value === "number";
 }
 module.exports = curry;
 //# sourceMappingURL=curry.js.map

@@ -37,5 +37,5 @@ function mergeArgs(left: any[], right: any[]) {
 }
 
 function isGap(value: any) {
-	return isNaN(value) && value.toString() === "NaN";
+	return isNaN(value) && value.toString() === "NaN" && typeof value === "number";
 }
