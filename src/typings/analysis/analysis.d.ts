@@ -50,4 +50,8 @@ declare module "analysis" {
 		maximum?: number;
 		difference?: number;
 	}
+	
+	export interface Dataset {
+		[index: number]: number;
+	}
 }
