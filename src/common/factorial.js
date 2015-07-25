@@ -1,10 +1,12 @@
 var errors = require("../errors");
 var isWhole = require("./isWhole");
 function factorial(n) {
-    if (n < 2)
-        throw new TypeError(errors.MustBeTwoOrMore);
+    if (n < 1)
+        throw new TypeError(errors.MustBeAtLeastOne);
     if (!isWhole(n))
         throw new TypeError(errors.MustBeWhole);
+    if (n === 1)
+        return 1;
     if (n === 2)
         return 2;
     var result = 2;

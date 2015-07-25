@@ -4,7 +4,7 @@ var errors = {
     MustBeArrayOrObject: "Input must be array or object",
     HistogramOneOption: "Must provide either binSize or binCount, but not both",
     InsufficientValues: "Not enough values supplied",
-    MustBeTwoOrMore: "Input must be at least 2",
+    MustBeAtLeastOne: "Input must at least 1",
     MustBeWhole: "Input must be a whole number"
 };
 module.exports = errors;

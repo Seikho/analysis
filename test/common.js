@@ -93,5 +93,12 @@ describe("Common module unit tests", function () {
         helper.arrayIsEqual(data, [2, 1, 4, 3]);
         helper.arrayIsEqual(sorted, [4, 3, 2, 1]);
     });
+    it("factorial: will correctly calculate", function () {
+        expect(common.factorial(2)).to.equal(2);
+        expect(common.factorial(3)).to.equal(6);
+        expect(common.factorial(4)).to.equal(24);
+        expect(common.factorial(5)).to.equal(120);
+    });
+    it("factorial: will throw ");
 });
 //# sourceMappingURL=common.js.map
