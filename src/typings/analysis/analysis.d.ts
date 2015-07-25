@@ -32,6 +32,11 @@ declare module "analysis" {
 		thirdQuartile(data: number[]|{}): number;
 		interQuartileRange(data: number[]|{}): number;
 	}
+	
+	export interface Distribution {
+		chiSquare(observedFreq: number, expectedFreq: number): number;
+		poisson(x: number, avgSuccessRate: number): number;
+	}
 
 	export interface RangeResult {
 		minimum: number;
