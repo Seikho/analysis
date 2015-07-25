@@ -5,7 +5,7 @@ import isEven = require("../common/isEven");
 export = histogram;
 
 
-function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings) {
+function histogram(data: number[]|{}, binOptions?: Analysis.BinSettings): Analysis.Dataset {
 	var dataset = toArray(data);
 	binOptions = binSettings(dataset, binOptions);
 	var result = getEmptyHistogram(binOptions.binCount);
