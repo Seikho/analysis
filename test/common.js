@@ -1,6 +1,6 @@
 var chai = require("chai");
 var errors = require("../src/errors");
-var helpers_1 = require("./helpers");
+var helper = require("./helpers");
 var expect = chai.expect;
 var common = require("../src/common/api");
 describe("Common module unit tests", function () {
@@ -84,14 +84,14 @@ describe("Common module unit tests", function () {
     it("sortAsc: will sort an unordered array ascending without mutating the original array", function () {
         var data = [2, 1, 4, 3];
         var sorted = common.sortAsc(data);
-        helpers_1.arrayIsEqual(data, [2, 1, 4, 3]);
-        helpers_1.arrayIsEqual(sorted, [1, 2, 3, 4]);
+        helper.arrayIsEqual(data, [2, 1, 4, 3]);
+        helper.arrayIsEqual(sorted, [1, 2, 3, 4]);
     });
     it("sortDesc: will sort an unordered array descending without mutating the original array", function () {
         var data = [2, 1, 4, 3];
         var sorted = common.sortDesc(data);
-        helpers_1.arrayIsEqual(data, [2, 1, 4, 3]);
-        helpers_1.arrayIsEqual(sorted, [4, 3, 2, 1]);
+        helper.arrayIsEqual(data, [2, 1, 4, 3]);
+        helper.arrayIsEqual(sorted, [4, 3, 2, 1]);
     });
 });
 //# sourceMappingURL=common.js.map

@@ -1,6 +1,6 @@
 import chai = require("chai");
 import errors = require("../src/errors");
-import { arrayIsEqual } from "./helpers";
+import * as helper from "./helpers";
 var expect = chai.expect;
 import common = require("../src/common/api");
 
@@ -106,14 +106,14 @@ describe("Common module unit tests", () => {
 	it("sortAsc: will sort an unordered array ascending without mutating the original array", () => {
 		var data = [2, 1, 4, 3];
 		var sorted = common.sortAsc(data);
-		arrayIsEqual(data, [2, 1, 4, 3]);
-		arrayIsEqual(sorted, [1, 2, 3, 4]);
+		helper.arrayIsEqual(data, [2, 1, 4, 3]);
+		helper.arrayIsEqual(sorted, [1, 2, 3, 4]);
 	});
 
 	it("sortDesc: will sort an unordered array descending without mutating the original array", () => {
 		var data = [2, 1, 4, 3];
 		var sorted = common.sortDesc(data);
-		arrayIsEqual(data, [2, 1, 4, 3]);
-		arrayIsEqual(sorted, [4, 3, 2, 1]);
+		helper.arrayIsEqual(data, [2, 1, 4, 3]);
+		helper.arrayIsEqual(sorted, [4, 3, 2, 1]);
 	});
 });

@@ -1,6 +1,8 @@
 import frequency = require("../src/frequency/api");
 import errors = require("../src/errors");
 import chai = require("chai");
+import * as helper from "./helpers";
+
 var expect = chai.expect;
 
 describe("Frequency tests", () => {
