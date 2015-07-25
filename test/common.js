@@ -99,6 +99,9 @@ describe("Common module unit tests", function () {
         expect(common.factorial(4)).to.equal(24);
         expect(common.factorial(5)).to.equal(120);
     });
-    it("factorial: will throw ");
+    it("factorial: will throw if given a number below 1", function () {
+        expect(common.factorial.bind(common.factorial, 0)).to.throw(errors.MustBeAtLeastOne);
+        expect(common.factorial.bind(common.factorial, 0.9)).to.throw(errors.MustBeAtLeastOne);
+    });
 });
 //# sourceMappingURL=common.js.map
