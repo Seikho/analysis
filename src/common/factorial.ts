@@ -1,8 +1,10 @@
+import isNum = require("./isNumber");
 import errors = require("../errors");
 import isWhole = require("./isWhole");
 export = factorial;
 
 function factorial(n: number): number {
+	if (!isNum(n)) throw new TypeError(errors.MustBeNumber);
 	if (n < 1) throw new TypeError(errors.MustBeAtLeastOne);
 	if (!isWhole(n)) throw new TypeError(errors.MustBeWhole); 
 	

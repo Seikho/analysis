@@ -1,6 +1,9 @@
+var isNum = require("./isNumber");
 var errors = require("../errors");
 var isWhole = require("./isWhole");
 function factorial(n) {
+    if (!isNum(n))
+        throw new TypeError(errors.MustBeNumber);
     if (n < 1)
         throw new TypeError(errors.MustBeAtLeastOne);
     if (!isWhole(n))
