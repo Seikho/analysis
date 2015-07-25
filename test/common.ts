@@ -116,16 +116,29 @@ describe("Common module unit tests", () => {
 		helper.arrayIsEqual(data, [2, 1, 4, 3]);
 		helper.arrayIsEqual(sorted, [4, 3, 2, 1]);
 	});
-	
+
 	it("factorial: will correctly calculate", () => {
 		expect(common.factorial(2)).to.equal(2);
 		expect(common.factorial(3)).to.equal(6);
 		expect(common.factorial(4)).to.equal(24);
 		expect(common.factorial(5)).to.equal(120);
 	});
+
+	it("factorial: will throw if supplied a non-number", () => {
+		expect(common.factorial.bind(common.factorial, "string"))
+			.to.throw(errors.MustBeNumber);
+
+		expect(common.factorial.bind(common.factorial, NaN))
+			.to.throw(errors.MustBeNumber);
+	});
 	
+	it("factorial: will throw if supplied non-whole number", () => {
+		expect(common.factorial.bind(common.factorial, 2.1))
+			.to.throw(errors.MustBeWhole);
+	});
+
 	it("factorial: will throw if given a number below 1", () => {
-		expect(common.factorial.bind(common.factorial, 0)).to.throw(errors.MustBeAtLeastOne);
-		expect(common.factorial.bind(common.factorial, 0.9)).to.throw(errors.MustBeAtLeastOne);
+		expect(common.factorial.bind(common.factorial, 0.9))
+			.to.throw(errors.MustBeAtLeastOne);
 	});
 });
