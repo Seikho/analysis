@@ -1,7 +1,9 @@
+import Analysis = require("analysis");
+import ComposeFunction = Analysis.ComposeFunction;
 import errors = require("../errors");
 export = compose;
 
-function compose<T>(...functions: Array<(...args: any[]) => T>): (...args: any[]) => T {
+function compose<T>(...functions: Array<ComposeFunction<T>>): ComposeFunction<T> {
 	let isEnoughArgs = functions.length > 1;
 	if (!isEnoughArgs) throw new TypeError(errors.InsufficientValues)
 

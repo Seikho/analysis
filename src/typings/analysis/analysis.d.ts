@@ -14,7 +14,7 @@ declare module "analysis" {
 		round(value: number, decimalPlaces?: number): number;
 		isNumber(value: any): boolean;
 		curry(fn: Function, ...fnArgs: any[]): (...args: any[]) => any;
-		compose<T>(...functions: Array<(...args: any[]) => T>): (...args: any[]) => T;
+		compose<T>(...functions: Array<ComposeFunction<T>>): ComposeFunction<T>;
 		isEven(value: number): boolean;
 		sortAsc(data: number[]|{}): number[];
 		sortDesc(data: number[]|{}): number[];
@@ -61,5 +61,9 @@ declare module "analysis" {
 	
 	export interface Dataset {
 		[index: string]: number;
+	}
+	
+	export interface ComposeFunction<T> {
+		(...args: any[]): T;
 	}
 }
