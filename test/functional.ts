@@ -69,6 +69,9 @@ describe("(Common) Functional module unit tests", () => {
 		var c2 = common.compose(helper.double, helper.double, Math.pow);
 		expect(c2(2,2)).to.equal(16);
 		expect(c2(4,2)).to.equal(64);
+		
+		var c3 = common.compose(Math.sqrt, helper.halve, helper.halve);
+		expect(c3(c2(2,2))).to.equal(2);
 	});
 
 });
