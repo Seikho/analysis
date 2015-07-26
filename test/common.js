@@ -33,6 +33,14 @@ describe("Common module unit tests", function () {
         expect(squared(6)).to.equal(36);
     });
     it("curry: will correctly curry 3 argument functions", function () {
+        var fn = function (left, mid, right) { return (left + mid) * right; };
+        var first = common.curry(fn, 2, NaN, 2);
+        expect(first(2)).to.equal(8);
+        expect(first(3)).to.equal(10);
+        var second = common.curry(fn, NaN, NaN, 2);
+        expect(second(2, 2)).to.equal(8);
+        expect(second(2)(3)).to.equal(10);
+        expect(second(NaN, 4)(2)).to.equal(12);
     });
     it("isEven: will correctly determine if a value is even", function () {
         expect(common.isEven(1)).to.be.false;
