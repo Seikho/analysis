@@ -22,5 +22,7 @@ describe("(Common) Functional module unit tests", function () {
         expect(second(2)(3)).to.equal(10);
         expect(second(NaN, 4)(2)).to.equal(12);
     });
+    it("compose: will compose functions without throwing", function () {
+    });
 });
 //# sourceMappingURL=functional.js.map

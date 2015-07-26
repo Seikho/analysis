@@ -1,5 +1,6 @@
 var toArray = require("./toArray");
 var curry = require("./curry");
+var compose = require("./compose");
 var isNumber = require("./isNumber");
 var max = require("./max");
 var min = require("./min");
@@ -22,6 +23,7 @@ var api = {
     sum: sum,
     isNumber: isNumber,
     curry: curry,
+    compose: compose,
     isEven: isEven,
     sortAsc: sortAsc,
     sortDesc: sortDesc,

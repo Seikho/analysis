@@ -2,6 +2,7 @@ import Analysis = require("analysis");
 import Common = Analysis.Common;
 import toArray = require("./toArray");
 import curry = require("./curry");
+import compose = require("./compose");
 import isNumber = require("./isNumber");
 import max = require("./max");
 import min = require("./min");
@@ -26,6 +27,7 @@ var api: Common = {
 	sum: sum,
 	isNumber: isNumber,
 	curry: curry,
+	compose: compose,
 	isEven: isEven,
 	sortAsc: sortAsc,
 	sortDesc: sortDesc,
