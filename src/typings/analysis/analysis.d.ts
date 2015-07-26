@@ -1,3 +1,7 @@
+interface Window {
+	Analysis: any;
+}
+
 declare module "analysis" {
 	export var common: Common;
 	export var descriptive: Descriptive;
