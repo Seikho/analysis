@@ -7,5 +7,7 @@ var errors = {
 	HistogramOneOption: "Must provide either binSize or binCount, but not both",
 	InsufficientValues: "Not enough values supplied",
 	MustBeAtLeastOne: "Input must at least 1",
-	MustBeWhole: "Input must be a whole number"
+	MustBeWhole: "Input must be a whole number",
+	AllMustBeFunctions: "All inputs must be functions",
+	AllArgsSameLength: "All functions must take the same number of arguments"
 }

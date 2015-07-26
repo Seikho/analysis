@@ -15,6 +15,7 @@
         "./test/frequency.ts",
         "./test/helpers.ts",
         "./src/common/api.ts",
+        "./src/common/compose.ts",
         "./src/common/curry.ts",
         "./src/common/factorial.ts",
         "./src/common/isEven.ts",
