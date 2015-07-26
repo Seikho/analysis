@@ -23,7 +23,6 @@ function compose() {
                 prev = fn.apply(fn, args);
             else
                 prev = fn(prev);
-            console.log(prev);
             return prev;
         }, undefined);
     };

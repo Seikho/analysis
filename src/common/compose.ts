@@ -15,7 +15,7 @@ function compose<T>(...functions: Array<(...args: any[]) => T>): (...args: any[]
 		return functions.reduceRight<T>((prev, fn) => {
 			if (prev === undefined) prev = fn.apply(fn, args);
 			else prev = fn(prev);
-			console.log(prev);
+
 			return prev;
 		}, undefined);
 	}
