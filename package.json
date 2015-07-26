@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
-    "build": "tsglob && tsc"
+    "build": "tsglob && tsc && browserify src/index.js -o analysis.js"
   },
   "repository": {
     "type": "git",
