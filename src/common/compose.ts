@@ -1,7 +1,7 @@
 import errors = require("../errors");
 export = compose;
 
-function compose<T>(...functions: Array<(...innerArgs: any[]) => T>): (...outerArgs: any[]) => T  {
+function compose<T>(...functions: Array<(...args: any[]) => T>): (...args: any[]) => T  {
 	let isEnoughArgs = functions.length > 1;
 	if (!isEnoughArgs) throw new TypeError(errors.InsufficientValues)
 
