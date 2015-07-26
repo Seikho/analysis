@@ -8,11 +8,10 @@ function curry(fn) {
     }
     return function () {
         var innerArgs = Array.prototype.slice.call(arguments, 0);
-        fnArgs = mergeArgs(fnArgs, innerArgs);
-        console.log(fnArgs);
-        if (fnArgs.some(isGap))
-            return curry.apply(curry, [fn].concat(fnArgs));
-        return fn.apply(this, fnArgs);
+        var mergedArgs = mergeArgs(fnArgs, innerArgs);
+        if (mergedArgs.some(isGap))
+            return curry.apply(curry, [fn].concat(mergedArgs));
+        return fn.apply(this, mergedArgs);
     };
 }
 function getFirstEmpty(args) {
@@ -23,13 +22,14 @@ function getFirstEmpty(args) {
     return null;
 }
 function mergeArgs(left, right) {
+    var merged = left.slice();
     right.forEach(function (value) {
-        var next = getFirstEmpty(left);
+        var next = getFirstEmpty(merged);
         if (next == null)
             return;
-        left[next] = value;
+        merged[next] = value;
     });
-    return left;
+    return merged;
 }
 function isGap(value) {
     return isNaN(value) && value.toString() === "NaN" && typeof value === "number";

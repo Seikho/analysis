@@ -30,10 +30,16 @@ describe("Common module unit tests", () => {
 		expect(common.isWhole(1)).to.be.true;
 	});
 
-	it("curry: will curry a simple 2 argument function", () => {
+	it("curry: will curry a 2 argument function", () => {
 		var add = (left, right) => left + right;
 		var addOne = common.curry(add, 1);
 		expect(addOne(2)).to.equal(3);
+	});
+	
+	it("curry: will curry a simple 2 argument using a gap", () => {
+		var squared = common.curry(Math.pow, NaN, 2);
+		expect(squared(5)).to.equal(25);
+		expect(squared(6)).to.equal(36);
 	});
 
 	it("isEven: will correctly determine if a value is even", () => {

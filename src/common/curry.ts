@@ -8,12 +8,11 @@ function curry(fn: Function, ...fnArgs: any[]): (...args: any[]) => any {
 	return function() {
 		let innerArgs = Array.prototype.slice.call(arguments, 0);
 		
-		fnArgs = mergeArgs(fnArgs, innerArgs);
-		console.log(fnArgs);
-		if (fnArgs.some(isGap))
-			return curry.apply(curry, [fn].concat(fnArgs));
+		var mergedArgs = mergeArgs(fnArgs, innerArgs);
+		if (mergedArgs.some(isGap))
+			return curry.apply(curry, [fn].concat(mergedArgs));
 			
-		return fn.apply(this, fnArgs);
+		return fn.apply(this, mergedArgs);
 	};
 }
 
@@ -26,14 +25,14 @@ function getFirstEmpty(args: any[]) {
 }
 
 function mergeArgs(left: any[], right: any[]) {
-
+	var merged = left.slice();
 	right.forEach(value => {
-		let next = getFirstEmpty(left);
+		let next = getFirstEmpty(merged);
 		if (next == null) return;
-		left[next] = value;
+		merged[next] = value;
 	});
 	
-	return left;
+	return merged;
 }
 
 function isGap(value: any) {
