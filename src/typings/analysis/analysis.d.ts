@@ -44,7 +44,9 @@ declare module "analysis" {
 	}
 	
 	export interface Set {
+		distinct(data: number[]|{}): number[];
 		intersect(left: number[]|{}, right: number[]|{}): number[];
+		union(left: number[]|{}, right: number[]|{}): number[]
 	}
 
 	export interface RangeResult {

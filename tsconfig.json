@@ -15,6 +15,7 @@
         "./test/frequency.ts",
         "./test/functional.ts",
         "./test/helpers.ts",
+        "./test/set.ts",
         "./src/common/api.ts",
         "./src/common/compose.ts",
         "./src/common/curry.ts",

@@ -565,13 +565,31 @@ if (window)
 module.exports = Analysis;
 
 },{"./common/api":1,"./descriptive/api":17,"./distribution/api":27,"./frequency/api":31,"./set/api":37}],37:[function(require,module,exports){
+var distinct = require("./distinct");
 var intersect = require("./intersect");
+var union = require("./union");
 var set = {
-    intersect: intersect
+    distinct: distinct,
+    intersect: intersect,
+    union: union
 };
 module.exports = set;
 
-},{"./intersect":38}],38:[function(require,module,exports){
+},{"./distinct":38,"./intersect":39,"./union":40}],38:[function(require,module,exports){
+var toArray = require("../common/toArray");
+function distinct(data) {
+    var dataset = toArray(data);
+    var isIn = function (array, value) { return array.some(function (v) { return value === v; }); };
+    var reducer = function (array, value) {
+        if (!isIn(array, value))
+            array.push(value);
+        return array;
+    };
+    return dataset.reduce(reducer, []);
+}
+module.exports = distinct;
+
+},{"../common/toArray":15}],39:[function(require,module,exports){
 var toArray = require("../common/toArray");
 function intersect(left, right) {
     var leftData = toArray(left);
@@ -589,4 +607,13 @@ function intersect(left, right) {
 }
 module.exports = intersect;
 
-},{"../common/toArray":15}]},{},[36]);
+},{"../common/toArray":15}],40:[function(require,module,exports){
+var distinct = require("./distinct");
+function union(left, right) {
+    var allValues = distinct(left)
+        .concat(distinct(right));
+    return distinct(allValues);
+}
+module.exports = union;
+
+},{"./distinct":38}]},{},[36]);
