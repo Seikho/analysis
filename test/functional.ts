@@ -61,4 +61,10 @@ describe("(Common) Functional module unit tests", () => {
 			.to.throw(errors.AllMustBeFunctions);
 	});
 
+	it("compose: will correctly compose functions and return the expect value", () => {
+		var c1 = common.compose(helper.double, Math.pow);
+		expect(c1(2,2)).to.equal(8);
+		expect(c1(4,2)).to.equal(32);
+	});
+
 });
