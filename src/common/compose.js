@@ -20,9 +20,10 @@ function compose() {
         }
         return functions.reduceRight(function (prev, fn) {
             if (prev === undefined)
-                prev = fn(args);
+                prev = fn.apply(fn, args);
             else
                 prev = fn(prev);
+            console.log(prev);
             return prev;
         }, undefined);
     };
