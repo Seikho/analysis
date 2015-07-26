@@ -33,7 +33,7 @@ describe("(Common) Functional module unit tests", () => {
 	});
 	
 	it("compose: will compose functions without throwing", () => {
-		
+	
 	});
 	
 });

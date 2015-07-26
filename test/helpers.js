@@ -16,4 +16,12 @@ function datasetIsEquiv(left, right) {
         .forEach(isEqual);
 }
 exports.datasetIsEquiv = datasetIsEquiv;
+function double(value) {
+    return value * 2;
+}
+exports.double = double;
+function halve(value) {
+    return value / 2;
+}
+exports.halve = halve;
 //# sourceMappingURL=helpers.js.map

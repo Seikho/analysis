@@ -23,3 +23,11 @@ export function datasetIsEquiv(left: Analysis.Dataset, right: Analysis.Dataset) 
 	Object.keys(left)
 		.forEach(isEqual);
 }
+
+export function double(value: number): number {
+	return value * 2;
+}
+
+export function halve(value: number): number {
+	return value / 2;
+}
