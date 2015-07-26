@@ -2,13 +2,15 @@ import common = require("./common/api");
 import descriptive = require("./descriptive/api");
 import frequency = require("./frequency/api");
 import distribution = require("./distribution/api");
+import set = require("./set/api");
 export = Analysis;
 
 var Analysis = {
 	common: common,
 	descriptive: descriptive,
+	distribution: distribution,
 	frequency: frequency,
-	distribution: distribution
+	set: set
 }
 
 if (window) window.Analysis = Analysis;

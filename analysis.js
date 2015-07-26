@@ -552,14 +552,41 @@ var common = require("./common/api");
 var descriptive = require("./descriptive/api");
 var frequency = require("./frequency/api");
 var distribution = require("./distribution/api");
+var set = require("./set/api");
 var Analysis = {
     common: common,
     descriptive: descriptive,
+    distribution: distribution,
     frequency: frequency,
-    distribution: distribution
+    set: set
 };
 if (window)
     window.Analysis = Analysis;
 module.exports = Analysis;
 
-},{"./common/api":1,"./descriptive/api":17,"./distribution/api":27,"./frequency/api":31}]},{},[36]);
+},{"./common/api":1,"./descriptive/api":17,"./distribution/api":27,"./frequency/api":31,"./set/api":37}],37:[function(require,module,exports){
+var intersect = require("./intersect");
+var set = {
+    intersect: intersect
+};
+module.exports = set;
+
+},{"./intersect":38}],38:[function(require,module,exports){
+var toArray = require("../common/toArray");
+function intersect(left, right) {
+    var leftData = toArray(left);
+    var rightData = toArray(right);
+    var isInArray = function (array, value) { return array.some(function (v) { return value === v; }); };
+    var isInRight = function (value) { return rightData.some(function (v) { return value === v; }); };
+    var reducer = function (array, value) {
+        if (isInArray(array, value))
+            return array;
+        if (isInRight(value))
+            array.push(value);
+        return array;
+    };
+    return leftData.reduce(reducer, []);
+}
+module.exports = intersect;
+
+},{"../common/toArray":15}]},{},[36]);
