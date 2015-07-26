@@ -9,5 +9,5 @@ var errors = {
 	MustBeAtLeastOne: "Input must at least 1",
 	MustBeWhole: "Input must be a whole number",
 	AllMustBeFunctions: "All inputs must be functions",
-	AllFuncsMustBeUnary: "All functions except the first must have unary arity (take 1 argument)"
+	AllFuncsMustBeUnary: "All functions except the right-most must have unary arity (take 1 argument)"
 }

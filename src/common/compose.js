@@ -10,8 +10,8 @@ function compose() {
     var isAllFuncs = functions.every(function (fn) { return fn instanceof Function; });
     if (!isAllFuncs)
         throw new TypeError(errors.AllMustBeFunctions);
-    var isAllEqual = functions.every(function (fn, index) { return index === 0 || fn.length === 1; });
-    if (!isAllEqual)
+    var isCorrectArity = functions.every(function (fn, index) { return index === functions.length - 1 || fn.length === 1; });
+    if (!isCorrectArity)
         throw new TypeError(errors.AllFuncsMustBeUnary);
     return function () {
         var args = [];

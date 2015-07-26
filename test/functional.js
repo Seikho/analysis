@@ -26,6 +26,8 @@ describe("(Common) Functional module unit tests", function () {
     it("compose: will compose functions without throwing", function () {
         expect(common.compose.bind(common.compose, helper.halve, helper.double))
             .to.not.throw;
+        expect(common.compose(helper.double, Math.pow))
+            .to.not.throw;
     });
 });
 //# sourceMappingURL=functional.js.map
