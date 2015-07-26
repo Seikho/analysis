@@ -42,6 +42,10 @@ declare module "analysis" {
 		chiSquare(observedFreq: number, expectedFreq: number): number;
 		poisson(x: number, avgSuccessRate: number): number;
 	}
+	
+	export interface Set {
+		intersect(left: number[]|{}, right: number[]|{}): number[];
+	}
 
 	export interface RangeResult {
 		minimum: number;
