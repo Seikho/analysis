@@ -7,7 +7,7 @@ function distinct(data) {
             array.push(value);
         return array;
     };
-    return dataset.reduce(reducer);
+    return dataset.reduce(reducer, []);
 }
 module.exports = distinct;
 //# sourceMappingURL=distinct.js.map
