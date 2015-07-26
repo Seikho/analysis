@@ -51,6 +51,7 @@
         "./src/frequency/relative.ts",
         "./src/frequency/table.ts",
         "./src/index.ts",
+        "./src/set/intersect.ts",
         "./src/typings/analysis/analysis.d.ts",
         "./src/typings/chai/chai.d.ts",
         "./src/typings/mocha/mocha.d.ts",
