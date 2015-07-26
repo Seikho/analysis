@@ -1,4 +1,5 @@
 var chai = require("chai");
+var errors = require("../src/errors");
 var helper = require("./helpers");
 var expect = chai.expect;
 var common = require("../src/common/api");
@@ -28,6 +29,22 @@ describe("(Common) Functional module unit tests", function () {
             .to.not.throw;
         expect(common.compose(helper.double, Math.pow))
             .to.not.throw;
+    });
+    it("compose: will throw arity errors when non-right-most is not unary", function () {
+        expect(common.compose.bind(common.compose, Math.pow, helper.halve))
+            .to.throw(errors.AllFuncsMustBeUnary);
+        expect(common.compose.bind(common.compose, helper.double, Math.pow, helper.halve))
+            .to.throw(errors.AllFuncsMustBeUnary);
+    });
+    it("compose: will throw insufficient args error", function () {
+        expect(common.compose.bind(common.compose, Math.pow))
+            .to.throw(errors.InsufficientValues);
+    });
+    it("compose: will throw invalid input error", function () {
+        expect(common.compose.bind(common.compose, 1, Math.pow))
+            .to.throw(errors.AllMustBeFunctions);
+        expect(common.compose.bind(common.compose, Math.pow, 1))
+            .to.throw(errors.AllMustBeFunctions);
     });
 });
 //# sourceMappingURL=functional.js.map
