@@ -33,7 +33,8 @@ describe("(Common) Functional module unit tests", () => {
 	});
 	
 	it("compose: will compose functions without throwing", () => {
-	
+		expect(common.compose.bind(common.compose, helper.halve, helper.double))
+			.to.not.throw;
 	});
 	
 });

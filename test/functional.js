@@ -1,4 +1,5 @@
 var chai = require("chai");
+var helper = require("./helpers");
 var expect = chai.expect;
 var common = require("../src/common/api");
 describe("(Common) Functional module unit tests", function () {
@@ -23,6 +24,8 @@ describe("(Common) Functional module unit tests", function () {
         expect(second(NaN, 4)(2)).to.equal(12);
     });
     it("compose: will compose functions without throwing", function () {
+        expect(common.compose.bind(common.compose, helper.halve, helper.double))
+            .to.not.throw;
     });
 });
 //# sourceMappingURL=functional.js.map

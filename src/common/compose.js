@@ -10,15 +10,21 @@ function compose() {
     var isAllFuncs = functions.every(function (fn) { return fn instanceof Function; });
     if (!isAllFuncs)
         throw new TypeError(errors.AllMustBeFunctions);
-    var isAllEqual = functions.every(function (fn) { return fn.length === functions[0].length; });
+    var isAllEqual = functions.every(function (fn, index) { return index === 0 || fn.length === 1; });
     if (!isAllEqual)
-        throw new TypeError(errors.AllArgsSameLength);
-    return function composition() {
+        throw new TypeError(errors.AllFuncsMustBeUnary);
+    return function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i - 0] = arguments[_i];
         }
-        return functions.reduceRight(function (fn) { return fn(args); });
+        return functions.reduceRight(function (prev, fn) {
+            if (prev === undefined)
+                prev = fn(args);
+            else
+                prev = fn(prev);
+            return prev;
+        }, undefined);
     };
 }
 module.exports = compose;
