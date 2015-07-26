@@ -1,5 +1,4 @@
 import Analysis = require("analysis");
-import errors = require("../errors");
 import toArray = require("../common/toArray");
 export = intersect;
 
