@@ -1,3 +1,8 @@
+var Curry = (function () {
+    var fn = curry;
+    fn.gap = { "@@analysis/placeholder": true };
+    return fn;
+})();
 function curry(fn) {
     var fnArgs = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -34,5 +39,5 @@ function mergeArgs(left, right) {
 function isGap(value) {
     return isNaN(value) && value.toString() === "NaN" && typeof value === "number";
 }
-module.exports = curry;
+module.exports = Curry;
 //# sourceMappingURL=curry.js.map

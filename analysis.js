@@ -66,6 +66,11 @@ function compose() {
 module.exports = compose;
 
 },{"../errors":30}],3:[function(require,module,exports){
+var Curry = (function () {
+    var fn = curry;
+    fn.gap = { "@@analysis/placeholder": true };
+    return fn;
+})();
 function curry(fn) {
     var fnArgs = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -102,7 +107,7 @@ function mergeArgs(left, right) {
 function isGap(value) {
     return isNaN(value) && value.toString() === "NaN" && typeof value === "number";
 }
-module.exports = curry;
+module.exports = Curry;
 
 },{}],4:[function(require,module,exports){
 var isNum = require("./isNumber");
