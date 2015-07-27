@@ -17,7 +17,7 @@ declare module "analysis" {
 		sum(data: number[]|{}): number;
 		round(value: number, decimalPlaces?: number): number;
 		isNumber(value: any): boolean;
-		curry(fn: Function, ...fnArgs: any[]): (...args: any[]) => any;
+		curry: Curry;
 		compose<T>(...functions: Array<ComposeFunction<T>>): ComposeFunction<T>;
 		isEven(value: number): boolean;
 		sortAsc(data: number[]|{}): number[];
