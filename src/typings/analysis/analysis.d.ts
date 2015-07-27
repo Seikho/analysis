@@ -6,7 +6,8 @@ declare module "analysis" {
 	export var common: Common;
 	export var descriptive: Descriptive;
 	export var frequency: Frequency;
-
+	export var distribution: Distribution;
+	
 	export interface Common {
 		round(value: number, decimalPlaces?: number): number;
 		toArray(dataset: number[]|{}): number[];

@@ -1,17 +1,12 @@
-var toArray = require("../common/toArray");
+var curry = require("../common/curry");
+var distinct = require("./distinct");
 function intersect(left, right) {
-    var leftData = toArray(left);
-    var rightData = toArray(right);
-    var isInArray = function (array, value) { return array.some(function (v) { return value === v; }); };
-    var isInRight = function (value) { return rightData.some(function (v) { return value === v; }); };
-    var reducer = function (array, value) {
-        if (isInArray(array, value))
-            return array;
-        if (isInRight(value))
-            array.push(value);
-        return array;
-    };
-    return leftData.reduce(reducer, []);
+    var leftData = distinct(left);
+    var rightData = distinct(right);
+    var isIn = function (value) { return leftData.some(function (v) { return value === v; }); };
+    var push = curry(function (array, value) { return isIn(value) ? array.concat([value]) : array; });
+    var result = rightData.reduce(push, []);
+    return result;
 }
 module.exports = intersect;
 //# sourceMappingURL=intersect.js.map

@@ -48,6 +48,7 @@
         "./src/errors.ts",
         "./src/frequency/api.ts",
         "./src/frequency/binSettings.ts",
+        "./src/frequency/expected.ts",
         "./src/frequency/histogram.ts",
         "./src/frequency/relative.ts",
         "./src/frequency/table.ts",

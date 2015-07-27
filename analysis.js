@@ -595,24 +595,19 @@ function distinct(data) {
 module.exports = distinct;
 
 },{"../common/toArray":15}],39:[function(require,module,exports){
-var toArray = require("../common/toArray");
+var curry = require("../common/curry");
+var distinct = require("./distinct");
 function intersect(left, right) {
-    var leftData = toArray(left);
-    var rightData = toArray(right);
-    var isInArray = function (array, value) { return array.some(function (v) { return value === v; }); };
-    var isInRight = function (value) { return rightData.some(function (v) { return value === v; }); };
-    var reducer = function (array, value) {
-        if (isInArray(array, value))
-            return array;
-        if (isInRight(value))
-            array.push(value);
-        return array;
-    };
-    return leftData.reduce(reducer, []);
+    var leftData = distinct(left);
+    var rightData = distinct(right);
+    var isIn = function (value) { return leftData.some(function (v) { return value === v; }); };
+    var push = curry(function (array, value) { return isIn(value) ? array.concat([value]) : array; });
+    var result = rightData.reduce(push, []);
+    return result;
 }
 module.exports = intersect;
 
-},{"../common/toArray":15}],40:[function(require,module,exports){
+},{"../common/curry":3,"./distinct":38}],40:[function(require,module,exports){
 var distinct = require("./distinct");
 function union(left, right) {
     var allValues = distinct(left)
