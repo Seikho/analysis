@@ -9,7 +9,7 @@ function curry(fn) {
         fnArgs[_i - 1] = arguments[_i];
     }
     while (fnArgs.length < fn.length) {
-        fnArgs[fnArgs.length] = NaN;
+        fnArgs[fnArgs.length] = Curry.gap;
     }
     return function () {
         var innerArgs = Array.prototype.slice.call(arguments, 0);

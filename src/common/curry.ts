@@ -9,7 +9,7 @@ var Curry: Analysis.Curry = (() => {
 
 function curry(fn: Function, ...fnArgs: any[]): (...args: any[]) => any {
 	while (fnArgs.length < fn.length) {
-		fnArgs[fnArgs.length] = NaN;
+		fnArgs[fnArgs.length] = Curry.gap;
 	}
 
 	return function() {
