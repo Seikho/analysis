@@ -1,6 +1,7 @@
+import Analysis = require("analysis");
 export = Curry;
 
-var Curry = (() => {
+var Curry: Analysis.Curry = (() => {
 	var fn: any = curry;
 	fn.gap = { "@@analysis/placeholder": true };
 	return fn; 
@@ -42,5 +43,5 @@ function mergeArgs(left: any[], right: any[]) {
 }
 
 function isGap(value: any) {
-	return isNaN(value) && value.toString() === "NaN" && typeof value === "number";
+	return value["@@analysis/placeholder"] === true;
 }

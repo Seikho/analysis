@@ -25,7 +25,7 @@ declare module "analysis" {
 		isWhole(value: number): boolean;
 		factorial(n: number): number;
 	}
-
+	
 	export interface Descriptive {
 		mean(data: number[]|{}): number;
 		median(data: number[]|{}): number;
@@ -71,6 +71,11 @@ declare module "analysis" {
 	
 	export interface Dataset {
 		[index: string]: number;
+	}
+	
+	export interface Curry {
+		(fn: Function, ...fnArgs: any[]): (...args: any[]) => any;
+		gap: any;
 	}
 	
 	export interface ComposeFunction<T> {

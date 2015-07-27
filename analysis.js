@@ -105,7 +105,7 @@ function mergeArgs(left, right) {
     return merged;
 }
 function isGap(value) {
-    return isNaN(value) && value.toString() === "NaN" && typeof value === "number";
+    return value["@@analysis/placeholder"] === true;
 }
 module.exports = Curry;
 
