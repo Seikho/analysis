@@ -104,9 +104,9 @@ describe("Common module unit tests", function () {
         expect(common.factorial.bind(common.factorial, 2.1))
             .to.throw(errors.MustBeWhole);
     });
-    it("factorial: will throw if given a number below 1", function () {
-        expect(common.factorial.bind(common.factorial, 0.9))
-            .to.throw(errors.MustBeAtLeastOne);
+    it("factorial: will throw if given a number below zero", function () {
+        expect(common.factorial.bind(common.factorial, -1))
+            .to.throw(errors.MustBeAtLeastZero);
     });
 });
 //# sourceMappingURL=common.js.map
