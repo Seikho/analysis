@@ -1,6 +1,8 @@
 ### Analysis.js
 An isomorphic, JavaScript statistics library for the behavioural sciences written in TypeScript.  
-Written using best practice methods and exhaustively unit tested.
+
+[![NPM version](http://img.shields.io/npm/v/analysis.svg?style=flat)](https://www.npmjs.org/package/analysis)
+[![Travis build status](http://img.shields.io/travis/Seikho/analysis/master.svg?style=flat)](https://travis-ci.org/Seikho/analysis)  
 ** Under construction **    
 
 #### Dependencies
