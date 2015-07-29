@@ -13,7 +13,7 @@ function probability(events, x) {
     var xFactorial = factorial(x);
     var eventsFactorial = factorial(events);
     var possibilities = Math.pow(2, events);
-    return eventsFactorial / xFactorial * (eventsFactorial - xFactorial);
+    return (eventsFactorial / xFactorial * (eventsFactorial - xFactorial)) / Math.pow(2, events);
 }
 module.exports = probability;
 //# sourceMappingURL=binomialProbability.js.map
