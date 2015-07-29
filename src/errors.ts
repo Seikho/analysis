@@ -6,8 +6,9 @@ var errors = {
 	MustBeArrayOrObject: "Input must be array or object",
 	HistogramOneOption: "Must provide either binSize or binCount, but not both",
 	InsufficientValues: "Not enough inputs supplied",
-	MustBeAtLeastOne: "Input must at least 1",
+	MustBeAtLeastZero: "Input must at least zero (0)",
+	MustBeAtLeastOne: "Input must at least one (1)",
 	MustBeWhole: "Input must be a whole number",
 	AllMustBeFunctions: "All inputs must be functions",
-	AllFuncsMustBeUnary: "All functions except the right-most must have unary arity (take 1 argument)"
+	AllFuncsMustBeUnary: "All functions except the right-most must have unary arity (take 1 argument)",
 }

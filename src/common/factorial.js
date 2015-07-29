@@ -4,11 +4,11 @@ var isWhole = require("./isWhole");
 function factorial(n) {
     if (!isNum(n))
         throw new TypeError(errors.MustBeNumber);
-    if (n < 1)
+    if (n < 0)
         throw new TypeError(errors.MustBeAtLeastOne);
     if (!isWhole(n))
         throw new TypeError(errors.MustBeWhole);
-    if (n === 1)
+    if (n === 1 || n === 0)
         return 1;
     if (n === 2)
         return 2;
