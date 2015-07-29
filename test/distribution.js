@@ -4,7 +4,7 @@ var chai = require("chai");
 var errors = require("../src/errors");
 var expect = chai.expect;
 // Lazy shortcut
-var binProb = dist.binomialCoefficient;
+var binCoeff = dist.binomialCoefficient;
 describe("Distribution unit tests", function () {
     it("chiSquare: will correctly calculate the chi squared", function () {
         expect(dist.chiSquare(10, 20)).to.equal(5);
@@ -20,6 +20,20 @@ describe("Distribution unit tests", function () {
     it("poisson: will correctly calculate the poisson distribution", function () {
         expect(round(dist.poisson(3, 2), 2)).to.equal(0.18);
     });
-    it("binomialProbability:");
+    it("binomialCoefficient: will throw when either argument is not a number", function () {
+        expect(binCoeff.bind(binCoeff, "string", 5)).to.throw(errors.MustBeNumber);
+        expect(binCoeff.bind(binCoeff, 5, "string")).to.throw(errors.MustBeNumber);
+    });
+    it("binomialCoefficient: will throw when either argument is not a whole number", function () {
+        expect(binCoeff.bind(binCoeff, 4.5, 5)).to.throw(errors.MustBeWhole);
+        expect(binCoeff.bind(binCoeff, 5, 4.5)).to.throw(errors.MustBeWhole);
+    });
+    it("binomialCoefficient: will throw when 'events' argument is below 1", function () {
+        expect(binCoeff.bind(binCoeff, 0, 5)).to.throw(errors.EventsMustBeAtLeastOne);
+        expect(binCoeff.bind(binCoeff, -1, 5)).to.throw(errors.EventsMustBeAtLeastOne);
+    });
+    it("binomialCoefficient: will throw when 'x' argument is below 0", function () {
+        expect(binCoeff.bind(binCoeff, 5, -1)).to.throw(errors.RandomVariableMustBeAtLeastZero);
+    });
 });
 //# sourceMappingURL=distribution.js.map
