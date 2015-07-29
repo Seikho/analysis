@@ -43,6 +43,7 @@
         "./src/descriptive/variance.ts",
         "./src/descriptive/zScore.ts",
         "./src/distribution/api.ts",
+        "./src/distribution/binomial.ts",
         "./src/distribution/binomialCoefficient.ts",
         "./src/distribution/chiSquare.ts",
         "./src/distribution/poisson.ts",
