@@ -44,4 +44,13 @@ describe("Distribution unit tests", () => {
 	it("binomialCoefficient: will throw when 'x' argument is below 0", () => {
 		expect(binCoeff.bind(binCoeff, 5, -1)).to.throw(errors.RandomVariableMustBeAtLeastZero);
 	});
+	
+	it("binomialCoefficient: will correctly evaluate", () => {
+		expect(binCoeff(5, 0)).to.equal(1/32);
+		expect(binCoeff(5, 1)).to.equal(5/32);
+		expect(binCoeff(5, 2)).to.equal(10/32);
+		expect(binCoeff(5, 3)).to.equal(10/32);
+		expect(binCoeff(5, 4)).to.equal(5/32);
+		expect(binCoeff(5, 5)).to.equal(1/32);
+	});
 });
