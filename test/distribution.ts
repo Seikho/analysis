@@ -53,4 +53,16 @@ describe("Distribution unit tests", () => {
 		expect(binCoeff(5, 4)).to.equal(5/32);
 		expect(binCoeff(5, 5)).to.equal(1/32);
 	});
+	
+	it("binomial: will throw provided a non-number", () => {
+		expect(dist.binomial.bind(dist.binomial, <any>"string")).to.throw(errors.MustBeNumber);
+	});
+	
+	it("binomial: will throw provided a non whole number", () => {
+		expect(dist.binomial.bind(dist.binomial, 5.5)).to.throw(errors.MustBeWhole);
+	});
+	
+	it("binomial: will throw provided a number below 1", () => {
+		expect(dist.binomial.bind(dist.binomial, 0)).to.throw(errors.MustBeAtLeastOne);
+	});
 });
