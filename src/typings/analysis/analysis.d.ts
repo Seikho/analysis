@@ -43,6 +43,7 @@ declare module "analysis" {
 		chiSquare(observedFreq: number, expectedFreq: number): number;
 		poisson(x: number, avgSuccessRate: number): number;
 		binomialCoefficient(events: number, x: number): number;
+		binomial(events: number): Dataset;
 	}
 	
 	export interface Set {
