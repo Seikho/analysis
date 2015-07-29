@@ -11,8 +11,7 @@ function probability(events: number, x: number) {
 	
 	var xFactorial = factorial(x);
 	var eventsFactorial = factorial(events);
-	
-	
 	var possibilities = Math.pow(2,events);
-	return (eventsFactorial / xFactorial * (eventsFactorial - xFactorial)) / Math.pow(2, events);
+	
+	return (eventsFactorial / xFactorial * (eventsFactorial - xFactorial)) / possibilities;
 }
