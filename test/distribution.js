@@ -3,6 +3,8 @@ var round = require("../src/common/round");
 var chai = require("chai");
 var errors = require("../src/errors");
 var expect = chai.expect;
+// Lazy shortcut
+var binProb = dist.binomialProbability;
 describe("Distribution unit tests", function () {
     it("chiSquare: will correctly calculate the chi squared", function () {
         expect(dist.chiSquare(10, 20)).to.equal(5);
@@ -18,5 +20,6 @@ describe("Distribution unit tests", function () {
     it("poisson: will correctly calculate the poisson distribution", function () {
         expect(round(dist.poisson(3, 2), 2)).to.equal(0.18);
     });
+    it("binomialProbability:");
 });
 //# sourceMappingURL=distribution.js.map

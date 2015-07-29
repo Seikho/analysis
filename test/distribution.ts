@@ -4,6 +4,9 @@ import chai = require("chai");
 import errors = require("../src/errors");
 var expect = chai.expect;
 
+// Lazy shortcut
+var binProb = dist.binomialProbability;
+
 describe("Distribution unit tests", () => {
 	
 	it("chiSquare: will correctly calculate the chi squared", () => {
@@ -22,5 +25,7 @@ describe("Distribution unit tests", () => {
 	it("poisson: will correctly calculate the poisson distribution", () => {
 		expect(round(dist.poisson(3,2),2)).to.equal(0.18);
 	});
+	
+	it("binomialProbability:")
 	
 });

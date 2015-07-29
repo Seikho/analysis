@@ -42,7 +42,7 @@ declare module "analysis" {
 	export interface Distribution {
 		chiSquare(observedFreq: number, expectedFreq: number): number;
 		poisson(x: number, avgSuccessRate: number): number;
-		binomialProbability(events: number, x: number): number;
+		binomialCoefficient(events: number, x: number): number;
 	}
 	
 	export interface Set {
