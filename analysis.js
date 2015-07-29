@@ -452,10 +452,11 @@ function probability(events, x) {
         throw new TypeError(errors.EventsMustBeAtLeastOne);
     if (x < 0)
         throw new TypeError(errors.RandomVariableMustBeAtLeastZero);
-    var xFactorial = factorial(x);
-    var eventsFactorial = factorial(events);
+    var first = factorial(events);
+    var second = factorial(x);
+    var third = factorial(events - x);
     var possibilities = Math.pow(2, events);
-    return (eventsFactorial / xFactorial * (eventsFactorial - xFactorial)) / possibilities;
+    return (first / (second * third)) / possibilities;
 }
 module.exports = probability;
 

@@ -8,10 +8,11 @@ function probability(events: number, x: number) {
 	if (!isWhole(events) || !isWhole(x)) throw new TypeError(errors.MustBeWhole);
 	if (events < 1) throw new TypeError(errors.EventsMustBeAtLeastOne);
 	if (x < 0) throw new TypeError(errors.RandomVariableMustBeAtLeastZero);
-	
-	var xFactorial = factorial(x);
-	var eventsFactorial = factorial(events);
-	var possibilities = Math.pow(2,events);
-	
-	return (eventsFactorial / xFactorial * (eventsFactorial - xFactorial)) / possibilities;
+
+	var first = factorial(events);
+	var second = factorial(x);
+	var third = factorial(events - x);
+	var possibilities = Math.pow(2, events);
+
+	return (first / (second * third)) / possibilities;
 }
