@@ -5,7 +5,7 @@ export = factorial;
 
 function factorial(n: number): number {
 	if (!isNum(n)) throw new TypeError(errors.MustBeNumber);
-	if (n < 0) throw new TypeError(errors.MustBeAtLeastOne);
+	if (n < 0) throw new TypeError(errors.MustBeAtLeastZero);
 	if (!isWhole(n)) throw new TypeError(errors.MustBeWhole); 
 	
 	if (n === 1 || n === 0) return 1;

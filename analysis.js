@@ -117,7 +117,7 @@ function factorial(n) {
     if (!isNum(n))
         throw new TypeError(errors.MustBeNumber);
     if (n < 0)
-        throw new TypeError(errors.MustBeAtLeastOne);
+        throw new TypeError(errors.MustBeAtLeastZero);
     if (!isWhole(n))
         throw new TypeError(errors.MustBeWhole);
     if (n === 1 || n === 0)
