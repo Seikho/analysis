@@ -5,7 +5,7 @@ import errors = require("../src/errors");
 var expect = chai.expect;
 
 // Lazy shortcut
-var binProb = dist.binomialProbability;
+var binProb = dist.binomialCoefficient;
 
 describe("Distribution unit tests", () => {
 	

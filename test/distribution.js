@@ -4,7 +4,7 @@ var chai = require("chai");
 var errors = require("../src/errors");
 var expect = chai.expect;
 // Lazy shortcut
-var binProb = dist.binomialProbability;
+var binProb = dist.binomialCoefficient;
 describe("Distribution unit tests", function () {
     it("chiSquare: will correctly calculate the chi squared", function () {
         expect(dist.chiSquare(10, 20)).to.equal(5);

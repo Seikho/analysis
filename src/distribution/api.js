@@ -1,6 +1,6 @@
 var chiSquare = require("./chiSquare");
 var poisson = require("./poisson");
-var binomialCoefficient = require("./binomialProbability");
+var binomialCoefficient = require("./binomialCoefficient");
 var api = {
     chiSquare: chiSquare,
     poisson: poisson,

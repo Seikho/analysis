@@ -410,15 +410,15 @@ module.exports = zScore;
 },{"./mean":20,"./stdDev":23}],27:[function(require,module,exports){
 var chiSquare = require("./chiSquare");
 var poisson = require("./poisson");
-var binomialProbability = require("./binomialProbability");
+var binomialCoefficient = require("./binomialCoefficient");
 var api = {
     chiSquare: chiSquare,
     poisson: poisson,
-    binomialProbability: binomialProbability
+    binomialCoefficient: binomialCoefficient
 };
 module.exports = api;
 
-},{"./binomialProbability":28,"./chiSquare":29,"./poisson":30}],28:[function(require,module,exports){
+},{"./binomialCoefficient":28,"./chiSquare":29,"./poisson":30}],28:[function(require,module,exports){
 var factorial = require("../common/factorial");
 var isWhole = require("../common/isWhole");
 var errors = require("../errors");
