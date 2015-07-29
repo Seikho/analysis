@@ -450,6 +450,8 @@ var errors = {
     MustBeWhole: "Input must be a whole number",
     AllMustBeFunctions: "All inputs must be functions",
     AllFuncsMustBeUnary: "All functions except the right-most must have unary arity (take 1 argument)",
+    EventsMustBeAtLeastOne: "Number of events must be at least one (1)",
+    RandomVariableMustBeAtLeastZero: "Random variable (x) must be at least zero (0)"
 };
 module.exports = errors;
 
