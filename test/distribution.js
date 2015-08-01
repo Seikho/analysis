@@ -52,5 +52,14 @@ describe("Distribution unit tests", function () {
     it("binomial: will throw provided a number below 1", function () {
         expect(dist.binomial.bind(dist.binomial, 0)).to.throw(errors.MustBeAtLeastOne);
     });
+    it("binomial: will provide a correct binomial distribution table", function () {
+        var table = dist.binomial(5);
+        expect(table[0]).to.equal(1 / 32);
+        expect(table[1]).to.equal(5 / 32);
+        expect(table[2]).to.equal(10 / 32);
+        expect(table[3]).to.equal(10 / 32);
+        expect(table[4]).to.equal(5 / 32);
+        expect(table[5]).to.equal(1 / 32);
+    });
 });
 //# sourceMappingURL=distribution.js.map
