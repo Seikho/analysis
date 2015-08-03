@@ -14,7 +14,7 @@ function probability(events, x) {
     var second = factorial(x);
     var third = factorial(events - x);
     var possibilities = Math.pow(2, events);
-    return (first / (second * third)) / possibilities;
+    return (first / (second * third));
 }
 module.exports = probability;
 //# sourceMappingURL=coefficient.js.map

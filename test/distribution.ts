@@ -5,7 +5,9 @@ import errors = require("../src/errors");
 var expect = chai.expect;
 
 // Lazy shortcut
-var binCoeff = dist.binomialCoefficient;
+var binCoeff = dist.binomial.coefficient;
+var binTable = dist.binomial.table;
+
 
 describe("Distribution unit tests", () => {
 
@@ -46,28 +48,28 @@ describe("Distribution unit tests", () => {
 	});
 	
 	it("binomialCoefficient: will correctly evaluate", () => {
-		expect(binCoeff(5, 0)).to.equal(1/32);
-		expect(binCoeff(5, 1)).to.equal(5/32);
-		expect(binCoeff(5, 2)).to.equal(10/32);
-		expect(binCoeff(5, 3)).to.equal(10/32);
-		expect(binCoeff(5, 4)).to.equal(5/32);
-		expect(binCoeff(5, 5)).to.equal(1/32);
+		expect(binCoeff(5, 0)).to.equal(1);
+		expect(binCoeff(5, 1)).to.equal(5);
+		expect(binCoeff(5, 2)).to.equal(10);
+		expect(binCoeff(5, 3)).to.equal(10);
+		expect(binCoeff(5, 4)).to.equal(5);
+		expect(binCoeff(5, 5)).to.equal(1);
 	});
 	
 	it("binomial: will throw provided a non-number", () => {
-		expect(dist.binomial.bind(dist.binomial, <any>"string")).to.throw(errors.MustBeNumber);
+		expect(binTable.bind(binTable, <any>"string")).to.throw(errors.MustBeNumber);
 	});
 	
 	it("binomial: will throw provided a non whole number", () => {
-		expect(dist.binomial.bind(dist.binomial, 5.5)).to.throw(errors.MustBeWhole);
+		expect(binTable.bind(binTable, 5.5)).to.throw(errors.MustBeWhole);
 	});
 	
 	it("binomial: will throw provided a number below 1", () => {
-		expect(dist.binomial.bind(dist.binomial, 0)).to.throw(errors.MustBeAtLeastOne);
+		expect(binTable.bind(binTable, 0)).to.throw(errors.MustBeAtLeastOne);
 	});
 	
 	it("binomial: will provide a correct binomial distribution table", () => {
-		var table = dist.binomial(5);
+		var table = binTable(5);
 		expect(table[0]).to.equal(1/32);
 		expect(table[1]).to.equal(5/32);
 		expect(table[2]).to.equal(10/32);

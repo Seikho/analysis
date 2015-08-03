@@ -14,5 +14,5 @@ function probability(events: number, x: number) {
 	var third = factorial(events - x);
 	var possibilities = Math.pow(2, events);
 
-	return (first / (second * third)) / possibilities;
+	return (first / (second * third));
 }

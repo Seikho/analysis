@@ -10,9 +10,10 @@ function table(events: number): Types.Dataset {
 	if (events < 1) throw new TypeError(errors.MustBeAtLeastOne);
 	
 	var result: Types.Dataset = {};
+	var possibilities = Math.pow(2, events);
 	
 	for (let x = 0;x <= events; x++) {
-		result[x] = coefficient(events, x);
+		result[x] = coefficient(events, x) / possibilities;
 	}
 	
 	return result;
