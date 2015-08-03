@@ -1,10 +1,12 @@
 import coefficient = require("./coefficient");
 export = probability;
-
-function probability(chanceOfSuccess: number, events: number, expectedSuccesses: number): number {
-	var odds = coefficient(events, expectedSuccesses);
-	var success = Math.pow(chanceOfSuccess, expectedSuccesses);
-	var fail = Math.pow(1 - chanceOfSuccess, events - expectedSuccesses);
+/**
+ * Chance of exactly 'k' successes in 'n' events, given a probability a success
+ */
+function probability(chanceOfSuccess: number, events: number, successes: number): number {
+	var odds = coefficient(events, successes);
+	var success = Math.pow(chanceOfSuccess, successes);
+	var fail = Math.pow(1 - chanceOfSuccess, events - successes);
 	
 	return odds * success * fail;
 }
