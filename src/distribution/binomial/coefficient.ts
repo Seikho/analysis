@@ -1,6 +1,6 @@
-import factorial = require("../common/factorial");
-import isWhole = require("../common/isWhole");
-import errors = require("../errors");
+import factorial = require("../../common/factorial");
+import isWhole = require("../../common/isWhole");
+import errors = require("../../errors");
 export = probability;
 
 function probability(events: number, x: number) {

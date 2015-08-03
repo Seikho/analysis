@@ -1,7 +1,7 @@
 import Types = require("analysis");
-import errors = require("../errors");
-import coefficient = require("./binomialCoefficient");
-import isWhole = require("../common/isWhole");
+import errors = require("../../errors");
+import coefficient = require("./coefficient");
+import isWhole = require("../../common/isWhole");
 export = table;
 
 function table(events: number): Types.Dataset {
