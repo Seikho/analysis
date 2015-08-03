@@ -45,6 +45,7 @@
         "./src/distribution/api.ts",
         "./src/distribution/binomial.ts",
         "./src/distribution/binomial/coefficient.ts",
+        "./src/distribution/binomial/index.ts",
         "./src/distribution/binomial/probability.ts",
         "./src/distribution/binomial/table.ts",
         "./src/distribution/binomialCoefficient.ts",

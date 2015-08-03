@@ -42,8 +42,12 @@ declare module "analysis" {
 	export interface Distribution {
 		chiSquare(observedFreq: number, expectedFreq: number): number;
 		poisson(x: number, avgSuccessRate: number): number;
-		binomialCoefficient(events: number, x: number): number;
-		binomial(events: number): Dataset;
+		binomial: Binomial;
+	}
+	
+	interface Binomial {
+		table(events: number): Dataset;
+		coefficient(events: number, x: number): number;
 	}
 	
 	export interface Set {
