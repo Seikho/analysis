@@ -10,7 +10,7 @@ var Analysis = {
     frequency: frequency,
     set: set
 };
-if (window)
+if (typeof window === "object")
     window.Analysis = Analysis;
 module.exports = Analysis;
 //# sourceMappingURL=index.js.map
