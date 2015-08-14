@@ -1,3 +1,4 @@
+var box = require("./box");
 var mean = require("./mean");
 var mode = require("./mode");
 var median = require("./median");
@@ -8,6 +9,7 @@ var firstQuartile = require("./firstQuartile");
 var thirdQuartile = require("./thirdQuartile");
 var interQuartileRange = require("./interQuartileRange");
 var api = {
+    box: box,
     mean: mean,
     mode: mode,
     median: median,

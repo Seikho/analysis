@@ -65,7 +65,7 @@ function compose() {
 }
 module.exports = compose;
 
-},{"../errors":33}],3:[function(require,module,exports){
+},{"../errors":34}],3:[function(require,module,exports){
 var Curry = (function () {
     var fn = curry;
     fn.gap = { "@@analysis/placeholder": true };
@@ -132,7 +132,7 @@ function factorial(n) {
 }
 module.exports = factorial;
 
-},{"../errors":33,"./isNumber":6,"./isWhole":7}],5:[function(require,module,exports){
+},{"../errors":34,"./isNumber":6,"./isWhole":7}],5:[function(require,module,exports){
 var isNumber = require("./isNumber");
 var errors = require("../errors");
 function isEven(value) {
@@ -142,7 +142,7 @@ function isEven(value) {
 }
 module.exports = isEven;
 
-},{"../errors":33,"./isNumber":6}],6:[function(require,module,exports){
+},{"../errors":34,"./isNumber":6}],6:[function(require,module,exports){
 function isNumber(value) {
     return !isNaN(value);
 }
@@ -158,7 +158,7 @@ function isWhole(value) {
 }
 module.exports = isWhole;
 
-},{"../errors":33,"./isNumber":6}],8:[function(require,module,exports){
+},{"../errors":34,"./isNumber":6}],8:[function(require,module,exports){
 var toArray = require("./toArray");
 /**
  * @return Number Returns the highest value in a dataset/array
@@ -253,7 +253,7 @@ function convert(data) {
 }
 module.exports = convert;
 
-},{"../errors":33,"./validateArray":16}],16:[function(require,module,exports){
+},{"../errors":34,"./validateArray":16}],16:[function(require,module,exports){
 var isNumber = require("./isNumber");
 var errors = require("../errors");
 function validate(data) {
@@ -264,7 +264,8 @@ function validate(data) {
 }
 module.exports = validate;
 
-},{"../errors":33,"./isNumber":6}],17:[function(require,module,exports){
+},{"../errors":34,"./isNumber":6}],17:[function(require,module,exports){
+var box = require("./box");
 var mean = require("./mean");
 var mode = require("./mode");
 var median = require("./median");
@@ -275,6 +276,7 @@ var firstQuartile = require("./firstQuartile");
 var thirdQuartile = require("./thirdQuartile");
 var interQuartileRange = require("./interQuartileRange");
 var api = {
+    box: box,
     mean: mean,
     mode: mode,
     median: median,
@@ -287,7 +289,28 @@ var api = {
 };
 module.exports = api;
 
-},{"./firstQuartile":18,"./interQuartileRange":19,"./mean":20,"./median":21,"./mode":22,"./stdDev":23,"./thirdQuartile":24,"./variance":25,"./zScore":26}],18:[function(require,module,exports){
+},{"./box":18,"./firstQuartile":19,"./interQuartileRange":20,"./mean":21,"./median":22,"./mode":23,"./stdDev":24,"./thirdQuartile":25,"./variance":26,"./zScore":27}],18:[function(require,module,exports){
+var firstQuartile = require("./firstQuartile");
+var thirdQuartile = require("./thirdQuartile");
+var mean = require("./mean");
+var median = require("./median");
+var mode = require("./mode");
+var range = require("../common/range");
+var toArray = require("../common/toArray");
+function box(data) {
+    var dataset = toArray(data);
+    return {
+        mean: mean(dataset),
+        mode: mode(dataset),
+        median: median(dataset),
+        range: range(dataset),
+        lowerQuartile: firstQuartile(dataset),
+        upperQuartile: thirdQuartile(dataset)
+    };
+}
+module.exports = box;
+
+},{"../common/range":10,"../common/toArray":15,"./firstQuartile":19,"./mean":21,"./median":22,"./mode":23,"./thirdQuartile":25}],19:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var isWhole = require("../common/isWhole");
 var sortAsc = require("../common/sortAsc");
@@ -305,7 +328,7 @@ function firstQuartile(data) {
 }
 module.exports = firstQuartile;
 
-},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15,"../errors":33}],19:[function(require,module,exports){
+},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15,"../errors":34}],20:[function(require,module,exports){
 var firstQuartile = require("./firstQuartile");
 var thirdQuartile = require("./thirdQuartile");
 function range(data) {
@@ -315,7 +338,7 @@ function range(data) {
 }
 module.exports = range;
 
-},{"./firstQuartile":18,"./thirdQuartile":24}],20:[function(require,module,exports){
+},{"./firstQuartile":19,"./thirdQuartile":25}],21:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var sum = require("../common/sum");
 function mean(data) {
@@ -324,7 +347,7 @@ function mean(data) {
 }
 module.exports = mean;
 
-},{"../common/sum":14,"../common/toArray":15}],21:[function(require,module,exports){
+},{"../common/sum":14,"../common/toArray":15}],22:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var isEven = require("../common/isEven");
 function median(data) {
@@ -340,7 +363,7 @@ function median(data) {
 }
 module.exports = median;
 
-},{"../common/isEven":5,"../common/toArray":15}],22:[function(require,module,exports){
+},{"../common/isEven":5,"../common/toArray":15}],23:[function(require,module,exports){
 var max = require("../common/max");
 var frequencyTable = require("../frequency/table");
 function mode(data) {
@@ -355,7 +378,7 @@ function mode(data) {
 }
 module.exports = mode;
 
-},{"../common/max":8,"../frequency/table":38}],23:[function(require,module,exports){
+},{"../common/max":8,"../frequency/table":39}],24:[function(require,module,exports){
 var variance = require("./variance");
 function stdDev(data) {
     var populationVariance = variance(data);
@@ -363,7 +386,7 @@ function stdDev(data) {
 }
 module.exports = stdDev;
 
-},{"./variance":25}],24:[function(require,module,exports){
+},{"./variance":26}],25:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var isWhole = require("../common/isWhole");
 var sortAsc = require("../common/sortAsc");
@@ -381,7 +404,7 @@ function thirdQuartile(data) {
 }
 module.exports = thirdQuartile;
 
-},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15,"../errors":33}],25:[function(require,module,exports){
+},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15,"../errors":34}],26:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var sum = require("../common/sum");
 var mean = require("./mean");
@@ -399,7 +422,7 @@ function variance(data) {
 }
 module.exports = variance;
 
-},{"../common/sum":14,"../common/toArray":15,"./mean":20}],26:[function(require,module,exports){
+},{"../common/sum":14,"../common/toArray":15,"./mean":21}],27:[function(require,module,exports){
 var stdDev = require("./stdDev");
 var mean = require("./mean");
 function zScore(data, value) {
@@ -407,7 +430,7 @@ function zScore(data, value) {
 }
 module.exports = zScore;
 
-},{"./mean":20,"./stdDev":23}],27:[function(require,module,exports){
+},{"./mean":21,"./stdDev":24}],28:[function(require,module,exports){
 var chiSquare = require("./chiSquare");
 var poisson = require("./poisson");
 var binomial = require("./binomial/index");
@@ -418,7 +441,7 @@ var api = {
 };
 module.exports = api;
 
-},{"./binomial/index":29,"./chiSquare":31,"./poisson":32}],28:[function(require,module,exports){
+},{"./binomial/index":30,"./chiSquare":32,"./poisson":33}],29:[function(require,module,exports){
 var factorial = require("../../common/factorial");
 var isWhole = require("../../common/isWhole");
 var errors = require("../../errors");
@@ -439,7 +462,7 @@ function probability(events, x) {
 }
 module.exports = probability;
 
-},{"../../common/factorial":4,"../../common/isWhole":7,"../../errors":33}],29:[function(require,module,exports){
+},{"../../common/factorial":4,"../../common/isWhole":7,"../../errors":34}],30:[function(require,module,exports){
 var coefficient = require("./coefficient");
 var table = require("./table");
 module.exports = {
@@ -447,7 +470,7 @@ module.exports = {
     table: table
 };
 
-},{"./coefficient":28,"./table":30}],30:[function(require,module,exports){
+},{"./coefficient":29,"./table":31}],31:[function(require,module,exports){
 var errors = require("../../errors");
 var coefficient = require("./coefficient");
 var isWhole = require("../../common/isWhole");
@@ -467,7 +490,7 @@ function table(events) {
 }
 module.exports = table;
 
-},{"../../common/isWhole":7,"../../errors":33,"./coefficient":28}],31:[function(require,module,exports){
+},{"../../common/isWhole":7,"../../errors":34,"./coefficient":29}],32:[function(require,module,exports){
 var errors = require("../errors");
 var isNum = require("../common/isNumber");
 function chiSquare(observedFrequency, expectedFrequency) {
@@ -478,7 +501,7 @@ function chiSquare(observedFrequency, expectedFrequency) {
 }
 module.exports = chiSquare;
 
-},{"../common/isNumber":6,"../errors":33}],32:[function(require,module,exports){
+},{"../common/isNumber":6,"../errors":34}],33:[function(require,module,exports){
 var factorial = require("../common/factorial");
 var e = 2.71828;
 function poisson(x, avgSuccessRate) {
@@ -489,7 +512,7 @@ function poisson(x, avgSuccessRate) {
 }
 module.exports = poisson;
 
-},{"../common/factorial":4}],33:[function(require,module,exports){
+},{"../common/factorial":4}],34:[function(require,module,exports){
 var errors = {
     MustBeNumber: "Input must be a number",
     AllMustBeNumbers: "All values must be numbers",
@@ -506,7 +529,7 @@ var errors = {
 };
 module.exports = errors;
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 var histogram = require("./histogram");
 var relative = require("./relative");
 var table = require("./table");
@@ -517,7 +540,7 @@ var api = {
 };
 module.exports = api;
 
-},{"./histogram":36,"./relative":37,"./table":38}],35:[function(require,module,exports){
+},{"./histogram":37,"./relative":38,"./table":39}],36:[function(require,module,exports){
 var isNum = require("../common/isNumber");
 var range = require("../common/range");
 var errors = require("../errors");
@@ -548,7 +571,7 @@ function binSettings(dataset, binOptions) {
 }
 module.exports = binSettings;
 
-},{"../common/isNumber":6,"../common/range":10,"../errors":33}],36:[function(require,module,exports){
+},{"../common/isNumber":6,"../common/range":10,"../errors":34}],37:[function(require,module,exports){
 var binSettings = require("./binSettings");
 var toArray = require("../common/toArray");
 var isEven = require("../common/isEven");
@@ -576,7 +599,7 @@ function getEmptyHistogram(binCount) {
 }
 module.exports = histogram;
 
-},{"../common/isEven":5,"../common/toArray":15,"./binSettings":35}],37:[function(require,module,exports){
+},{"../common/isEven":5,"../common/toArray":15,"./binSettings":36}],38:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var sum = require("../common/sum");
 var table = require("./table");
@@ -594,7 +617,7 @@ function relative(data) {
 }
 module.exports = relative;
 
-},{"../common/sum":14,"../common/toArray":15,"./table":38}],38:[function(require,module,exports){
+},{"../common/sum":14,"../common/toArray":15,"./table":39}],39:[function(require,module,exports){
 var common = require("../common/api");
 function table(data) {
     var dataset = common.toArray(data);
@@ -606,7 +629,7 @@ function table(data) {
 }
 module.exports = table;
 
-},{"../common/api":1}],39:[function(require,module,exports){
+},{"../common/api":1}],40:[function(require,module,exports){
 var common = require("./common/api");
 var descriptive = require("./descriptive/api");
 var frequency = require("./frequency/api");
@@ -623,7 +646,7 @@ if (typeof window === "object")
     window.Analysis = Analysis;
 module.exports = Analysis;
 
-},{"./common/api":1,"./descriptive/api":17,"./distribution/api":27,"./frequency/api":34,"./set/api":40}],40:[function(require,module,exports){
+},{"./common/api":1,"./descriptive/api":17,"./distribution/api":28,"./frequency/api":35,"./set/api":41}],41:[function(require,module,exports){
 var distinct = require("./distinct");
 var intersect = require("./intersect");
 var union = require("./union");
@@ -634,7 +657,7 @@ var set = {
 };
 module.exports = set;
 
-},{"./distinct":41,"./intersect":42,"./union":43}],41:[function(require,module,exports){
+},{"./distinct":42,"./intersect":43,"./union":44}],42:[function(require,module,exports){
 var toArray = require("../common/toArray");
 function distinct(data) {
     var dataset = toArray(data);
@@ -648,7 +671,7 @@ function distinct(data) {
 }
 module.exports = distinct;
 
-},{"../common/toArray":15}],42:[function(require,module,exports){
+},{"../common/toArray":15}],43:[function(require,module,exports){
 var curry = require("../common/curry");
 var distinct = require("./distinct");
 function intersect(left, right) {
@@ -661,7 +684,7 @@ function intersect(left, right) {
 }
 module.exports = intersect;
 
-},{"../common/curry":3,"./distinct":41}],43:[function(require,module,exports){
+},{"../common/curry":3,"./distinct":42}],44:[function(require,module,exports){
 var distinct = require("./distinct");
 function union(left, right) {
     var allValues = distinct(left)
@@ -670,4 +693,4 @@ function union(left, right) {
 }
 module.exports = union;
 
-},{"./distinct":41}]},{},[39]);
+},{"./distinct":42}]},{},[40]);
