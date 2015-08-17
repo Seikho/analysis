@@ -7,7 +7,7 @@ export = thirdQuartile;
 
 function thirdQuartile(data: number[]|{}): number {
 	var dataset = sortAsc(toArray(data));
-	if (dataset.length < 4) throw new Error(errors.InsufficientValues);
+	if (dataset.length < 4) return null;
 
 	var offset = dataset.length * 0.75;
 	var offsetFloored = Math.floor(offset);

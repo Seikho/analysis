@@ -6,7 +6,7 @@ export = firstQuartile;
 
 function firstQuartile(data: number[]|{}): number {
 	var dataset = sortAsc(toArray(data));
-	if (dataset.length < 4) throw new Error(errors.InsufficientValues);
+	if (dataset.length < 4) return null;
 
 	var offset = dataset.length * 0.25;
 	var offsetFloored = Math.floor(offset);

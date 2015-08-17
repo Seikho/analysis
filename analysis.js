@@ -314,11 +314,10 @@ module.exports = box;
 var toArray = require("../common/toArray");
 var isWhole = require("../common/isWhole");
 var sortAsc = require("../common/sortAsc");
-var errors = require("../errors");
 function firstQuartile(data) {
     var dataset = sortAsc(toArray(data));
     if (dataset.length < 4)
-        throw new Error(errors.InsufficientValues);
+        return null;
     var offset = dataset.length * 0.25;
     var offsetFloored = Math.floor(offset);
     if (!isWhole(offset))
@@ -328,7 +327,7 @@ function firstQuartile(data) {
 }
 module.exports = firstQuartile;
 
-},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15,"../errors":34}],20:[function(require,module,exports){
+},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15}],20:[function(require,module,exports){
 var firstQuartile = require("./firstQuartile");
 var thirdQuartile = require("./thirdQuartile");
 function range(data) {
@@ -390,11 +389,10 @@ module.exports = stdDev;
 var toArray = require("../common/toArray");
 var isWhole = require("../common/isWhole");
 var sortAsc = require("../common/sortAsc");
-var errors = require("../errors");
 function thirdQuartile(data) {
     var dataset = sortAsc(toArray(data));
     if (dataset.length < 4)
-        throw new Error(errors.InsufficientValues);
+        return null;
     var offset = dataset.length * 0.75;
     var offsetFloored = Math.floor(offset);
     if (!isWhole(offset))
@@ -404,7 +402,7 @@ function thirdQuartile(data) {
 }
 module.exports = thirdQuartile;
 
-},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15,"../errors":34}],26:[function(require,module,exports){
+},{"../common/isWhole":7,"../common/sortAsc":12,"../common/toArray":15}],26:[function(require,module,exports){
 var toArray = require("../common/toArray");
 var sum = require("../common/sum");
 var mean = require("./mean");
