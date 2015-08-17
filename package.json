@@ -1,6 +1,6 @@
 {
   "name": "analysis",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Isomorphic Statistical Analysis using Javascript",
   "main": "src/index.js",
   "scripts": {
