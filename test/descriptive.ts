@@ -85,9 +85,9 @@ describe("Descriptive module tests", () => {
 			.to.equal(9.5);
 	});
 
-	it("firstQuartile: will throw if less than 4 values are supplied to first quartile", () => {
-		expect(descriptive.firstQuartile.bind(descriptive.firstQuartile, [1, 2, 3]))
-			.to.throw(errors.InsufficientValues);
+	it("firstQuartile: will return null if less than 4 values are supplied to first quartile", () => {
+		expect(descriptive.firstQuartile.call(descriptive.firstQuartile, [1, 2, 3]))
+			.to.equal(null);
 	});
 });
 
