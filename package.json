@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seikho/analysis"
+    "url": "https://github.com/seikho/analysis.git"
   },
   "keywords": [
     "stats",
