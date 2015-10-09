@@ -1,6 +1,7 @@
 import Analysis = require("analysis");
 import Descriptive = Analysis.Descriptive;
 
+import box = require("./box");
 import mean = require("./mean");
 import mode = require("./mode");
 import median = require("./median");
@@ -13,13 +14,14 @@ import interQuartileRange = require("./interQuartileRange");
 export = api;
 
 var api: Descriptive = {
-	mean: mean,
-	mode: mode,
-	median: median,
-	stdDev: stdDev,
-	variance: variance,
-	zScore: zScore,
-	firstQuartile: firstQuartile,
-	thirdQuartile: thirdQuartile,
-	interQuartileRange: interQuartileRange
+    box,
+	mean,
+	mode,
+	median,
+	stdDev,
+	variance,
+	zScore,
+	firstQuartile,
+	thirdQuartile,
+	interQuartileRange
 };

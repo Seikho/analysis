@@ -5,7 +5,9 @@ export = max;
  * @return Number Returns the highest value in a dataset/array
  */
 function max(data: number[]|{}): number {
-	return toArray(data).reduce(getMax);
+    var dataset = toArray(data);
+    if (dataset.length === 0) return null;
+	return dataset.reduce(getMax, -Infinity);
 }
 
 function getMax(left: number, right: number): number {

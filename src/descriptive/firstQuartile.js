@@ -1,11 +1,10 @@
 var toArray = require("../common/toArray");
 var isWhole = require("../common/isWhole");
 var sortAsc = require("../common/sortAsc");
-var errors = require("../errors");
 function firstQuartile(data) {
     var dataset = sortAsc(toArray(data));
     if (dataset.length < 4)
-        throw new Error(errors.InsufficientValues);
+        return null;
     var offset = dataset.length * 0.25;
     var offsetFloored = Math.floor(offset);
     if (!isWhole(offset))

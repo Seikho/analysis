@@ -28,6 +28,7 @@ declare module "analysis" {
 	}
 	
 	export interface Descriptive {
+        box(data: number[]|{}): BoxData;
 		mean(data: number[]|{}): number;
 		median(data: number[]|{}): number;
 		mode(data: number[]|{}): number[];
@@ -49,6 +50,15 @@ declare module "analysis" {
 		table(events: number): Dataset;
 		coefficient(events: number, x: number): number;
 	}
+    
+    export interface BoxData {
+        mean: number;
+        mode: number[];
+        median: number;
+        range: RangeResult;
+        upperQuartile: number;
+        lowerQuartile: number;
+    }
 	
 	export interface Set {
 		distinct(data: number[]|{}): number[];

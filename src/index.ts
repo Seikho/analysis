@@ -13,4 +13,4 @@ var Analysis = {
 	set: set
 }
 
-if (window) window.Analysis = Analysis;
+if (typeof window === "object") window.Analysis = Analysis;

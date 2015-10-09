@@ -33,6 +33,7 @@
         "./src/common/toArray.ts",
         "./src/common/validateArray.ts",
         "./src/descriptive/api.ts",
+        "./src/descriptive/box.ts",
         "./src/descriptive/firstQuartile.ts",
         "./src/descriptive/interQuartileRange.ts",
         "./src/descriptive/mean.ts",
