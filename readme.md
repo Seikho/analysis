@@ -17,7 +17,7 @@ All samples use ES6/TypeScript syntax.
 
 Using Node.JS:
 ```javascript
-import Analysis = require("analysis");
+import * as Analysis from 'analysis'
 
 /** 
  * TODO ...
