@@ -1,5 +1,5 @@
 ### Analysis.js
-An isomorphic, JavaScript statistics library for the behavioural sciences written in TypeScript.  
+An statistics library for the behavioural sciences written in TypeScript.  
 
 [![NPM version](http://img.shields.io/npm/v/analysis.svg?style=flat)](https://www.npmjs.org/package/analysis)
 [![Travis build status](http://img.shields.io/travis/Seikho/analysis/master.svg?style=flat)](https://travis-ci.org/Seikho/analysis)  
@@ -8,7 +8,9 @@ An isomorphic, JavaScript statistics library for the behavioural sciences writte
 #### Dependencies
 
 #### Installation
+```
 npm install --save analysis
+```
 
 #### Sample usage
 All samples use ES6/TypeScript syntax.
@@ -22,14 +24,13 @@ import Analysis = require("analysis");
  */
 ```
 
-In the browser:
-```html
-<script src="/scripts/analysis.js">
-Analysis.linearRegression(...);
-/**
- * ...
- */
-</script>
+In the browser with webpack or browserify:
+```javascript
+// app.js with jQuery
+var stats = require('analysis');
+
+$.get('/api/data')
+    .then(data => stats.descriptive.mode(data));
 ```
 
 #### API
@@ -39,10 +40,6 @@ TODO
 ```
 
 #### Testing
-Ensure that `mocha` is installed globally:
-```
-npm install mocha -g
-```
 
 Clone the project and install the dependencies:
 ```
@@ -52,5 +49,5 @@ cd analysis && npm install
 
 Run the unit tests:
 ```
-mocha
+npm run test
 ```
