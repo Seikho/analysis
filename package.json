@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
-    "build": "tsglob && tsc && browserify src/index.js -o analysis.js"
+    "build": "tsc && browserify src/index.js -o analysis.js"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,8 @@
   "homepage": "https://github.com/seikho/analysis",
   "devDependencies": {
     "chai": "^3.1.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "typescript": "^1.6.2"
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
