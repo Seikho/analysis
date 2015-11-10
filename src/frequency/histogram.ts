@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import binSettings = require("./binSettings");
 import toArray = require("../common/toArray");
 import isEven = require("../common/isEven");

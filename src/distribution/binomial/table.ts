@@ -1,4 +1,4 @@
-import Types = require("analysis");
+import Types = require("../../../index.d.ts");
 import errors = require("../../errors");
 import coefficient = require("./coefficient");
 import isWhole = require("../../common/isWhole");

@@ -1,5 +1,5 @@
 import common = require("../src/common/api");
-import Analysis = require("analysis");
+import Analysis = require("../index.d.ts");
 import chai = require("chai");
 var expect = chai.expect;
 

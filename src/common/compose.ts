@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import ComposeFunction = Analysis.ComposeFunction;
 import errors = require("../errors");
 export = compose;

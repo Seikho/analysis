@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import histogram = require("./histogram");
 import relative = require("./relative");
 import table = require("./table");

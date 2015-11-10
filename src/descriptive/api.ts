@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import Descriptive = Analysis.Descriptive;
 
 import box = require("./box");

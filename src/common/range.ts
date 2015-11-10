@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import min = require("./min");
 import max = require("./max");
 export = range;

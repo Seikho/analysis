@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import curry = require("../common/curry");
 import distinct = require("./distinct");
 export = intersect;

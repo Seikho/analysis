@@ -1,5 +1,5 @@
 import common = require("../common/api");
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 export = table;
 
 function table(data: number[]|{}): Analysis.Dataset {

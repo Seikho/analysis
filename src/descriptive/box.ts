@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import firstQuartile = require("./firstQuartile");
 import thirdQuartile = require("./thirdQuartile");
 import mean = require("./mean");

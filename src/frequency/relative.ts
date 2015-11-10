@@ -1,7 +1,7 @@
 import toArray = require("../common/toArray");
 import sum = require("../common/sum");
 import table = require("./table");
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import round = require("../common/round");
 export = relative;
 

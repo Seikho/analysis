@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../index.d.ts");
 import frequency = require("../src/frequency/api");
 import errors = require("../src/errors");
 import chai = require("chai");

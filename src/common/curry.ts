@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 export = Curry;
 
 var Curry: Analysis.Curry = (() => {

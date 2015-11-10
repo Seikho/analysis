@@ -12,5 +12,3 @@ var Analysis = {
 	frequency: frequency,
 	set: set
 }
-
-if (typeof window === "object") window.Analysis = Analysis;

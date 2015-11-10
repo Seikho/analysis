@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import Common = Analysis.Common;
 import toArray = require("./toArray");
 import curry = require("./curry");

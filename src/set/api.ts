@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import distinct = require("./distinct");
 import intersect = require("./intersect");
 import union = require("./union");

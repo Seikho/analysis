@@ -1,4 +1,4 @@
-import Analysis = require("analysis");
+import Analysis = require("../../index.d.ts");
 import isNum = require("../common/isNumber");
 import range = require("../common/range");
 import errors = require("../errors");
