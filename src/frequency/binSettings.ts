@@ -1,38 +1,41 @@
-import Analysis = require("../../index.d.ts");
-import isNum = require("../common/isNumber");
-import range = require("../common/range");
-import errors = require("../errors");
-export = binSettings;
+import Analysis = require('../../index')
+import isNum = require('../common/isNumber')
+import range = require('../common/range')
+import errors = require('../errors')
+export = binSettings
 
-function binSettings(dataset: number[], binOptions?: Analysis.BinSettings): Analysis.BinSettings {
-	binOptions = binOptions || {
-		binCount: 10,
-		binSize: 0
-	};
-		
-	if (!!binOptions.binCount && !!binOptions.binSize)
-		throw new TypeError(errors.HistogramOneOption);
+const defaultOpts: Analysis.BinSettings = {
+  binCount: 10,
+  binSize: 0
+}
 
-	if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
-		let dataRange = range(dataset);
-		binOptions.maximum = dataRange.maximum;
-		binOptions.minimum = dataRange.minimum;
-	}
+function binSettings(
+  dataset: number[],
+  binOptions = defaultOpts
+): Analysis.BinSettings {
+  if (!!binOptions.binCount && !!binOptions.binSize)
+    throw new TypeError(errors.HistogramOneOption)
 
-	binOptions.difference = binOptions.maximum - binOptions.minimum;
+  if (!isNum(binOptions.minimum) || !isNum(binOptions.maximum)) {
+    let dataRange = range(dataset)
+    binOptions.maximum = dataRange.maximum
+    binOptions.minimum = dataRange.minimum
+  }
 
-	let isValidBinCount = isNum(binOptions.binCount);
-	let isValidBinSize = isNum(binOptions.binSize);
+  binOptions.difference = binOptions.maximum! - binOptions.minimum!
 
-	if (!isValidBinCount) {
-		binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize);
-		binOptions.binSize = binOptions.difference / binOptions.binCount;
-		isValidBinSize = true;
-	}
+  let isValidBinCount = isNum(binOptions.binCount)
+  let isValidBinSize = isNum(binOptions.binSize)
 
-	if (!isValidBinSize) {
-		binOptions.binSize = binOptions.difference / binOptions.binCount;
-	}
+  if (!isValidBinCount) {
+    binOptions.binCount = Math.ceil(binOptions.difference / binOptions.binSize!)
+    binOptions.binSize = binOptions.difference / binOptions.binCount
+    isValidBinSize = true
+  }
 
-	return binOptions;
+  if (!isValidBinSize) {
+    binOptions.binSize = binOptions.difference / binOptions.binCount!
+  }
+
+  return binOptions
 }

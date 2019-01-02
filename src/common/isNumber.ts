@@ -1,5 +1,5 @@
 export = isNumber
 
 function isNumber(value: any) {
-	return !isNaN(value);
+  return !isNaN(value)
 }

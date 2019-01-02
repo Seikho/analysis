@@ -1,7 +1,7 @@
-import coefficient = require("./coefficient");
-import table = require("./table");
+import coefficient = require('./coefficient')
+import table = require('./table')
 
 export = {
-	coefficient: coefficient,
-	table: table
-};
+  coefficient: coefficient,
+  table: table
+}

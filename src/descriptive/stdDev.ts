@@ -1,7 +1,7 @@
-import variance = require("./variance");
-export = stdDev;
+import variance = require('./variance')
+export = stdDev
 
-function stdDev(data: number[]|{}) {
-	var populationVariance = variance(data);
-	return Math.sqrt(populationVariance);
+function stdDev(data: number[] | {}) {
+  var populationVariance = variance(data)
+  return Math.sqrt(populationVariance)
 }
