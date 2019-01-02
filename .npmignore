@@ -1,0 +1,5 @@
+.git
+tsd.json
+.travis.yml
+test/
+.vscode/
