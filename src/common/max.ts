@@ -4,9 +4,9 @@ export = max
 /**
  * @return Number Returns the highest value in a dataset/array
  */
-function max(data: number[] | {}): number | null {
+function max(data: number[] | {}): number {
   var dataset = toArray(data)
-  if (dataset.length === 0) return null
+  if (dataset.length === 0) return NaN
   return dataset.reduce(getMax, -Infinity)
 }
 
