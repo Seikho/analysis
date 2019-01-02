@@ -1,6 +1,7 @@
 import factorial = require('../../common/factorial')
 import isWhole = require('../../common/isWhole')
 import errors = require('../../errors')
+
 export = probability
 
 function probability(events: number, x: number) {
@@ -13,7 +14,6 @@ function probability(events: number, x: number) {
   var first = factorial(events)
   var second = factorial(x)
   var third = factorial(events - x)
-  var possibilities = Math.pow(2, events)
 
   return first / (second * third)
 }

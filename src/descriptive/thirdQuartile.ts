@@ -1,8 +1,7 @@
 import toArray = require('../common/toArray')
-import isEven = require('../common/isEven')
 import isWhole = require('../common/isWhole')
 import sortAsc = require('../common/sortAsc')
-import errors = require('../errors')
+
 export = thirdQuartile
 
 function thirdQuartile(data: number[] | {}): number {

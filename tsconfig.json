@@ -3,7 +3,9 @@
     "module": "commonjs",
     "target": "ES5",
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "exclude": ["node_modules"]
 }

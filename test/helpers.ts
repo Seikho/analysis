@@ -1,4 +1,3 @@
-import common = require('../src/common/api')
 import Analysis = require('../index')
 import chai = require('chai')
 var expect = chai.expect
