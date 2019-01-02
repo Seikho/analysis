@@ -122,9 +122,11 @@ describe('Descriptive module tests', () => {
     ).to.equal(9.5)
   })
 
-  it('firstQuartile: will return null if less than 4 values are supplied to first quartile', () => {
+  it('firstQuartile: will return NaN if less than 4 values are supplied to first quartile', () => {
     expect(
-      descriptive.firstQuartile.call(descriptive.firstQuartile, [1, 2, 3])
-    ).to.equal(null)
+      isNaN(
+        descriptive.firstQuartile.call(descriptive.firstQuartile, [1, 2, 3])
+      )
+    ).to.equal(true)
   })
 })
