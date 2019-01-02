@@ -1,7 +1,7 @@
 import descriptive = require('../src/descriptive/api')
 import round = require('../src/common/round')
-import errors = require('../src/errors')
 import chai = require('chai')
+
 var expect = chai.expect
 
 describe('Descriptive module tests', () => {

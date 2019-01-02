@@ -1,7 +1,6 @@
 import set = require('../src/set/api')
 import common = require('../src/common/api')
 import helpers = require('./helpers')
-import chai = require('chai')
 
 describe('Set module tests', () => {
   var left = [1, 3, 5, 7, 1, 3, 5]
